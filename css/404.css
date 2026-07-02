@@ -1,0 +1,209 @@
+/* css/404.css - Emerald Green & Gold Theme for 404 Page */
+:root {
+  --404-primary: #0B6E4F;
+  --404-secondary: #14532D;
+  --404-accent: #D4AF37;
+  --404-bg: #F8FAF7;
+  --404-text: #1F2937;
+}
+
+body.error-page {
+  margin: 0;
+  padding: 0;
+  background: var(--404-bg);
+  background-image: radial-gradient(circle at center, #F8FAF7 0%, #e6efe8 100%);
+  color: var(--404-text);
+  font-family: 'Inter', sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Underwater Background Elements */
+.water-ripples {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(11, 110, 79, 0.03) 0px,
+    rgba(11, 110, 79, 0.03) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  opacity: 0.5;
+  pointer-events: none;
+  animation: waveRipples 20s linear infinite;
+}
+
+@keyframes waveRipples {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+
+/* Glassmorphism Card */
+.error-card {
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 24px;
+  padding: 3rem 4rem;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(11, 110, 79, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0; /* For GSAP */
+}
+
+/* Massive 404 */
+.error-code {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10rem;
+  font-weight: 800;
+  line-height: 1;
+  margin: 0;
+  color: var(--404-primary);
+  text-shadow: 0 0 20px rgba(11, 110, 79, 0.3);
+  position: relative;
+}
+
+/* Text Content */
+.error-title {
+  font-size: 2rem;
+  color: var(--404-secondary);
+  margin-top: -10px;
+  margin-bottom: 1rem;
+}
+
+.error-desc {
+  font-size: 1.1rem;
+  color: var(--404-text);
+  opacity: 0.8;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.btn-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.btn-primary-404 {
+  background: var(--404-primary);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+  box-shadow: 0 4px 15px rgba(11, 110, 79, 0.3);
+}
+
+.btn-primary-404:hover {
+  background: var(--404-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(11, 110, 79, 0.4);
+}
+
+.btn-accent-404 {
+  background: transparent;
+  color: var(--404-accent);
+  border: 2px solid var(--404-accent);
+  padding: 10px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-accent-404:hover {
+  background: var(--404-accent);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Mascot */
+.mascot-container {
+  position: absolute;
+  top: -60px;
+  right: -50px;
+  width: 150px;
+  animation: floatFish 4s ease-in-out infinite;
+  z-index: 15;
+}
+
+.mascot-container img {
+  width: 100%;
+  drop-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  mix-blend-mode: multiply;
+}
+
+@keyframes floatFish {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(3deg); }
+}
+
+/* Bubble Particles */
+.bubble {
+  position: absolute;
+  bottom: -50px;
+  background: rgba(11, 110, 79, 0.1);
+  border: 1px solid rgba(11, 110, 79, 0.2);
+  border-radius: 50%;
+  animation: rise linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rise {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+}
+
+/* Countdown */
+.countdown-text {
+  font-size: 0.9rem;
+  color: var(--404-secondary);
+  opacity: 0.7;
+}
+
+/* Bottom Wave */
+.error-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.error-wave svg {
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 80px;
+}
+.error-wave .shape-fill {
+  fill: var(--404-primary);
+  opacity: 0.1;
+}
+
+@media (max-width: 768px) {
+  .error-code { font-size: 6rem; }
+  .error-title { font-size: 1.5rem; }
+  .error-card { padding: 2rem; margin: 1rem; }
+  .mascot-container { width: 100px; right: -20px; top: -40px; }
+}

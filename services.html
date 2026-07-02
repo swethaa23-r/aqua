@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Stackly</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <style>
+    .page-header {
+      padding-top: 150px;
+      padding-bottom: 80px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(10, 66, 117, 0.1) 0%, rgba(0, 168, 150, 0.05) 100%);
+      position: relative;
+    }
+    
+    .service-card {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 2.5rem;
+    }
+    
+    .service-card .feature-icon {
+      margin: 0 0 1.5rem 0;
+    }
+    
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .service-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--color-secondary);
+      font-weight: 600;
+      transition: gap var(--transition-fast);
+      margin-top: auto;
+    }
+    
+    .service-link:hover {
+      gap: 0.75rem;
+      color: var(--color-primary);
+    }
+    
+    html.dark .service-link:hover {
+      color: var(--color-accent);
+    }
+    
+    .service-img-wrapper {
+      margin: -2.5rem -2.5rem 1.5rem -2.5rem;
+      overflow: hidden;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    }
+    
+    .service-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--transition-smooth);
+    }
+    
+    .service-card:hover .service-img {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div id="scroll-progress" class="scroll-progress"></div>
+  <div id="custom-cursor" class="cursor"></div>
+
+    <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <i class="ph-fill ph-waves"></i> Stackly
+      </a>
+      
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="species.html">Species</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="sustainability.html">Sustainability</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+          <i class="ph ph-moon"></i>
+        </button>
+        <a href="login.html" class="btn btn-primary">Login</a>
+        <button id="mobile-menu-btn" class="mobile-menu-btn">
+          <i class="ph ph-list"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="page-header">
+    <div class="container fade-up">
+      <h1 style="font-size: 3.5rem; margin-bottom: 1rem;">Our Services</h1>
+      <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted); font-size: 1.2rem;">End-to-end solutions for modern, profitable, and sustainable aquaculture. We provide the technology and expertise to scale your operations.</p>
+    </div>
+  </header>
+
+  <!-- Services Grid -->
+  <section class="section">
+    <div class="container">
+      <div class="features-grid grid-3">
+        
+        <!-- 1. Fish Farming -->
+        <div class="glass-panel feature-card service-card">
+          <div class="service-img-wrapper">
+            <img src="assets/images/service-fish.webp" alt="Fish Farming" class="service-img">
+          </div>
+          <h3>Fish Farming</h3>
+          <p>Advanced open-water and land-based Recirculating Aquaculture Systems (RAS) tailored for high-density production of Salmon, Tilapia, and Carp.</p>
+          <a href="#" class="service-link">Learn More <i class="ph ph-arrow-right"></i></a>
+        </div>
+        
+        <!-- 2. Shrimp Farming -->
+        <div class="glass-panel feature-card service-card">
+          <div class="service-img-wrapper">
+            <img src="assets/images/service-shrimp.webp" alt="Shrimp Farming" class="service-img">
+          </div>
+          <h3>Shrimp Farming</h3>
+          <p>Specialized biosecure facilities designed for optimal shrimp health, featuring automated salinity control and biofloc technology integration.</p>
+          <a href="#" class="service-link">Learn More <i class="ph ph-arrow-right"></i></a>
+        </div>
+        
+        <!-- 3. Hatchery Management -->
+        <div class="glass-panel feature-card service-card">
+          <div class="service-img-wrapper">
+            <img src="assets/images/service-hatchery.webp" alt="Hatchery Management" class="service-img">
+          </div>
+          <h3>Hatchery Management</h3>
+          <p>End-to-end brooding and incubation services. We ensure maximum survival rates from egg to juvenile stages through precise environmental controls.</p>
+          <a href="#" class="service-link">Learn More <i class="ph ph-arrow-right"></i></a>
+        </div>
+        
+        <!-- 4. Water Quality Monitoring -->
+        <div class="glass-panel feature-card service-card">
+          <div class="service-img-wrapper">
+            <img src="assets/images/service-water.webp" alt="Water Quality Monitoring" class="service-img">
+          </div>
+          <h3>Water Quality Monitoring</h3>
+          <p>24/7 automated analysis of Dissolved Oxygen, pH, Ammonia, and Temperature using state-of-the-art IoT sensors tied to your Stackly Dashboard.</p>
+          <a href="#" class="service-link">Learn More <i class="ph ph-arrow-right"></i></a>
+        </div>
+        
+        <!-- 5. Aquaculture Consultancy -->
+        <div class="glass-panel feature-card service-card">
+          <div class="service-img-wrapper">
+            <img src="assets/images/service-consultancy.webp" alt="Aquaculture Consultancy" class="service-img">
+          </div>
+          <h3>Aquaculture Consultancy</h3>
+          <p>Expert guidance from marine biologists and engineers on farm design, species selection, disease prevention, and environmental compliance.</p>
+          <a href="#" class="service-link">Learn More <i class="ph ph-arrow-right"></i></a>
+        </div>
+        
+        <!-- 6. Smart Farming Solutions -->
+        <div class="glass-panel feature-card service-card">
+          <div class="service-img-wrapper">
+            <img src="assets/images/service-smart.webp" alt="Smart Farming Solutions" class="service-img">
+          </div>
+          <h3>Smart Farming Solutions</h3>
+          <p>AI-powered automated feeding systems, underwater drone inspections, and predictive yield forecasting to completely digitize your farm.</p>
+          <a href="#" class="service-link">Learn More <i class="ph ph-arrow-right"></i></a>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section bg-light" style="text-align: center;">
+    <div class="container fade-up">
+      <h2 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 1rem;">Not sure where to start?</h2>
+      <p style="margin-bottom: 2rem; color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Our team of experts can audit your current facilities and provide a custom technology roadmap.</p>
+      <a href="contact.html" class="btn btn-primary interactive">Request a Consultation</a>
+    </div>
+  </section>
+
+    <!-- Footer -->
+  
+  <!-- Premium Footer -->
+  
+  <!-- Premium Footer -->
+  <footer class="premium-footer">
+    <div class="footer-wave">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
+    <div class="container fade-up">
+      <div class="footer-premium-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo" style="margin-bottom: 1rem; display: inline-flex;">
+            <i class="ph-fill ph-waves"></i> Stackly
+          </a>
+          <p>Pioneering the future of sustainable aquaculture with intelligent technology and data-driven insights. Designed for the farmers of tomorrow.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Home</a></li>
+            <li><a href="about.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> About Us</a></li>
+            <li><a href="services.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Services</a></li>
+            <li><a href="species.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Species</a></li>
+            <li><a href="technology.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Technology</a></li>
+            <li><a href="sustainability.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Sustainability</a></li>
+            <li><a href="blog.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Blog</a></li>
+            <li><a href="contact.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Aquaculture Services</h3>
+          <ul>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Smart Hatchery Setup</a></li>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Water Quality Monitoring</a></li>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Fish Health Analytics</a></li>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Automated Feeding Systems</a></li>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Sustainability Consultancy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact & Hours</h3>
+          <ul>
+            <li style="display:flex; gap:10px;"><i class="ph ph-map-pin" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>123 Ocean Way, Aqua City</span></li>
+            <li style="display:flex; gap:10px;"><i class="ph ph-envelope" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>info@stackly.com</span></li>
+            <li style="display:flex; gap:10px;"><i class="ph ph-phone" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>+1 (555) 123-4567</span></li>
+          </ul>
+          <h3 style="margin-top: 1.5rem; font-size: 1rem;">Business Hours</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Mon - Fri: 8:00 AM - 6:00 PM<br>Sat - Sun: Emergency Support</p>
+        </div>
+        <div class="footer-col">
+          <h3>Newsletter Subscription</h3>
+          <p style="font-size: 0.9rem; margin-bottom: 1rem;">Stay updated with our latest sustainability reports and tech releases.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+            <input type="email" placeholder="Email Address" required>
+            <button type="submit"><i class="ph ph-paper-plane-right"></i></button>
+          </form>
+          <div class="glowing-socials">
+            <a href="404.html"><i class="ph-fill ph-facebook-logo"></i></a>
+            <a href="404.html"><i class="ph-fill ph-twitter-logo"></i></a>
+            <a href="404.html"><i class="ph-fill ph-linkedin-logo"></i></a>
+            <a href="404.html"><i class="ph-fill ph-instagram-logo"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-legal">
+        <div>&copy; 2026 Stackly Aquaculture Management System. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms & Conditions</a>
+          <a href="404.html">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

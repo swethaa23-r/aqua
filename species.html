@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Species | Stackly Aquaculture</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Scroll Progress & Cursor -->
+  <div id="scroll-progress" class="scroll-progress"></div>
+  <div id="custom-cursor" class="cursor"></div>
+
+      <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <i class="ph-fill ph-waves"></i> Stackly
+      </a>
+      
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="species.html" class="active">Species</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="sustainability.html">Sustainability</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+          <i class="ph ph-moon"></i>
+        </button>
+        <a href="login.html" class="btn btn-primary">Login</a>
+        <button id="mobile-menu-btn" class="mobile-menu-btn">
+          <i class="ph ph-list"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" style="min-height: 50vh;">
+    <div class="hero-bg" data-speed="0.5" style="background-image: url('assets/images/species-hero.webp');"></div>
+    <div class="hero-overlay"></div>
+    
+    <!-- Animated Fish -->
+    <div class="fish fish-1"><i class="ph-fill ph-fish-simple"></i></div>
+    <div class="fish fish-2"><i class="ph-fill ph-fish-simple"></i></div>
+    
+    <div class="container">
+      <div class="hero-content" style="padding-top: 150px; text-align: center;">
+        <h1 class="fade-up">Our Farmed Species</h1>
+        <p class="fade-up" style="max-width: 700px; margin: 0 auto;">Discover the diverse range of aquatic life we cultivate using sustainable, tech-driven practices designed for maximum health and yield.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Species Grid -->
+  <section class="section">
+    <div class="container">
+      <div class="features-grid grid-3">
+        
+        <!-- 1. Freshwater Fish -->
+        <div class="glass-panel feature-card service-card">
+          <div class="service-img-wrapper">
+            <img src="assets/images/spec-salmon.webp" alt="Freshwater Fish" class="service-img">
+          </div>
+          <h3>Freshwater Fish</h3>
+          <p>High-yield species like Tilapia and Carp cultivated in our closed-loop Recirculating Aquaculture Systems (RAS).</p>
+          <ul class="species-stats">
+            <li><strong>Water Type:</strong> Freshwater</li>
+            <li><strong>Growth Rate:</strong> Fast (6-8 months)</li>
+            <li><strong>Diet:</strong> Plant-based formulation</li>
+          </ul>
+        </div>
+        
+        <!-- 2. Marine Fish -->
+        <div class="glass-panel feature-card service-card">
+          <div class="service-img-wrapper">
+            <img src="assets/images/spec-tilapia.webp" alt="Marine Fish" class="service-img">
+          </div>
+          <h3>Marine Fish</h3>
+          <p>Premium ocean species such as Atlantic Salmon and Seabass raised in controlled offshore smart-pens.</p>
+          <ul class="species-stats">
+            <li><strong>Water Type:</strong> Saltwater</li>
+            <li><strong>Growth Rate:</strong> Moderate (12-18 months)</li>
+            <li><strong>Diet:</strong> High-protein marine feed</li>
+          </ul>
+        </div>
+        
+        <!-- 3. Shrimp -->
+        <div class="glass-panel feature-card service-card">
+          <div class="service-img-wrapper">
+            <img src="assets/images/spec-trout.webp" alt="Shrimp" class="service-img">
+          </div>
+          <h3>Shrimp</h3>
+          <p>Vannamei and Tiger prawns farmed in highly biosecure, zero-exchange biofloc systems to prevent disease.</p>
+          <ul class="species-stats">
+            <li><strong>Water Type:</strong> Brackish</li>
+            <li><strong>Growth Rate:</strong> Very Fast (3-4 months)</li>
+            <li><strong>Diet:</strong> Biofloc & micro-pellets</li>
+          </ul>
+        </div>
+        
+        <!-- 4. Crab -->
+        <div class="glass-panel feature-card service-card">
+          <div class="service-img-wrapper">
+            <img src="assets/images/spec-shrimp.webp" alt="Crab" class="service-img">
+          </div>
+          <h3>Crab</h3>
+          <p>Mud crabs and blue swimmer crabs grown in individual compartmentalized tech-boxes to ensure high survival rates.</p>
+          <ul class="species-stats">
+            <li><strong>Water Type:</strong> Estuarine / Brackish</li>
+            <li><strong>Growth Rate:</strong> Moderate (6-10 months)</li>
+            <li><strong>Diet:</strong> Mollusks & formulated feed</li>
+          </ul>
+        </div>
+        
+        <!-- 5. Shellfish -->
+        <div class="glass-panel feature-card service-card">
+          <div class="service-img-wrapper">
+            <img src="assets/images/spec-bass.webp" alt="Shellfish" class="service-img">
+          </div>
+          <h3>Shellfish</h3>
+          <p>Oysters, mussels, and clams acting as natural bio-filters in our integrated multi-trophic aquaculture setups.</p>
+          <ul class="species-stats">
+            <li><strong>Water Type:</strong> Marine / Estuarine</li>
+            <li><strong>Growth Rate:</strong> Slow (18-24 months)</li>
+            <li><strong>Diet:</strong> Filter feeding (phytoplankton)</li>
+          </ul>
+        </div>
+        
+        <!-- 6. Ornamental Fish -->
+        <div class="glass-panel feature-card service-card">
+          <div class="service-img-wrapper">
+            <img src="assets/images/spec-carp.webp" alt="Ornamental Fish" class="service-img">
+          </div>
+          <h3>Ornamental Fish</h3>
+          <p>Vibrant Koi, Discus, and marine ornamentals bred using precise genetic selection and pristine water conditions.</p>
+          <ul class="species-stats">
+            <li><strong>Water Type:</strong> Varies (Fresh/Salt)</li>
+            <li><strong>Growth Rate:</strong> Species dependent</li>
+            <li><strong>Diet:</strong> Specialized color-enhancing</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="glass-panel" style="text-align: center; padding: 4rem 2rem; border-radius: var(--radius-lg);">
+        <h2 style="margin-bottom: 1rem; font-family: var(--font-heading);">Interested in a specific species?</h2>
+        <p style="margin-bottom: 2rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">Our biological experts can tailor our smart systems to accommodate new and exotic species based on your market demands.</p>
+        <a href="contact.html" class="btn btn-primary interactive">Consult Our Experts</a>
+      </div>
+    </div>
+  </section>
+
+    <!-- Footer -->
+  
+  <!-- Premium Footer -->
+  
+  <!-- Premium Footer -->
+  <footer class="premium-footer">
+    <div class="footer-wave">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
+    <div class="container fade-up">
+      <div class="footer-premium-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo" style="margin-bottom: 1rem; display: inline-flex;">
+            <i class="ph-fill ph-waves"></i> Stackly
+          </a>
+          <p>Pioneering the future of sustainable aquaculture with intelligent technology and data-driven insights. Designed for the farmers of tomorrow.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Home</a></li>
+            <li><a href="about.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> About Us</a></li>
+            <li><a href="services.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Services</a></li>
+            <li><a href="species.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Species</a></li>
+            <li><a href="technology.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Technology</a></li>
+            <li><a href="sustainability.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Sustainability</a></li>
+            <li><a href="blog.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Blog</a></li>
+            <li><a href="contact.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Aquaculture Services</h3>
+          <ul>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Smart Hatchery Setup</a></li>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Water Quality Monitoring</a></li>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Fish Health Analytics</a></li>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Automated Feeding Systems</a></li>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Sustainability Consultancy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact & Hours</h3>
+          <ul>
+            <li style="display:flex; gap:10px;"><i class="ph ph-map-pin" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>123 Ocean Way, Aqua City</span></li>
+            <li style="display:flex; gap:10px;"><i class="ph ph-envelope" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>info@stackly.com</span></li>
+            <li style="display:flex; gap:10px;"><i class="ph ph-phone" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>+1 (555) 123-4567</span></li>
+          </ul>
+          <h3 style="margin-top: 1.5rem; font-size: 1rem;">Business Hours</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Mon - Fri: 8:00 AM - 6:00 PM<br>Sat - Sun: Emergency Support</p>
+        </div>
+        <div class="footer-col">
+          <h3>Newsletter Subscription</h3>
+          <p style="font-size: 0.9rem; margin-bottom: 1rem;">Stay updated with our latest sustainability reports and tech releases.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+            <input type="email" placeholder="Email Address" required>
+            <button type="submit"><i class="ph ph-paper-plane-right"></i></button>
+          </form>
+          <div class="glowing-socials">
+            <a href="404.html"><i class="ph-fill ph-facebook-logo"></i></a>
+            <a href="404.html"><i class="ph-fill ph-twitter-logo"></i></a>
+            <a href="404.html"><i class="ph-fill ph-linkedin-logo"></i></a>
+            <a href="404.html"><i class="ph-fill ph-instagram-logo"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-legal">
+        <div>&copy; 2026 Stackly Aquaculture Management System. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms & Conditions</a>
+          <a href="404.html">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

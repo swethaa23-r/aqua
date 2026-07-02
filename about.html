@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Stackly</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <style>
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 4rem auto;
+    }
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+      border-radius: 4px;
+    }
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      background: inherit;
+      width: 50%;
+    }
+    .timeline-item.left { left: 0; }
+    .timeline-item.right { left: 50%; }
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      right: -12px;
+      background-color: var(--color-secondary);
+      border: 4px solid var(--color-white);
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .timeline-item.right::after { left: -12px; }
+    .timeline-content {
+      padding: 2rem;
+    }
+    .timeline-content h3 { color: var(--color-primary); }
+    html.dark .timeline-content h3 { color: var(--color-secondary); }
+    html.dark .timeline-item::after { border-color: var(--color-dark-surface); }
+    
+    @media screen and (max-width: 768px) {
+      .timeline::after { left: 31px; }
+      .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+      .timeline-item.right { left: 0%; }
+      .timeline-item.left::after, .timeline-item.right::after { left: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="scroll-progress" class="scroll-progress"></div>
+  <div id="custom-cursor" class="cursor"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <i class="ph-fill ph-waves"></i> Stackly
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="species.html">Species</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="sustainability.html">Sustainability</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme"><i class="ph ph-moon"></i></button>
+        <a href="login.html" class="btn btn-primary">Login</a>
+        <button id="mobile-menu-btn" class="mobile-menu-btn"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" style="min-height: 50vh;">
+    <div class="hero-bg" data-speed="0.5" style="background-image: url('assets/images/about-hero.webp');"></div>
+    <div class="hero-overlay"></div>
+    <div class="container fade-up" style="position: relative; z-index: 2;">
+      <h1 style="font-size: 3.5rem; margin-bottom: 1rem;">Who We Are</h1>
+      <p style="max-width: 600px; margin: 0 auto; color: var(--text-inverse); font-size: 1.2rem;">Pioneers in integrating cutting-edge technology with sustainable aquaculture to feed the future.</p>
+    </div>
+  </header>
+
+  <!-- Company Story -->
+  <section class="section">
+    <div class="container">
+      <div class="split-layout">
+        <div class="split-image fade-up">
+          <div class="glass-panel" style="padding: 15px;">
+            <img src="assets/images/story.webp" alt="Ocean Farming" style="border-radius: var(--radius-sm);">
+          </div>
+        </div>
+        <div class="split-content fade-up">
+          <h2 class="section-title" style="text-align: left;">Our Story</h2>
+          <p style="margin-bottom: 1rem; font-size: 1.1rem;">Founded in 2018, Stackly emerged from a simple realization: traditional aquaculture was struggling to meet global demand without sacrificing environmental integrity.</p>
+          <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">A group of marine biologists, IoT engineers, and data scientists came together to bridge the gap between nature and technology. Today, we manage over 150 automated farm deployments across three continents, utilizing AI to ensure the highest standards of aquatic health and yield.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="grid-2">
+        <div class="glass-panel fade-up" style="padding: 3rem;">
+          <div style="font-size: 3rem; color: var(--color-primary); margin-bottom: 1rem;"><i class="ph-fill ph-target"></i></div>
+          <h2 style="margin-bottom: 1rem; font-family: var(--font-heading);">Our Mission</h2>
+          <p style="font-size: 1.1rem;">To empower aquaculture farmers globally with intuitive, intelligent technology that drastically reduces ecological impact while maximizing production efficiency and animal welfare.</p>
+        </div>
+        <div class="glass-panel fade-up" style="padding: 3rem; border-color: var(--color-secondary);">
+          <div style="font-size: 3rem; color: var(--color-secondary); margin-bottom: 1rem;"><i class="ph-fill ph-eye"></i></div>
+          <h2 style="margin-bottom: 1rem; font-family: var(--font-heading);">Our Vision</h2>
+          <p style="font-size: 1.1rem;">A world where our oceans and freshwater systems are protected through 100% sustainable, tech-driven farming practices that secure a healthy food supply for future generations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sustainable Practices -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Sustainable Farming Practices</h2>
+      <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem; color: var(--text-muted);">Sustainability isn't a department at Stackly; it's embedded in our code and engineering.</p>
+      
+      <div class="grid-3">
+        <div class="feature-card glass-panel fade-up">
+          <div class="feature-icon"><i class="ph ph-recycle"></i></div>
+          <h3>Zero-Waste RAS</h3>
+          <p>Our Recirculating Aquaculture Systems filter and reuse up to 99% of water, turning solid waste into valuable organic fertilizers.</p>
+        </div>
+        <div class="feature-card glass-panel fade-up">
+          <div class="feature-icon"><i class="ph ph-sun"></i></div>
+          <h3>Solar-Powered Ops</h3>
+          <p>Our autonomous offshore pens and monitoring buoys run entirely on renewable solar and wave energy.</p>
+        </div>
+        <div class="feature-card glass-panel fade-up">
+          <div class="feature-icon"><i class="ph ph-plant"></i></div>
+          <h3>Eco-Friendly Feed</h3>
+          <p>Through AI modeling, we optimize feeding schedules to eliminate overfeeding, significantly reducing oceanic nutrient pollution.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline with Animation -->
+  <section class="section bg-light" id="timeline">
+    <div class="container">
+      <h2 class="section-title">The Stackly Evolution</h2>
+      <div class="timeline">
+        <div class="timeline-item left">
+          <div class="glass-panel timeline-content fade-up">
+            <h3>2018 - The Vision</h3>
+            <p>Stackly was founded in a small lab with a mission to integrate IoT sensors into traditional fish farming enclosures.</p>
+          </div>
+        </div>
+        <div class="timeline-item right">
+          <div class="glass-panel timeline-content fade-up">
+            <h3>2020 - First Smart Farm</h3>
+            <p>Successfully launched our first fully automated commercial aquaculture facility in Norway, reducing mortality by 25%.</p>
+          </div>
+        </div>
+        <div class="timeline-item left">
+          <div class="glass-panel timeline-content fade-up">
+            <h3>2023 - Global Expansion</h3>
+            <p>Expanded operations to Southeast Asia and South America, pivoting to support sustainable Shrimp and Tilapia farming.</p>
+          </div>
+        </div>
+        <div class="timeline-item right">
+          <div class="glass-panel timeline-content fade-up">
+            <h3>2026 - AI Integration</h3>
+            <p>Launched the revolutionary AI-driven predictive health dashboard and Bio-Acoustic monitoring systems globally.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Members -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Meet Our Leadership</h2>
+      <div class="grid-3">
+        <!-- Team 1 -->
+        <div class="team-card glass-panel fade-up">
+          <img src="assets/images/team1.webp" alt="Marcus Vance" class="team-img">
+          <h3>Marcus Vance</h3>
+          <p>Founder & CEO</p>
+          <div class="team-socials">
+            <a href="#"><i class="ph-fill ph-linkedin-logo"></i></a>
+            <a href="#"><i class="ph-fill ph-twitter-logo"></i></a>
+          </div>
+        </div>
+        <!-- Team 2 -->
+        <div class="team-card glass-panel fade-up">
+          <img src="assets/images/team2.webp" alt="Dr. Alisha Reynolds" class="team-img">
+          <h3>Dr. Alisha Reynolds</h3>
+          <p>Chief Marine Biologist</p>
+          <div class="team-socials">
+            <a href="#"><i class="ph-fill ph-linkedin-logo"></i></a>
+          </div>
+        </div>
+        <!-- Team 3 -->
+        <div class="team-card glass-panel fade-up">
+          <img src="assets/images/team3.webp" alt="Chen Wei" class="team-img">
+          <h3>Chen Wei</h3>
+          <p>Head of AI & Engineering</p>
+          <div class="team-socials">
+            <a href="#"><i class="ph-fill ph-linkedin-logo"></i></a>
+            <a href="#"><i class="ph-fill ph-github-logo"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  
+  <!-- Premium Footer -->
+  
+  <!-- Premium Footer -->
+  <footer class="premium-footer">
+    <div class="footer-wave">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
+    <div class="container fade-up">
+      <div class="footer-premium-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo" style="margin-bottom: 1rem; display: inline-flex;">
+            <i class="ph-fill ph-waves"></i> Stackly
+          </a>
+          <p>Pioneering the future of sustainable aquaculture with intelligent technology and data-driven insights. Designed for the farmers of tomorrow.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Home</a></li>
+            <li><a href="about.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> About Us</a></li>
+            <li><a href="services.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Services</a></li>
+            <li><a href="species.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Species</a></li>
+            <li><a href="technology.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Technology</a></li>
+            <li><a href="sustainability.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Sustainability</a></li>
+            <li><a href="blog.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Blog</a></li>
+            <li><a href="contact.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Aquaculture Services</h3>
+          <ul>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Smart Hatchery Setup</a></li>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Water Quality Monitoring</a></li>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Fish Health Analytics</a></li>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Automated Feeding Systems</a></li>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Sustainability Consultancy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact & Hours</h3>
+          <ul>
+            <li style="display:flex; gap:10px;"><i class="ph ph-map-pin" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>123 Ocean Way, Aqua City</span></li>
+            <li style="display:flex; gap:10px;"><i class="ph ph-envelope" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>info@stackly.com</span></li>
+            <li style="display:flex; gap:10px;"><i class="ph ph-phone" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>+1 (555) 123-4567</span></li>
+          </ul>
+          <h3 style="margin-top: 1.5rem; font-size: 1rem;">Business Hours</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Mon - Fri: 8:00 AM - 6:00 PM<br>Sat - Sun: Emergency Support</p>
+        </div>
+        <div class="footer-col">
+          <h3>Newsletter Subscription</h3>
+          <p style="font-size: 0.9rem; margin-bottom: 1rem;">Stay updated with our latest sustainability reports and tech releases.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+            <input type="email" placeholder="Email Address" required>
+            <button type="submit"><i class="ph ph-paper-plane-right"></i></button>
+          </form>
+          <div class="glowing-socials">
+            <a href="404.html"><i class="ph-fill ph-facebook-logo"></i></a>
+            <a href="404.html"><i class="ph-fill ph-twitter-logo"></i></a>
+            <a href="404.html"><i class="ph-fill ph-linkedin-logo"></i></a>
+            <a href="404.html"><i class="ph-fill ph-instagram-logo"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-legal">
+        <div>&copy; 2026 Stackly Aquaculture Management System. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms & Conditions</a>
+          <a href="404.html">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.utils.toArray('.timeline-item').forEach((item) => {
+          gsap.from(item, {
+            scrollTrigger: { trigger: item, start: 'top 85%' },
+            x: item.classList.contains('left') ? -50 : 50,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out'
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

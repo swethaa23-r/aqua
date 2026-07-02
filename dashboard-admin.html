@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Stackly</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <!-- Main Styles + Dashboard Overrides -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard-layout">
+    
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar" id="sidebar">
+      <div class="logo-area">
+        <i class="ph-fill ph-waves"></i> <span>Stackly</span>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <!-- Dashboard Overview -->
+        <a href="#" class="sidebar-link active" data-section="section-overview">
+          <i class="ph ph-squares-four"></i> <span>Dashboard Overview</span>
+        </a>
+        <!-- Farm Managers -->
+        <a href="#" class="sidebar-link" data-section="section-managers">
+          <i class="ph ph-users"></i> <span>Farm Management</span>
+        </a>
+        <!-- User Management -->
+        <a href="#" class="sidebar-link" data-section="section-users">
+          <i class="ph ph-identification-card"></i> <span>User Management</span>
+        </a>
+        <!-- Inventory -->
+        <a href="#" class="sidebar-link" data-section="section-inventory">
+          <i class="ph ph-fish"></i> <span>Fish & Shrimp Inventory</span>
+        </a>
+        <!-- Water Quality -->
+        <a href="#" class="sidebar-link" data-section="section-water">
+          <i class="ph ph-drop"></i> <span>Water Quality Monitoring</span>
+        </a>
+        <!-- Feed Management -->
+        <a href="#" class="sidebar-link" data-section="section-feed">
+          <i class="ph ph-bowl-food"></i> <span>Feed Management</span>
+        </a>
+        <!-- Orders & Sales -->
+        <a href="#" class="sidebar-link" data-section="section-orders">
+          <i class="ph ph-shopping-cart"></i> <span>Orders & Sales</span>
+        </a>
+        <!-- Analytics -->
+        <a href="#" class="sidebar-link" data-section="section-analytics">
+          <i class="ph ph-chart-line-up"></i> <span>Analytics & Reports</span>
+        </a>
+        <!-- Sustainability -->
+        <a href="#" class="sidebar-link" data-section="section-sustainability">
+          <i class="ph ph-leaf"></i> <span>Sustainability Reports</span>
+        </a>
+        <!-- Notifications -->
+        <a href="#" class="sidebar-link" data-section="section-notifications">
+          <i class="ph ph-bell"></i> <span>Notifications</span>
+        </a>
+        <!-- Profile -->
+        <a href="#" class="sidebar-link" data-section="section-profile">
+          <i class="ph ph-user"></i> <span>Profile</span>
+        </a>
+        <!-- Settings -->
+        <a href="#" class="sidebar-link" data-section="section-settings">
+          <i class="ph ph-gear"></i> <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="sidebar-link" style="color: #ef4444;">
+          <i class="ph ph-sign-out"></i> <span>Logout</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      
+      <!-- Topbar -->
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle" id="sidebar-toggle">
+            <i class="ph ph-list"></i>
+          </button>
+          <div class="breadcrumb">Admin / <span id="breadcrumb-current">Dashboard Overview</span></div>
+        </div>
+        
+        <div class="topbar-right">
+          <div class="search-bar">
+            <i class="ph ph-magnifying-glass"></i>
+            <input type="text" placeholder="Search across farms...">
+          </div>
+          
+          <button class="topbar-icon" id="theme-toggle" aria-label="Toggle Theme">
+            <i class="ph ph-moon"></i>
+          </button>
+          
+          <button class="topbar-icon" onclick="document.querySelector('[data-section=\'section-notifications\']').click()">
+            <i class="ph ph-bell"></i>
+            <span class="badge-dot"></span>
+          </button>
+          
+          <div class="user-profile" onclick="document.querySelector('[data-section=\'section-profile\']').click()">
+            <div class="user-avatar">AD</div>
+            <span style="display:none;" class="mobile-hide">Admin User</span>
+            <i class="ph ph-caret-down"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- SPA Content Area -->
+      <div class="dashboard-content-wrapper">
+        
+        <!-- SECTION: Overview -->
+        <div id="section-overview" class="spa-section active" style="opacity: 1;">
+          <div class="widget-grid">
+            <div class="widget-card">
+              <div class="widget-header">
+                <span>Total Farms</span>
+                <div class="widget-icon"><i class="ph ph-buildings"></i></div>
+              </div>
+              <div class="widget-value">24</div>
+              <div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> +2 this month</div>
+            </div>
+            
+            <div class="widget-card">
+              <div class="widget-header">
+                <span>Total Production</span>
+                <div class="widget-icon" style="color: #f59e0b; background: rgba(245, 158, 11, 0.1);"><i class="ph ph-scales"></i></div>
+              </div>
+              <div class="widget-value">1,450 T</div>
+              <div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> +12% YoY</div>
+            </div>
+            
+            <div class="widget-card">
+              <div class="widget-header">
+                <span>Active Managers</span>
+                <div class="widget-icon" style="color: #8b5cf6; background: rgba(139, 92, 246, 0.1);"><i class="ph ph-users"></i></div>
+              </div>
+              <div class="widget-value">48</div>
+              <div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> +4 new hires</div>
+            </div>
+
+            <div class="widget-card">
+              <div class="widget-header">
+                <span>Revenue (MTD)</span>
+                <div class="widget-icon" style="color: #10b981; background: rgba(16, 185, 129, 0.1);"><i class="ph ph-currency-dollar"></i></div>
+              </div>
+              <div class="widget-value">$1.2M</div>
+              <div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> +8.4%</div>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+            <!-- Line Chart -->
+            <div class="chart-card">
+              <div class="chart-header">Global Production Overview</div>
+              <div style="height: 300px;">
+                <canvas id="productionChart"></canvas>
+              </div>
+            </div>
+            <!-- Bar Chart -->
+            <div class="chart-card">
+              <div class="chart-header">Revenue by Top Farms</div>
+              <div style="height: 300px;">
+                <canvas id="revenueChart"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <div class="chart-card table-container">
+            <div class="chart-header">Recent Activities</div>
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Farm Location</th>
+                  <th>Activity</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>10:45 AM</td>
+                  <td>OceanBlue Norway</td>
+                  <td>Automated Feeding Cycle Completed</td>
+                  <td><span class="status-badge status-optimal">Success</span></td>
+                </tr>
+                <tr>
+                  <td>09:30 AM</td>
+                  <td>Salem Hatchery</td>
+                  <td>Water Quality Alert: Low O2</td>
+                  <td><span class="status-badge status-critical">Critical</span></td>
+                </tr>
+                <tr>
+                  <td>08:15 AM</td>
+                  <td>Pacific Shrimp Co.</td>
+                  <td>Inventory Harvest: 40 Tons</td>
+                  <td><span class="status-badge status-optimal">Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SECTION: Farm Managers -->
+        <div id="section-managers" class="spa-section">
+          <h2>Farm Managers Directory</h2>
+          <p style="color: var(--text-muted); margin-bottom: 2rem;">Manage access and assignments for farm managers globally.</p>
+          <div class="chart-card table-container">
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Assigned Farm</th>
+                  <th>Performance Score</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John Doe</td>
+                  <td>john.d@stackly.com</td>
+                  <td>OceanBlue Norway</td>
+                  <td>94/100</td>
+                  <td><button class="btn btn-primary" style="padding: 0.3rem 1rem; border-radius: 4px;">Edit</button></td>
+                </tr>
+                <tr>
+                  <td>Jane Smith</td>
+                  <td>jane.s@stackly.com</td>
+                  <td>Salem Hatchery</td>
+                  <td>88/100</td>
+                  <td><button class="btn btn-primary" style="padding: 0.3rem 1rem; border-radius: 4px;">Edit</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SECTION: Users -->
+        <div id="section-users" class="spa-section">
+          <h2>User Management</h2>
+          <div class="chart-card" style="margin-top: 2rem;">
+            <p style="color: var(--text-muted);">Manage platform access, roles, and permissions.</p>
+          </div>
+        </div>
+
+        <!-- SECTION: Inventory -->
+        <div id="section-inventory" class="spa-section">
+          <h2>Global Inventory</h2>
+          <div class="widget-grid" style="margin-top: 2rem;">
+            <div class="widget-card text-center">
+              <h3>Atlantic Salmon</h3>
+              <p style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">850,000</p>
+              <p>Active Headcount</p>
+            </div>
+            <div class="widget-card text-center">
+              <h3>Pacific White Shrimp</h3>
+              <p style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">2.4M</p>
+              <p>Active Headcount</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION: Water Quality -->
+        <div id="section-water" class="spa-section">
+          <h2>Water Quality Monitoring</h2>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+            <div class="chart-card">
+              <div class="chart-header">Aggregate Sensor Radar</div>
+              <div style="height: 350px;">
+                <canvas id="wqChart"></canvas>
+              </div>
+            </div>
+            <div class="chart-card">
+              <div class="chart-header">Active Alerts</div>
+              <p style="color: #ef4444; font-weight: 600;"><i class="ph ph-warning-circle"></i> Farm C (Salem): Ammonia Spike Detected (1.2mg/L)</p>
+              <p style="margin-top: 1rem; color: var(--text-muted);">Auto-flushing protocol initiated.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION: Feed Management -->
+        <div id="section-feed" class="spa-section">
+          <h2>Feed Management</h2>
+          <div class="chart-card text-center" style="margin-top: 2rem; padding: 4rem;">
+            <i class="ph ph-bowl-food" style="font-size: 4rem; color: var(--text-muted); margin-bottom: 1rem;"></i>
+            <h3>Automated Feeding Operations</h3>
+            <p style="color: var(--text-muted);">Global feed conversion ratio (FCR) is currently highly optimal at 1.12.</p>
+          </div>
+        </div>
+
+        <!-- SECTION: Orders & Sales -->
+        <div id="section-orders" class="spa-section">
+          <h2>Orders & Sales Pipeline</h2>
+          <div class="chart-card" style="margin-top: 2rem;">
+            <h3>Recent Dispatches</h3>
+            <div style="overflow-x: auto; margin-top: 1rem;">
+              <table style="width: 100%; text-align: left; border-collapse: collapse;">
+                <thead>
+                  <tr style="border-bottom: 1px solid var(--glass-border);">
+                    <th style="padding: 10px;">Order ID</th>
+                    <th style="padding: 10px;">Client</th>
+                    <th style="padding: 10px;">Product</th>
+                    <th style="padding: 10px;">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid var(--glass-border);">
+                    <td style="padding: 10px;">#ORD-992</td>
+                    <td style="padding: 10px;">Oceanic Foods Ltd</td>
+                    <td style="padding: 10px;">Atlantic Salmon (50T)</td>
+                    <td style="padding: 10px; color: #10b981;">Delivered</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--glass-border);">
+                    <td style="padding: 10px;">#ORD-993</td>
+                    <td style="padding: 10px;">AquaCorp</td>
+                    <td style="padding: 10px;">Pacific Shrimp (20T)</td>
+                    <td style="padding: 10px; color: #f59e0b;">In Transit</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px;">#ORD-994</td>
+                    <td style="padding: 10px;">Fresh Catch Co</td>
+                    <td style="padding: 10px;">Tilapia (30T)</td>
+                    <td style="padding: 10px; color: #3b82f6;">Processing</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION: Analytics -->
+        <div id="section-analytics" class="spa-section">
+          <h2>Deep Analytics & Reports</h2>
+          <p style="color: var(--text-muted);">Generate comprehensive PDFs and Excel exports for stakeholders.</p>
+        </div>
+
+        <!-- SECTION: Sustainability -->
+        <div id="section-sustainability" class="spa-section">
+          <h2>Sustainability Compliance</h2>
+          <div class="widget-grid" style="margin-top: 2rem;">
+            <div class="widget-card">
+              <h3 style="color: #10b981;">ASC Certification Status</h3>
+              <p>All farms compliant.</p>
+            </div>
+            <div class="widget-card">
+              <h3 style="color: #38bdf8;">Water Recycled</h3>
+              <p>14.2 Million Liters this month.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION: Notifications -->
+        <div id="section-notifications" class="spa-section">
+          <h2>Notifications</h2>
+          <div class="chart-card">
+            <p><strong>System Alert:</strong> New firmware update available for underwater optical sensors.</p>
+            <hr style="border-color: var(--glass-border); margin: 1rem 0;">
+            <p><strong>Harvest Complete:</strong> Farm B successfully yielded 220 Tons.</p>
+          </div>
+        </div>
+
+        <!-- SECTION: Profile -->
+        <div id="section-profile" class="spa-section">
+          <h2>Administrator Profile</h2>
+          <div class="chart-card">
+            <p><strong>Name:</strong> Admin User</p>
+            <p><strong>Role:</strong> Super Administrator</p>
+            <p><strong>Email:</strong> admin@stackly.com</p>
+          </div>
+        </div>
+
+        <!-- SECTION: Settings -->
+        <div id="section-settings" class="spa-section">
+          <h2>Global System Settings</h2>
+          <div class="chart-card" style="margin-top: 2rem;">
+            <form style="display: flex; flex-direction: column; gap: 1rem; max-width: 500px;">
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">API Key (Third Party Integrations)</label>
+                <input type="password" value="sk_test_123456789" class="form-input" readonly>
+              </div>
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Data Retention Policy</label>
+                <select class="form-input">
+                  <option>30 Days</option>
+                  <option>90 Days</option>
+                  <option selected>1 Year</option>
+                  <option>Indefinitely</option>
+                </select>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1rem;">
+                <input type="checkbox" id="auto_update" checked style="width: 20px; height: 20px; accent-color: var(--color-primary);">
+                <label for="auto_update">Enable Auto-Updates for Edge Sensors</label>
+              </div>
+              <button type="button" class="btn btn-primary" style="margin-top: 1rem; align-self: flex-start;">Save Settings</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Chart.js and GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  
+  <!-- Global site scripts & Dashboard Logic -->
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

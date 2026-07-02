@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & News | Stackly Aquaculture</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="scroll-progress" class="scroll-progress"></div>
+  <div id="custom-cursor" class="cursor"></div>
+
+      <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <i class="ph-fill ph-waves"></i> Stackly
+      </a>
+      
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="species.html">Species</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="sustainability.html">Sustainability</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+          <i class="ph ph-moon"></i>
+        </button>
+        <a href="login.html" class="btn btn-primary">Login</a>
+        <button id="mobile-menu-btn" class="mobile-menu-btn">
+          <i class="ph ph-list"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" style="min-height: 50vh;">
+    <div class="hero-bg" data-speed="0.5" style="background-image: url('assets/images/blog-hero.webp');"></div>
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content" style="padding-top: 150px; text-align: center;">
+        <h1 class="fade-up">Insights & News</h1>
+        <p class="fade-up" style="max-width: 700px; margin: 0 auto;">Discover the latest industry trends, cutting-edge research updates, and actionable aquaculture tips from our experts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="section">
+    <div class="container">
+      
+      <!-- Filters -->
+      <div class="gallery-filters fade-up">
+        <button class="filter-btn active" data-filter="all">All Articles</button>
+        <button class="filter-btn" data-filter="industry">Industry News</button>
+        <button class="filter-btn" data-filter="tips">Aquaculture Tips</button>
+        <button class="filter-btn" data-filter="success">Success Stories</button>
+        <button class="filter-btn" data-filter="research">Research Updates</button>
+      </div>
+
+      <!-- Blog Grid -->
+      <div class="features-grid grid-3" id="blog-grid">
+        
+        <!-- Article 1: Industry -->
+        <article class="glass-panel feature-card gallery-item" data-category="industry">
+          <div class="service-img-wrapper">
+            <img src="assets/images/blog-industry.webp" alt="Industry Trends" class="service-img">
+            <span class="badge" style="position: absolute; top: 1rem; right: 1rem; background: var(--color-primary); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 600; z-index: 2;">Industry News</span>
+          </div>
+          <div style="padding-top: 1.5rem;">
+            <p style="color: var(--color-primary); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">July 15, 2026</p>
+            <h3 style="margin-bottom: 1rem; font-size: 1.25rem; line-height: 1.4;">Global Aquaculture Market Projected to Reach New Heights by 2030</h3>
+            <p style="margin-bottom: 1.5rem;">The demand for sustainable seafood is soaring, driving unprecedented investment into closed-loop Recirculating Aquaculture Systems worldwide.</p>
+            <a href="#" style="color: var(--color-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">Read More <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Article 2: Tips -->
+        <article class="glass-panel feature-card gallery-item" data-category="tips">
+          <div class="service-img-wrapper">
+            <img src="assets/images/blog-tips.webp" alt="Farming Tips" class="service-img">
+            <span class="badge" style="position: absolute; top: 1rem; right: 1rem; background: var(--color-primary); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 600; z-index: 2;">Tips</span>
+          </div>
+          <div style="padding-top: 1.5rem;">
+            <p style="color: var(--color-primary); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">July 10, 2026</p>
+            <h3 style="margin-bottom: 1rem; font-size: 1.25rem; line-height: 1.4;">5 Strategies to Optimize Feed Conversion Ratios (FCR)</h3>
+            <p style="margin-bottom: 1.5rem;">Discover actionable tips on how implementing acoustic sensors and dynamic feeding schedules can drastically reduce feed waste and improve fish health.</p>
+            <a href="#" style="color: var(--color-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">Read More <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Article 3: Success Stories -->
+        <article class="glass-panel feature-card gallery-item" data-category="success">
+          <div class="service-img-wrapper">
+            <img src="assets/images/blog-success.webp" alt="Success Story" class="service-img">
+            <span class="badge" style="position: absolute; top: 1rem; right: 1rem; background: var(--color-primary); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 600; z-index: 2;">Success Stories</span>
+          </div>
+          <div style="padding-top: 1.5rem;">
+            <p style="color: var(--color-primary); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">June 28, 2026</p>
+            <h3 style="margin-bottom: 1rem; font-size: 1.25rem; line-height: 1.4;">How OceanBlue Farms Tripled Yields Using Stackly Automation</h3>
+            <p style="margin-bottom: 1.5rem;">A deep dive into OceanBlue Farms' digital transformation. Learn how they achieved zero mortality events over a 12-month cycle.</p>
+            <a href="#" style="color: var(--color-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">Read More <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Article 4: Research -->
+        <article class="glass-panel feature-card gallery-item" data-category="research">
+          <div class="service-img-wrapper">
+            <img src="assets/images/blog-research.webp" alt="Research" class="service-img">
+            <span class="badge" style="position: absolute; top: 1rem; right: 1rem; background: var(--color-primary); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 600; z-index: 2;">Research Updates</span>
+          </div>
+          <div style="padding-top: 1.5rem;">
+            <p style="color: var(--color-primary); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">June 15, 2026</p>
+            <h3 style="margin-bottom: 1rem; font-size: 1.25rem; line-height: 1.4;">Breakthrough in Biofloc Technology for High-Density Shrimp</h3>
+            <p style="margin-bottom: 1.5rem;">Our latest research paper reveals new microbiological balances that prevent ammonia spikes in intensive indoor shrimp facilities.</p>
+            <a href="#" style="color: var(--color-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">Read More <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Article 5: Tech -->
+        <article class="glass-panel feature-card gallery-item" data-category="industry">
+          <div class="service-img-wrapper">
+            <img src="assets/images/blog-tech.webp" alt="Technology" class="service-img">
+            <span class="badge" style="position: absolute; top: 1rem; right: 1rem; background: var(--color-primary); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 600; z-index: 2;">Industry News</span>
+          </div>
+          <div style="padding-top: 1.5rem;">
+            <p style="color: var(--color-primary); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">June 02, 2026</p>
+            <h3 style="margin-bottom: 1rem; font-size: 1.25rem; line-height: 1.4;">Stackly Unveils Next-Gen AI Vision Models at AquaTech Expo</h3>
+            <p style="margin-bottom: 1.5rem;">We officially announced our Gen-4 machine vision system, capable of detecting sea lice down to the millimeter in turbid waters.</p>
+            <a href="#" style="color: var(--color-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">Read More <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Article 6: Sustainability -->
+        <article class="glass-panel feature-card gallery-item" data-category="research">
+          <div class="service-img-wrapper">
+            <img src="assets/images/blog-sustainability.webp" alt="Sustainability" class="service-img">
+            <span class="badge" style="position: absolute; top: 1rem; right: 1rem; background: var(--color-primary); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 600; z-index: 2;">Research Updates</span>
+          </div>
+          <div style="padding-top: 1.5rem;">
+            <p style="color: var(--color-primary); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">May 20, 2026</p>
+            <h3 style="margin-bottom: 1rem; font-size: 1.25rem; line-height: 1.4;">Achieving True Zero-Discharge: A 5-Year Case Study</h3>
+            <p style="margin-bottom: 1.5rem;">Read the full report on how implementing advanced sludge dewatering resulted in a 100% closed-loop ecological footprint.</p>
+            <a href="#" style="color: var(--color-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">Read More <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+    <!-- Footer -->
+  
+  <!-- Premium Footer -->
+  
+  <!-- Premium Footer -->
+  <footer class="premium-footer">
+    <div class="footer-wave">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
+    <div class="container fade-up">
+      <div class="footer-premium-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo" style="margin-bottom: 1rem; display: inline-flex;">
+            <i class="ph-fill ph-waves"></i> Stackly
+          </a>
+          <p>Pioneering the future of sustainable aquaculture with intelligent technology and data-driven insights. Designed for the farmers of tomorrow.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Home</a></li>
+            <li><a href="about.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> About Us</a></li>
+            <li><a href="services.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Services</a></li>
+            <li><a href="species.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Species</a></li>
+            <li><a href="technology.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Technology</a></li>
+            <li><a href="sustainability.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Sustainability</a></li>
+            <li><a href="blog.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Blog</a></li>
+            <li><a href="contact.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Aquaculture Services</h3>
+          <ul>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Smart Hatchery Setup</a></li>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Water Quality Monitoring</a></li>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Fish Health Analytics</a></li>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Automated Feeding Systems</a></li>
+            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Sustainability Consultancy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact & Hours</h3>
+          <ul>
+            <li style="display:flex; gap:10px;"><i class="ph ph-map-pin" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>123 Ocean Way, Aqua City</span></li>
+            <li style="display:flex; gap:10px;"><i class="ph ph-envelope" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>info@stackly.com</span></li>
+            <li style="display:flex; gap:10px;"><i class="ph ph-phone" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>+1 (555) 123-4567</span></li>
+          </ul>
+          <h3 style="margin-top: 1.5rem; font-size: 1rem;">Business Hours</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Mon - Fri: 8:00 AM - 6:00 PM<br>Sat - Sun: Emergency Support</p>
+        </div>
+        <div class="footer-col">
+          <h3>Newsletter Subscription</h3>
+          <p style="font-size: 0.9rem; margin-bottom: 1rem;">Stay updated with our latest sustainability reports and tech releases.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+            <input type="email" placeholder="Email Address" required>
+            <button type="submit"><i class="ph ph-paper-plane-right"></i></button>
+          </form>
+          <div class="glowing-socials">
+            <a href="404.html"><i class="ph-fill ph-facebook-logo"></i></a>
+            <a href="404.html"><i class="ph-fill ph-twitter-logo"></i></a>
+            <a href="404.html"><i class="ph-fill ph-linkedin-logo"></i></a>
+            <a href="404.html"><i class="ph-fill ph-instagram-logo"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-legal">
+        <div>&copy; 2026 Stackly Aquaculture Management System. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms & Conditions</a>
+          <a href="404.html">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
