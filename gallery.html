@@ -11,6 +11,26 @@
   
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <link rel="stylesheet" href="css/styles.css">
+    <style>
+      /* User Requested White Hero Theme */
+      .hero, .page-header, .hero-slider, .slide-bg {
+        background: #ffffff !important;
+        background-image: none !important;
+      }
+      .hero-bg, .hero-video, .hero-overlay-light, .hero-slideshow {
+        display: none !important;
+      }
+      .hero h1, .hero p, .hero span, .hero div, .hero a,
+      .page-header h1, .page-header p, .page-header span, .page-header div, .page-header a,
+      .hero-slider h1, .hero-slider p, .hero-slider span, .hero-slider div, .hero-slider a {
+        color: #000000 !important;
+        text-shadow: none !important;
+      }
+      /* Keep primary buttons visible */
+      .hero .btn-primary, .page-header .btn-primary, .hero-slider .btn-primary {
+        color: #ffffff !important;
+      }
+    </style>
 </head>
 <body>
   <!-- Scroll Progress & Cursor -->
@@ -20,9 +40,7 @@
       <!-- Navigation -->
   <nav class="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="logo">
-        <i class="ph-fill ph-waves"></i> Stackly
-      </a>
+      <a href="index.html" class="logo"><img src="stackly-logo.webp" alt="Stackly Logo" style="height: 40px; width: auto; object-fit: contain;"></a>
       
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -37,9 +55,7 @@
       </ul>
 
       <div class="nav-actions">
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
-          <i class="ph ph-moon"></i>
-        </button>
+        
         <a href="login.html" class="btn btn-primary">Login</a>
         <button id="mobile-menu-btn" class="mobile-menu-btn">
           <i class="ph ph-list"></i>
@@ -54,7 +70,7 @@
     <div class="hero-overlay"></div>
     
     <div class="container">
-      <div class="hero-content" style="padding-top: 150px; text-align: center;">
+      <div class="hero-content" style="padding-top: 80px; text-align: center;">
         <h1 class="fade-up">Our Gallery</h1>
         <p class="fade-up" style="max-width: 700px; margin: 0 auto;">Explore the cutting-edge facilities, technology, and aquatic life that make Stackly a leader in sustainable aquaculture.</p>
       </div>
@@ -79,92 +95,157 @@
         
         <!-- Farm Images -->
         <div class="gallery-item fade-up" data-category="farm">
-          <img src="assets/images/gal-farm1.webp" alt="Offshore Farm">
+          <img loading="lazy" src="assets/images/gal-farm1.png" alt="Offshore Farm">
           <div class="gallery-overlay">
-            <i class="ph ph-arrows-out"></i>
+            <div class="gallery-caption">
+              <h3>Offshore Farm</h3>
+              <p>Deep water aquaculture</p>
+            </div>
+            <i class="ph ph-arrows-out zoom-icon"></i>
           </div>
         </div>
         <div class="gallery-item fade-up" data-category="farm">
-          <img src="assets/images/gal-farm2.webp" alt="Indoor RAS Facility">
+          <img loading="lazy" src="assets/images/gal-farm2.webp" alt="Indoor RAS Facility">
           <div class="gallery-overlay">
-            <i class="ph ph-arrows-out"></i>
+            <div class="gallery-caption">
+              <h3>Indoor RAS Facility</h3>
+              <p>Controlled environment</p>
+            </div>
+            <i class="ph ph-arrows-out zoom-icon"></i>
           </div>
         </div>
         <div class="gallery-item fade-up" data-category="farm">
-          <img src="assets/images/gal-farm3.webp" alt="Shrimp Ponds">
+          <img loading="lazy" src="assets/images/gal-farm3.webp" alt="Shrimp Ponds">
           <div class="gallery-overlay">
-            <i class="ph ph-arrows-out"></i>
+            <div class="gallery-caption">
+              <h3>Shrimp Ponds</h3>
+              <p>Coastal bio-secure farming</p>
+            </div>
+            <i class="ph ph-arrows-out zoom-icon"></i>
           </div>
         </div>
 
         <!-- Tech Images -->
         <div class="gallery-item fade-up" data-category="tech">
-          <img src="assets/images/gal-tech1.webp" alt="Underwater Drone">
+          <img loading="lazy" src="assets/images/gal-tech1.webp" alt="Underwater Drone">
           <div class="gallery-overlay">
-            <i class="ph ph-arrows-out"></i>
+            <div class="gallery-caption">
+              <h3>Underwater Drone</h3>
+              <p>AI net inspection</p>
+            </div>
+            <i class="ph ph-arrows-out zoom-icon"></i>
           </div>
         </div>
         <div class="gallery-item fade-up" data-category="tech">
-          <img src="assets/images/gal-tech2.webp" alt="Water Sensor Buoy">
+          <img loading="lazy" src="assets/images/gal-tech2.webp" alt="Water Sensor Buoy">
           <div class="gallery-overlay">
-            <i class="ph ph-arrows-out"></i>
+            <div class="gallery-caption">
+              <h3>Water Sensor Buoy</h3>
+              <p>Real-time analytics</p>
+            </div>
+            <i class="ph ph-arrows-out zoom-icon"></i>
           </div>
         </div>
         <div class="gallery-item fade-up" data-category="tech">
-          <img src="assets/images/gal-tech3.webp" alt="Automated Feeding">
+          <img loading="lazy" src="assets/images/gal-tech3.png" alt="Automated Feeding">
           <div class="gallery-overlay">
-            <i class="ph ph-arrows-out"></i>
+            <div class="gallery-caption">
+              <h3>Automated Feeding</h3>
+              <p>Precision nutrition</p>
+            </div>
+            <i class="ph ph-arrows-out zoom-icon"></i>
           </div>
         </div>
 
         <!-- Species Images -->
         <div class="gallery-item fade-up" data-category="species">
-          <img src="assets/images/gal-spec1.webp" alt="Healthy Salmon">
+          <img loading="lazy" src="assets/images/gal-spec1.png" alt="Healthy Salmon">
           <div class="gallery-overlay">
-            <i class="ph ph-arrows-out"></i>
+            <div class="gallery-caption">
+              <h3>Healthy Salmon</h3>
+              <p>Atlantic Salmon</p>
+            </div>
+            <i class="ph ph-arrows-out zoom-icon"></i>
           </div>
         </div>
         <div class="gallery-item fade-up" data-category="species">
-          <img src="assets/images/gal-spec2.webp" alt="Pacific White Shrimp">
+          <img loading="lazy" src="assets/images/gal-spec2.png" alt="Pacific White Shrimp">
           <div class="gallery-overlay">
-            <i class="ph ph-arrows-out"></i>
+            <div class="gallery-caption">
+              <h3>Pacific White Shrimp</h3>
+              <p>Litopenaeus vannamei</p>
+            </div>
+            <i class="ph ph-arrows-out zoom-icon"></i>
           </div>
         </div>
         <div class="gallery-item fade-up" data-category="species">
-          <img src="assets/images/gal-spec3.webp" alt="Koi Fish">
+          <img loading="lazy" src="assets/images/gal-spec3.png" alt="Koi Fish">
           <div class="gallery-overlay">
-            <i class="ph ph-arrows-out"></i>
+            <div class="gallery-caption">
+              <h3>Koi Fish</h3>
+              <p>Ornamental breeding</p>
+            </div>
+            <i class="ph ph-arrows-out zoom-icon"></i>
           </div>
         </div>
 
         <!-- Sustainability Images -->
         <div class="gallery-item fade-up" data-category="sustainability">
-          <img src="assets/images/gal-sus1.webp" alt="Marine Biologist">
+          <img loading="lazy" src="assets/images/gal-sus1.webp" alt="Marine Biologist">
           <div class="gallery-overlay">
-            <i class="ph ph-arrows-out"></i>
+            <div class="gallery-caption">
+              <h3>Marine Biologist</h3>
+              <p>Ecosystem monitoring</p>
+            </div>
+            <i class="ph ph-arrows-out zoom-icon"></i>
           </div>
         </div>
         <div class="gallery-item fade-up" data-category="sustainability">
-          <img src="assets/images/gal-sus2.webp" alt="Solar Powered Farm">
+          <img loading="lazy" src="assets/images/gal-sus2.png" alt="Solar Powered Farm">
           <div class="gallery-overlay">
-            <i class="ph ph-arrows-out"></i>
+            <div class="gallery-caption">
+              <h3>Solar Powered Farm</h3>
+              <p>Renewable energy</p>
+            </div>
+            <i class="ph ph-arrows-out zoom-icon"></i>
           </div>
         </div>
         <div class="gallery-item fade-up" data-category="sustainability">
-          <img src="assets/images/gal-sus3.webp" alt="Reef Restoration">
+          <img loading="lazy" src="assets/images/gal-sus3.png" alt="Reef Restoration">
           <div class="gallery-overlay">
-            <i class="ph ph-arrows-out"></i>
+            <div class="gallery-caption">
+              <h3>Reef Restoration</h3>
+              <p>Conservation efforts</p>
+            </div>
+            <i class="ph ph-arrows-out zoom-icon"></i>
           </div>
         </div>
 
       </div>
+      
+      <!-- Infinite Scroll Trigger & Skeletons -->
+      <div id="infinite-scroll-trigger" class="infinite-scroll-trigger">
+        <div class="skeleton-loader hide">
+          <div class="skeleton-item"></div>
+          <div class="skeleton-item"></div>
+          <div class="skeleton-item"></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightbox-close"><i class="ph ph-x"></i></button>
-    <img src="" alt="Lightbox Image" class="lightbox-img" id="lightbox-img">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close"><i class="ph ph-x"></i></button>
+      <img loading="lazy" src="" alt="Lightbox Image" class="lightbox-img" id="lightbox-img">
+      <div class="lightbox-caption" id="lightbox-caption">
+        <h3 id="lb-title">Title</h3>
+        <p id="lb-desc">Description</p>
+      </div>
+    </div>
   </div>
 
     <!-- Footer -->
@@ -172,82 +253,104 @@
   <!-- Premium Footer -->
   
   <!-- Premium Footer -->
-  <footer class="premium-footer">
+    <!-- Premium Luxury Footer -->
+  <footer class="luxury-footer" id="footer">
     <div class="footer-wave">
       <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
       </svg>
     </div>
-    <div class="container fade-up">
+    
+    <!-- Ambient Bubbles -->
+    <div class="footer-bubbles">
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+    </div>
+
+    <div class="container footer-content-wrap">
       <div class="footer-premium-grid">
-        <div class="footer-col">
-          <a href="index.html" class="logo" style="margin-bottom: 1rem; display: inline-flex;">
-            <i class="ph-fill ph-waves"></i> Stackly
-          </a>
-          <p>Pioneering the future of sustainable aquaculture with intelligent technology and data-driven insights. Designed for the farmers of tomorrow.</p>
-        </div>
+        <!-- Col 1: Brand -->
+        <div class="footer-col brand-col">
+            <a href="index.html" class="logo"><img src="stackly-logo.webp" alt="Stackly Logo" style="height: 40px; width: auto; object-fit: contain;"></a>
+            <p class="brand-desc">Pioneering the future of sustainable aquaculture with intelligent technology and data-driven insights. Designed for the farmers of tomorrow.</p>
+            <div class="luxury-socials" style="margin-top: 24px;">
+              <a href="404.html" class="social-btn fb"><i class="ph-fill ph-facebook-logo"></i></a>
+              <a href="404.html" class="social-btn tw"><i class="ph-fill ph-twitter-logo"></i></a>
+              <a href="404.html" class="social-btn in"><i class="ph-fill ph-linkedin-logo"></i></a>
+              <a href="404.html" class="social-btn ig"><i class="ph-fill ph-instagram-logo"></i></a>
+            </div>
+          </div>
+        
+        <!-- Col 2: Quick Links -->
         <div class="footer-col">
           <h3>Quick Links</h3>
-          <ul>
-            <li><a href="index.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Home</a></li>
-            <li><a href="about.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> About Us</a></li>
-            <li><a href="services.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Services</a></li>
-            <li><a href="species.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Species</a></li>
-            <li><a href="technology.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Technology</a></li>
-            <li><a href="sustainability.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Sustainability</a></li>
-            <li><a href="blog.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Blog</a></li>
-            <li><a href="contact.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Contact</a></li>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="blog.html">Blog</a></li>
           </ul>
         </div>
+        
+        <!-- Col 3: Services -->
         <div class="footer-col">
-          <h3>Aquaculture Services</h3>
-          <ul>
-            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Smart Hatchery Setup</a></li>
-            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Water Quality Monitoring</a></li>
-            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Fish Health Analytics</a></li>
-            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Automated Feeding Systems</a></li>
-            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Sustainability Consultancy</a></li>
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="services.html">Smart Hatchery</a></li>
+            <li><a href="services.html">Water Quality</a></li>
+            <li><a href="services.html">Health Analytics</a></li>
+            <li><a href="services.html">Automated Feeding</a></li>
+            <li><a href="services.html">Consultancy</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h3>Contact & Hours</h3>
-          <ul>
-            <li style="display:flex; gap:10px;"><i class="ph ph-map-pin" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>123 Ocean Way, Aqua City</span></li>
-            <li style="display:flex; gap:10px;"><i class="ph ph-envelope" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>info@stackly.com</span></li>
-            <li style="display:flex; gap:10px;"><i class="ph ph-phone" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>+1 (555) 123-4567</span></li>
+        
+        <!-- Col 4: Contact -->
+        <div class="footer-col contact-col">
+          <h3>Contact Us</h3>
+          <ul class="footer-contact">
+            <li><i class="ph ph-map-pin"></i> <span>MMR Complex, Chinna Thirupathi, Salem - 636 003, TN, India</span></li>
+            <li><i class="ph ph-envelope"></i> <span>info@stackly.com</span></li>
+            <li><i class="ph ph-phone"></i> <span>+91 (800) 123-4567</span></li>
           </ul>
-          <h3 style="margin-top: 1.5rem; font-size: 1rem;">Business Hours</h3>
-          <p style="color:var(--text-muted); font-size:0.9rem;">Mon - Fri: 8:00 AM - 6:00 PM<br>Sat - Sun: Emergency Support</p>
         </div>
-        <div class="footer-col">
-          <h3>Newsletter Subscription</h3>
-          <p style="font-size: 0.9rem; margin-bottom: 1rem;">Stay updated with our latest sustainability reports and tech releases.</p>
-          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
-            <input type="email" placeholder="Email Address" required>
-            <button type="submit"><i class="ph ph-paper-plane-right"></i></button>
-          </form>
-          <div class="glowing-socials">
-            <a href="404.html"><i class="ph-fill ph-facebook-logo"></i></a>
-            <a href="404.html"><i class="ph-fill ph-twitter-logo"></i></a>
-            <a href="404.html"><i class="ph-fill ph-linkedin-logo"></i></a>
-            <a href="404.html"><i class="ph-fill ph-instagram-logo"></i></a>
+        
+        <!-- Col 5: Hours, Newsletter, Socials -->
+        <div class="footer-col highlight-col">
+            <div class="glass-card hours-card">
+              <h3>Business Hours</h3>
+              <p>Mon - Fri: 8:00 AM - 6:00 PM<br>Sat - Sun: Emergency Support</p>
+            </div>
+            <h3 class="mt-4" style="margin-top: 24px;">Newsletter</h3>
+            <form class="luxury-newsletter" >
+              <input type="email" placeholder="Enter your email" required>
+              <button type="submit" class="ripple-btn"><i class="ph ph-arrow-right"></i></button>
+            </form>
           </div>
         </div>
       </div>
       
-      <div class="footer-legal">
-        <div>&copy; 2026 Stackly Aquaculture Management System. All rights reserved.</div>
-        <div class="footer-legal-links">
-          <a href="404.html">Privacy Policy</a>
-          <a href="404.html">Terms & Conditions</a>
-          <a href="404.html">Cookie Policy</a>
+      <hr class="footer-divider-premium">
+        <div class="footer-bottom">
+          <div class="copyright">&copy; 2026 Stackly Aquaculture Management System. All rights reserved.</div>
+          <div class="legal-links">
+            <a href="404.html">Privacy Policy</a>
+            <a href="404.html">Terms & Conditions</a>
+            <a href="404.html">Cookie Policy</a>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
+  
+  <!-- Back to Top -->
+  <button id="back-to-top" class="back-to-top-btn"><i class="ph ph-caret-up"></i></button>
 </body>
 </html>

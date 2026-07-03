@@ -11,6 +11,26 @@
   
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <link rel="stylesheet" href="css/styles.css">
+    <style>
+      /* User Requested White Hero Theme */
+      .hero, .page-header, .hero-slider, .slide-bg {
+        background: #ffffff !important;
+        background-image: none !important;
+      }
+      .hero-bg, .hero-video, .hero-overlay-light, .hero-slideshow {
+        display: none !important;
+      }
+      .hero h1, .hero p, .hero span, .hero div, .hero a,
+      .page-header h1, .page-header p, .page-header span, .page-header div, .page-header a,
+      .hero-slider h1, .hero-slider p, .hero-slider span, .hero-slider div, .hero-slider a {
+        color: #000000 !important;
+        text-shadow: none !important;
+      }
+      /* Keep primary buttons visible */
+      .hero .btn-primary, .page-header .btn-primary, .hero-slider .btn-primary {
+        color: #ffffff !important;
+      }
+    </style>
 </head>
 <body>
   <!-- Scroll Progress & Cursor -->
@@ -20,9 +40,7 @@
       <!-- Navigation -->
   <nav class="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="logo">
-        <i class="ph-fill ph-waves"></i> Stackly
-      </a>
+      <a href="index.html" class="logo"><img src="stackly-logo.webp" alt="Stackly Logo" style="height: 40px; width: auto; object-fit: contain;"></a>
       
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -37,9 +55,7 @@
       </ul>
 
       <div class="nav-actions">
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
-          <i class="ph ph-moon"></i>
-        </button>
+        
         <a href="login.html" class="btn btn-primary">Login</a>
         <button id="mobile-menu-btn" class="mobile-menu-btn">
           <i class="ph ph-list"></i>
@@ -54,58 +70,99 @@
     <div class="hero-overlay"></div>
     
     <div class="container">
-      <div class="hero-content" style="padding-top: 150px; text-align: center;">
+      <div class="hero-content" style="padding-top: 80px; text-align: center;">
         <h1 class="fade-up">Sustainability</h1>
         <p class="fade-up" style="max-width: 700px; margin: 0 auto;">Preserving our oceans and waterways for future generations through zero-waste farming and absolute environmental accountability.</p>
       </div>
     </div>
   </section>
 
-  <!-- Sustainability Grid -->
-  <section class="section">
-    <div class="container">
-      <div class="features-grid grid-3">
+  <!-- Sustainability Metrics & Grid -->
+  <section class="section section-eco" style="position: relative; overflow: hidden;">
+    <!-- Earth Rotation Background -->
+    <div class="earth-bg-animation"></div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+      
+      <!-- Impact Counters -->
+      <div class="impact-counters fade-up">
+        <div class="counter-box glass-panel">
+          <i class="ph ph-cloud-arrow-down counter-icon"></i>
+          <h3 class="counter-number" data-target="5200">0</h3>
+          <p>Tons CO2 Reduced</p>
+        </div>
+        <div class="counter-box glass-panel">
+          <i class="ph ph-drop counter-icon"></i>
+          <h3 class="counter-number" data-target="95">0</h3>
+          <p>% Water Recycled</p>
+        </div>
+        <div class="counter-box glass-panel">
+          <i class="ph ph-fish counter-icon"></i>
+          <h3 class="counter-number" data-target="150">0</h3>
+          <p>Marine Habitats Saved</p>
+        </div>
+      </div>
+
+      <div class="features-grid grid-3" style="margin-top: 32px;">
         
         <!-- 1. Eco-friendly farming -->
-        <div class="glass-panel feature-card service-card">
-          <div class="service-img-wrapper">
-            <img src="assets/images/sus-eco.webp" alt="Eco-friendly farming" class="service-img">
+        <div class="glass-panel feature-card service-card sus-card">
+          <span class="eco-badge">Zero Waste</span>
+          <div class="service-img-wrapper" style="position: relative;">
+            <img loading="lazy" src="assets/images/sus-eco.webp" alt="Eco-friendly farming" class="service-img">
+            <!-- Growing Trees SVG Animation -->
+            <svg class="growing-trees" viewBox="0 0 100 50">
+              <path class="tree t1" d="M20,50 L20,30 L10,30 L20,10 L30,30 L20,30 Z" fill="#10B981"/>
+              <path class="tree t2" d="M50,50 L50,20 L35,20 L50,0 L65,20 L50,20 Z" fill="#059669"/>
+              <path class="tree t3" d="M80,50 L80,35 L72,35 L80,15 L88,35 L80,35 Z" fill="#34D399"/>
+            </svg>
           </div>
           <h3>Eco-friendly Farming</h3>
           <p>We utilize closed-loop Recirculating Aquaculture Systems (RAS) to minimize our impact on natural aquatic ecosystems and prevent habitat destruction.</p>
         </div>
         
         <!-- 2. Water Conservation -->
-        <div class="glass-panel feature-card service-card">
-          <div class="service-img-wrapper">
-            <img src="assets/images/sus-water.webp" alt="Water Conservation" class="service-img">
+        <div class="glass-panel feature-card service-card sus-card">
+          <span class="eco-badge">90% Less Water</span>
+          <div class="service-img-wrapper" style="position: relative;">
+            <img loading="lazy" src="assets/images/sus-water.webp" alt="Water Conservation" class="service-img">
+            <!-- Water Drop Animation -->
+            <div class="water-drop-anim">
+              <svg viewBox="0 0 30 40">
+                <path d="M15,0 C15,0 0,20 0,30 C0,38 7,40 15,40 C23,40 30,38 30,30 C30,20 15,0 15,0 Z" fill="#3B82F6"/>
+              </svg>
+            </div>
+            <div class="water-ripple"></div>
           </div>
           <h3>Water Conservation</h3>
           <p>By filtering and recirculating our water supply, our facilities utilize up to 90% less fresh water than traditional open-pond farming methods.</p>
         </div>
         
         <!-- 3. Waste Management -->
-        <div class="glass-panel feature-card service-card">
+        <div class="glass-panel feature-card service-card sus-card">
+          <span class="eco-badge">Circular Economy</span>
           <div class="service-img-wrapper">
-            <img src="assets/images/sus-waste.webp" alt="Waste Management" class="service-img">
+            <img loading="lazy" src="assets/images/sus-waste.webp" alt="Waste Management" class="service-img">
           </div>
           <h3>Waste Management</h3>
           <p>Solid waste and bio-sludge are strictly captured and repurposed into high-grade organic fertilizers for local agriculture, ensuring a zero-discharge policy.</p>
         </div>
         
         <!-- 4. Environmental Protection -->
-        <div class="glass-panel feature-card service-card">
+        <div class="glass-panel feature-card service-card sus-card">
+          <span class="eco-badge">Reef Safe</span>
           <div class="service-img-wrapper">
-            <img src="assets/images/sus-protection.webp" alt="Environmental Protection" class="service-img">
+            <img loading="lazy" src="assets/images/sus-protection.webp" alt="Environmental Protection" class="service-img">
           </div>
           <h3>Environmental Protection</h3>
           <p>We actively fund local reef restoration projects and maintain strict anti-escape barriers to protect indigenous wild fish populations from genetic mixing.</p>
         </div>
         
         <!-- 5. Certifications -->
-        <div class="glass-panel feature-card service-card">
+        <div class="glass-panel feature-card service-card sus-card">
+          <span class="eco-badge">ASC Certified</span>
           <div class="service-img-wrapper">
-            <img src="assets/images/sus-cert.webp" alt="Certifications" class="service-img">
+            <img loading="lazy" src="assets/images/sus-cert.webp" alt="Certifications" class="service-img">
           </div>
           <h3>Certifications</h3>
           <p>Fully certified by the Aquaculture Stewardship Council (ASC), GlobalG.A.P., and BAP (Best Aquaculture Practices) to guarantee ethical operations.</p>
@@ -122,11 +179,15 @@
         <div class="split-content fade-up">
           <h2 class="section-title" style="text-align: left;">Read Our Impact Report</h2>
           <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">Transparency is key to true sustainability. Download our annual environmental impact report to see exactly how Stackly is making a positive difference on our planet's oceans.</p>
-          <a href="#" class="btn btn-primary"><i class="ph ph-download-simple" style="margin-right: 0.5rem;"></i> Download 2026 Report</a>
+          <a href="javascript:void(0)" class="btn btn-primary btn-animated-download">
+            <span class="btn-text">Download 2026 Report</span>
+            <i class="ph ph-download-simple btn-icon"></i>
+            <div class="download-progress"></div>
+          </a>
         </div>
         <div class="split-image fade-up">
           <div class="glass-panel" style="padding: 10px; border-radius: var(--radius-lg);">
-            <img src="assets/images/sus-report.webp" alt="Impact Report" style="border-radius: var(--radius-md);">
+            <img loading="lazy" src="assets/images/sus-report.webp" alt="Impact Report" style="border-radius: var(--radius-md);">
           </div>
         </div>
       </div>
@@ -138,82 +199,104 @@
   <!-- Premium Footer -->
   
   <!-- Premium Footer -->
-  <footer class="premium-footer">
+    <!-- Premium Luxury Footer -->
+  <footer class="luxury-footer" id="footer">
     <div class="footer-wave">
       <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
       </svg>
     </div>
-    <div class="container fade-up">
+    
+    <!-- Ambient Bubbles -->
+    <div class="footer-bubbles">
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+    </div>
+
+    <div class="container footer-content-wrap">
       <div class="footer-premium-grid">
-        <div class="footer-col">
-          <a href="index.html" class="logo" style="margin-bottom: 1rem; display: inline-flex;">
-            <i class="ph-fill ph-waves"></i> Stackly
-          </a>
-          <p>Pioneering the future of sustainable aquaculture with intelligent technology and data-driven insights. Designed for the farmers of tomorrow.</p>
-        </div>
+        <!-- Col 1: Brand -->
+        <div class="footer-col brand-col">
+            <a href="index.html" class="logo"><img src="stackly-logo.webp" alt="Stackly Logo" style="height: 40px; width: auto; object-fit: contain;"></a>
+            <p class="brand-desc">Pioneering the future of sustainable aquaculture with intelligent technology and data-driven insights. Designed for the farmers of tomorrow.</p>
+            <div class="luxury-socials" style="margin-top: 24px;">
+              <a href="404.html" class="social-btn fb"><i class="ph-fill ph-facebook-logo"></i></a>
+              <a href="404.html" class="social-btn tw"><i class="ph-fill ph-twitter-logo"></i></a>
+              <a href="404.html" class="social-btn in"><i class="ph-fill ph-linkedin-logo"></i></a>
+              <a href="404.html" class="social-btn ig"><i class="ph-fill ph-instagram-logo"></i></a>
+            </div>
+          </div>
+        
+        <!-- Col 2: Quick Links -->
         <div class="footer-col">
           <h3>Quick Links</h3>
-          <ul>
-            <li><a href="index.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Home</a></li>
-            <li><a href="about.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> About Us</a></li>
-            <li><a href="services.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Services</a></li>
-            <li><a href="species.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Species</a></li>
-            <li><a href="technology.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Technology</a></li>
-            <li><a href="sustainability.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Sustainability</a></li>
-            <li><a href="blog.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Blog</a></li>
-            <li><a href="contact.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Contact</a></li>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="blog.html">Blog</a></li>
           </ul>
         </div>
+        
+        <!-- Col 3: Services -->
         <div class="footer-col">
-          <h3>Aquaculture Services</h3>
-          <ul>
-            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Smart Hatchery Setup</a></li>
-            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Water Quality Monitoring</a></li>
-            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Fish Health Analytics</a></li>
-            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Automated Feeding Systems</a></li>
-            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Sustainability Consultancy</a></li>
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="services.html">Smart Hatchery</a></li>
+            <li><a href="services.html">Water Quality</a></li>
+            <li><a href="services.html">Health Analytics</a></li>
+            <li><a href="services.html">Automated Feeding</a></li>
+            <li><a href="services.html">Consultancy</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h3>Contact & Hours</h3>
-          <ul>
-            <li style="display:flex; gap:10px;"><i class="ph ph-map-pin" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>123 Ocean Way, Aqua City</span></li>
-            <li style="display:flex; gap:10px;"><i class="ph ph-envelope" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>info@stackly.com</span></li>
-            <li style="display:flex; gap:10px;"><i class="ph ph-phone" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>+1 (555) 123-4567</span></li>
+        
+        <!-- Col 4: Contact -->
+        <div class="footer-col contact-col">
+          <h3>Contact Us</h3>
+          <ul class="footer-contact">
+            <li><i class="ph ph-map-pin"></i> <span>MMR Complex, Chinna Thirupathi, Salem - 636 003, TN, India</span></li>
+            <li><i class="ph ph-envelope"></i> <span>info@stackly.com</span></li>
+            <li><i class="ph ph-phone"></i> <span>+91 (800) 123-4567</span></li>
           </ul>
-          <h3 style="margin-top: 1.5rem; font-size: 1rem;">Business Hours</h3>
-          <p style="color:var(--text-muted); font-size:0.9rem;">Mon - Fri: 8:00 AM - 6:00 PM<br>Sat - Sun: Emergency Support</p>
         </div>
-        <div class="footer-col">
-          <h3>Newsletter Subscription</h3>
-          <p style="font-size: 0.9rem; margin-bottom: 1rem;">Stay updated with our latest sustainability reports and tech releases.</p>
-          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
-            <input type="email" placeholder="Email Address" required>
-            <button type="submit"><i class="ph ph-paper-plane-right"></i></button>
-          </form>
-          <div class="glowing-socials">
-            <a href="404.html"><i class="ph-fill ph-facebook-logo"></i></a>
-            <a href="404.html"><i class="ph-fill ph-twitter-logo"></i></a>
-            <a href="404.html"><i class="ph-fill ph-linkedin-logo"></i></a>
-            <a href="404.html"><i class="ph-fill ph-instagram-logo"></i></a>
+        
+        <!-- Col 5: Hours, Newsletter, Socials -->
+        <div class="footer-col highlight-col">
+            <div class="glass-card hours-card">
+              <h3>Business Hours</h3>
+              <p>Mon - Fri: 8:00 AM - 6:00 PM<br>Sat - Sun: Emergency Support</p>
+            </div>
+            <h3 class="mt-4" style="margin-top: 24px;">Newsletter</h3>
+            <form class="luxury-newsletter" >
+              <input type="email" placeholder="Enter your email" required>
+              <button type="submit" class="ripple-btn"><i class="ph ph-arrow-right"></i></button>
+            </form>
           </div>
         </div>
       </div>
       
-      <div class="footer-legal">
-        <div>&copy; 2026 Stackly Aquaculture Management System. All rights reserved.</div>
-        <div class="footer-legal-links">
-          <a href="404.html">Privacy Policy</a>
-          <a href="404.html">Terms & Conditions</a>
-          <a href="404.html">Cookie Policy</a>
+      <hr class="footer-divider-premium">
+        <div class="footer-bottom">
+          <div class="copyright">&copy; 2026 Stackly Aquaculture Management System. All rights reserved.</div>
+          <div class="legal-links">
+            <a href="404.html">Privacy Policy</a>
+            <a href="404.html">Terms & Conditions</a>
+            <a href="404.html">Cookie Policy</a>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
+  
+  <!-- Back to Top -->
+  <button id="back-to-top" class="back-to-top-btn"><i class="ph ph-caret-up"></i></button>
 </body>
 </html>

@@ -26,51 +26,51 @@
       
       <nav class="sidebar-nav">
         <!-- Dashboard Overview -->
-        <a href="#" class="sidebar-link active" data-section="section-overview">
+        <a href="javascript:void(0)" class="sidebar-link active" data-section="section-overview">
           <i class="ph ph-squares-four"></i> <span>Dashboard Overview</span>
         </a>
         <!-- Farm Managers -->
-        <a href="#" class="sidebar-link" data-section="section-managers">
+        <a href="javascript:void(0)" class="sidebar-link" data-section="section-managers">
           <i class="ph ph-users"></i> <span>Farm Management</span>
         </a>
         <!-- User Management -->
-        <a href="#" class="sidebar-link" data-section="section-users">
+        <a href="javascript:void(0)" class="sidebar-link" data-section="section-users">
           <i class="ph ph-identification-card"></i> <span>User Management</span>
         </a>
         <!-- Inventory -->
-        <a href="#" class="sidebar-link" data-section="section-inventory">
+        <a href="javascript:void(0)" class="sidebar-link" data-section="section-inventory">
           <i class="ph ph-fish"></i> <span>Fish & Shrimp Inventory</span>
         </a>
         <!-- Water Quality -->
-        <a href="#" class="sidebar-link" data-section="section-water">
+        <a href="javascript:void(0)" class="sidebar-link" data-section="section-water">
           <i class="ph ph-drop"></i> <span>Water Quality Monitoring</span>
         </a>
         <!-- Feed Management -->
-        <a href="#" class="sidebar-link" data-section="section-feed">
+        <a href="javascript:void(0)" class="sidebar-link" data-section="section-feed">
           <i class="ph ph-bowl-food"></i> <span>Feed Management</span>
         </a>
         <!-- Orders & Sales -->
-        <a href="#" class="sidebar-link" data-section="section-orders">
+        <a href="javascript:void(0)" class="sidebar-link" data-section="section-orders">
           <i class="ph ph-shopping-cart"></i> <span>Orders & Sales</span>
         </a>
         <!-- Analytics -->
-        <a href="#" class="sidebar-link" data-section="section-analytics">
+        <a href="javascript:void(0)" class="sidebar-link" data-section="section-analytics">
           <i class="ph ph-chart-line-up"></i> <span>Analytics & Reports</span>
         </a>
         <!-- Sustainability -->
-        <a href="#" class="sidebar-link" data-section="section-sustainability">
+        <a href="javascript:void(0)" class="sidebar-link" data-section="section-sustainability">
           <i class="ph ph-leaf"></i> <span>Sustainability Reports</span>
         </a>
         <!-- Notifications -->
-        <a href="#" class="sidebar-link" data-section="section-notifications">
+        <a href="javascript:void(0)" class="sidebar-link" data-section="section-notifications">
           <i class="ph ph-bell"></i> <span>Notifications</span>
         </a>
         <!-- Profile -->
-        <a href="#" class="sidebar-link" data-section="section-profile">
+        <a href="javascript:void(0)" class="sidebar-link" data-section="section-profile">
           <i class="ph ph-user"></i> <span>Profile</span>
         </a>
         <!-- Settings -->
-        <a href="#" class="sidebar-link" data-section="section-settings">
+        <a href="javascript:void(0)" class="sidebar-link" data-section="section-settings">
           <i class="ph ph-gear"></i> <span>Settings</span>
         </a>
       </nav>
@@ -112,7 +112,7 @@
           <div class="user-profile" onclick="document.querySelector('[data-section=\'section-profile\']').click()">
             <div class="user-avatar">AD</div>
             <span style="display:none;" class="mobile-hide">Admin User</span>
-            <i class="ph ph-caret-down"></i>
+            <i class="ph ph-caret-down faq-icon"></i>
           </div>
         </div>
       </header>
@@ -160,7 +160,7 @@
             </div>
           </div>
 
-          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 24px;">
             <!-- Line Chart -->
             <div class="chart-card">
               <div class="chart-header">Global Production Overview</div>
@@ -215,7 +215,7 @@
         <!-- SECTION: Farm Managers -->
         <div id="section-managers" class="spa-section">
           <h2>Farm Managers Directory</h2>
-          <p style="color: var(--text-muted); margin-bottom: 2rem;">Manage access and assignments for farm managers globally.</p>
+          <p style="color: var(--text-muted); margin-bottom: 24px;">Manage access and assignments for farm managers globally.</p>
           <div class="chart-card table-container">
             <table class="dashboard-table">
               <thead>
@@ -413,12 +413,14 @@
 
   </div>
 
-  <!-- Chart.js and GSAP -->
+  <!-- Chart.js, GSAP, and SortableJS -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   
   <!-- Global site scripts & Dashboard Logic -->
   <script src="js/main.js"></script>
   <script src="js/dashboard.js"></script>
+  <div id="back-to-top"><i class="ph ph-caret-up"></i></div>
 </body>
 </html>

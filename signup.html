@@ -10,8 +10,187 @@
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <link rel="stylesheet" href="css/styles.css">
   <style>
+    /* Advanced Multi-Step Form CSS */
+    .auth-container {
+      position: relative;
+      perspective: 1000px;
+    }
+    
+    .form-step {
+      display: none;
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    .form-step.active {
+      display: block;
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      width: 100%;
+      height: 6px;
+      background: var(--glass-border);
+      border-radius: 10px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-bar {
+      height: 100%;
+      background: var(--color-primary);
+      width: 33.33%;
+      transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .step-indicator {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* Floating Labels */
+    .floating-group {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+    .floating-group input, .floating-group select {
+      width: 100%;
+      padding: 1.2rem 1rem 0.6rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--glass-border);
+      background: rgba(255,255,255,0.05);
+      color: var(--text-main);
+      outline: none;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    html.dark .floating-group input, html.dark .floating-group select {
+      background: rgba(10, 25, 47, 0.5);
+      color: white;
+    }
+    .floating-group input:focus, .floating-group select:focus {
+      border-color: var(--color-primary);
+    }
+    .floating-group label {
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      font-size: 1rem;
+      color: var(--text-muted);
+      pointer-events: none;
+      transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .floating-group input:focus ~ label, 
+    .floating-group input:not(:placeholder-shown) ~ label,
+    .floating-group select:focus ~ label,
+    .floating-group select:valid ~ label {
+      top: 12px;
+      font-size: 0.75rem;
+      color: var(--color-primary);
+    }
+
+    /* Password Strength */
+    .strength-meter {
+      height: 4px;
+      width: 100%;
+      background: var(--glass-border);
+      border-radius: 4px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+    .strength-bar {
+      height: 100%;
+      width: 0%;
+      transition: all 0.4s ease;
+    }
+    .strength-text {
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+      display: block;
+      text-align: right;
+      height: 15px;
+    }
+
+    /* Custom Checkbox */
+    .custom-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .custom-checkbox input {
+      display: none;
+    }
+    .checkmark-box {
+      width: 22px;
+      height: 22px;
+      border: 2px solid var(--glass-border);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .custom-checkbox input:checked ~ .checkmark-box {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+    .checkmark-box i {
+      color: white;
+      font-size: 14px;
+      opacity: 0;
+      transform: scale(0);
+      transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .custom-checkbox input:checked ~ .checkmark-box i {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Success State */
+    .success-state {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px 0;
+    }
+    .success-circle {
+      width: 80px;
+      height: 80px;
+      background: #10B981;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+      transform: scale(0);
+    }
+
+    /* Grid Layout */
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+
+    /* Button Group */
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .btn-group .btn { flex: 1; justify-content: center; }
   </style>
 </head>
 <body class="auth-page">
@@ -19,120 +198,295 @@
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="logo">
-        <i class="ph-fill ph-waves"></i> Stackly
-      </a>
-      
+      <a href="index.html" class="logo"><img src="stackly-logo.webp" alt="Stackly Logo" style="height: 40px; width: auto; object-fit: contain;"></a>
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="species.html">Species</a></li>
-        <li><a href="technology.html">Technology</a></li>
-        <li><a href="sustainability.html">Sustainability</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" class="btn btn-primary" style="padding: 0.5rem 1.5rem; margin-left:1rem;">Login</a></li>
       </ul>
-
-      <div class="nav-actions">
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
-          <i class="ph ph-moon"></i>
-        </button>
-        <a href="login.html" class="btn btn-primary">Login</a>
-        <button id="mobile-menu-btn" class="mobile-menu-btn">
-          <i class="ph ph-list"></i>
-        </button>
-      </div>
+      <button id="mobile-menu-btn" class="mobile-menu-btn"><i class="ph ph-list"></i></button>
     </div>
   </nav>
 
   <div class="hero-bg" data-speed="0.5" style="background-image: url('assets/images/tech-hero.webp'); position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2;"></div>
-  <div class="hero-overlay" style="position: fixed; z-index:-1; background: rgba(15, 23, 42, 0.8);"></div>
+  <div class="hero-overlay" style="position: fixed; z-index:-1; background: linear-gradient(135deg, rgba(10, 66, 117, 0.8) 0%, rgba(0, 168, 150, 0.4) 100%);"></div>
 
-  <div class="auth-container fade-up" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem;">
-    <div class="glass-panel" style="width: 100%; max-width: 600px; padding: 3rem 2rem;">
-      <div style="text-align: center; margin-bottom: 2rem;">
-        <a href="index.html" class="logo" style="justify-content: center; margin-bottom: 1rem;">
-          <i class="ph-fill ph-waves"></i> Stackly
-        </a>
-        <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Create an Account</h2>
-        <p style="color: var(--color-text-muted);">Join Stackly and modernize your farm</p>
-      </div>
-
-      <form id="signup-form">
-        <div class="form-grid" style="margin-bottom: 1rem;">
-          <div class="form-group">
-            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Full Name</label>
-            <input type="text" style="width: 100%; padding: 0.8rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-glass-border); background: rgba(255,255,255,0.05); color: var(--color-text); outline: none;" placeholder="John Doe" required>
-          </div>
-          <div class="form-group">
-            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Phone Number</label>
-            <input type="tel" style="width: 100%; padding: 0.8rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-glass-border); background: rgba(255,255,255,0.05); color: var(--color-text); outline: none;" placeholder="+1 234 567 8900" required>
-          </div>
+  <div class="auth-container fade-up" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; padding-top: 60px;">
+    
+    <div class="glass-panel" id="form-card" style="width: 100%; max-width: 600px; padding: 40px 24px; position: relative;">
+      
+      <div id="form-content">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Create Account</h2>
+          <p style="color: var(--text-muted);">Join Stackly and modernize your farm</p>
         </div>
 
-        <div class="form-group" style="margin-bottom: 1rem;">
-          <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email Address</label>
-          <input type="email" style="width: 100%; padding: 0.8rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-glass-border); background: rgba(255,255,255,0.05); color: var(--color-text); outline: none;" placeholder="john@example.com" required>
+        <div class="step-indicator">
+          <span id="step-text">Step 1 of 3: Personal Details</span>
+          <span id="step-pct">33%</span>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar" id="progress-bar"></div>
         </div>
 
-        <div class="form-grid" style="margin-bottom: 1rem;">
-          <div class="form-group">
-            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Company / Farm Name</label>
-            <input type="text" style="width: 100%; padding: 0.8rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-glass-border); background: rgba(255,255,255,0.05); color: var(--color-text); outline: none;" placeholder="OceanBlue Farms" required>
+        <form id="signup-form">
+          
+          <!-- STEP 1: Personal Details -->
+          <div class="form-step active" id="step1">
+            <div class="form-grid">
+              <div class="floating-group">
+                <input type="text" id="fname" placeholder=" " required>
+                <label for="fname">First Name</label>
+              </div>
+              <div class="floating-group">
+                <input type="text" id="lname" placeholder=" " required>
+                <label for="lname">Last Name</label>
+              </div>
+            </div>
+            
+            <div class="floating-group">
+              <input type="tel" id="phone" placeholder=" " required>
+              <label for="phone">Phone Number</label>
+            </div>
+            
+            <div class="floating-group">
+              <select id="role" required>
+                <option value="" disabled selected hidden></option>
+                <option value="manager">Farm Manager</option>
+                <option value="admin">Administrator</option>
+                <option value="technician">Aquaculture Technician</option>
+              </select>
+              <label for="role">Select Your Role</label>
+            </div>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary" onclick="nextStep(1)">Continue <i class="ph ph-arrow-right"></i></button>
+            </div>
           </div>
-          <div class="form-group">
-            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Farm Location</label>
-            <input type="text" style="width: 100%; padding: 0.8rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-glass-border); background: rgba(255,255,255,0.05); color: var(--color-text); outline: none;" placeholder="City, Country" required>
+
+          <!-- STEP 2: Farm Information -->
+          <div class="form-step" id="step2">
+            <div class="floating-group">
+              <input type="text" id="farmName" placeholder=" " required>
+              <label for="farmName">Company / Farm Name</label>
+            </div>
+            
+            <div class="floating-group">
+              <input type="text" id="location" placeholder=" " required>
+              <label for="location">Farm Location (City, Country)</label>
+            </div>
+
+            <div class="floating-group">
+              <select id="farmSize" required>
+                <option value="" disabled selected hidden></option>
+                <option value="small">< 50 Tons</option>
+                <option value="medium">50 - 500 Tons</option>
+                <option value="large">500+ Tons</option>
+              </select>
+              <label for="farmSize">Annual Production Volume</label>
+            </div>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-outline" onclick="prevStep(2)">Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep(2)">Continue <i class="ph ph-arrow-right"></i></button>
+            </div>
           </div>
-        </div>
 
-        <div class="form-grid" style="margin-bottom: 1rem;">
-          <div class="form-group">
-            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Password</label>
-            <input type="password" style="width: 100%; padding: 0.8rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-glass-border); background: rgba(255,255,255,0.05); color: var(--color-text); outline: none;" placeholder="••••••••" required>
+          <!-- STEP 3: Security -->
+          <div class="form-step" id="step3">
+            <div class="floating-group">
+              <input type="email" id="email" placeholder=" " required>
+              <label for="email">Email Address</label>
+            </div>
+
+            <div class="floating-group" style="margin-bottom: 0;">
+              <input type="password" id="password" placeholder=" " required oninput="checkPasswordStrength()">
+              <label for="password">Create Password</label>
+              <i class="ph ph-eye" id="toggle-pwd" style="position: absolute; right: 1rem; top: 18px; cursor: pointer; font-size: 1.2rem; color: var(--text-muted);"></i>
+            </div>
+            <div class="strength-meter"><div class="strength-bar" id="strength-bar"></div></div>
+            <span class="strength-text" id="strength-text" style="margin-bottom: 1.5rem;"></span>
+
+            <div class="floating-group">
+              <input type="password" id="confirm_password" placeholder=" " required>
+              <label for="confirm_password">Confirm Password</label>
+            </div>
+
+            <label class="custom-checkbox" style="margin-bottom: 24px;">
+              <input type="checkbox" id="terms" required>
+              <div class="checkmark-box"><i class="ph ph-check"></i></div>
+              <span>I agree to the <a href="404.html" style="color: var(--color-primary);">Terms & Conditions</a> and <a href="404.html" style="color: var(--color-primary);">Privacy Policy</a>.</span>
+            </label>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-outline" onclick="prevStep(3)">Back</button>
+              <button type="submit" class="btn btn-primary">Create Account <i class="ph ph-check-circle"></i></button>
+            </div>
           </div>
-          <div class="form-group">
-            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Confirm Password</label>
-            <input type="password" style="width: 100%; padding: 0.8rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-glass-border); background: rgba(255,255,255,0.05); color: var(--color-text); outline: none;" placeholder="••••••••" required>
-          </div>
-        </div>
 
-        <div class="form-group" style="margin-bottom: 1.5rem;">
-          <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Role</label>
-          <select id="role" style="width: 100%; padding: 0.8rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-glass-border); background: rgba(15, 23, 42, 0.8); color: white; outline: none; appearance: none; cursor:pointer;" required>
-            <option value="manager">Farm Manager</option>
-            <option value="admin">Administrator</option>
-          </select>
-        </div>
+        </form>
 
-        <div style="margin-bottom: 2rem; font-size: 0.9rem;">
-          <label style="display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer; line-height: 1.4;">
-            <input type="checkbox" required style="accent-color: var(--color-primary); margin-top: 0.2rem;"> 
-            <span>I agree to the <a href="#" style="color: var(--color-primary);">Terms & Conditions</a> and <a href="#" style="color: var(--color-primary);">Privacy Policy</a>.</span>
-          </label>
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1.5rem; justify-content: center;">Create Account <i class="ph ph-user-plus"></i></button>
-
-        <p style="text-align: center; font-size: 0.9rem;">
+        <p style="text-align: center; font-size: 0.9rem; margin-top: 2rem;">
           Already have an account? <a href="login.html" style="color: var(--color-primary); font-weight: 600;">Log In</a>
         </p>
-      </form>
+      </div>
+
+      <!-- Success State -->
+      <div id="success-state" class="success-state">
+        <div class="success-circle" id="success-circle">
+          <i class="ph ph-check"></i>
+        </div>
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Account Created!</h2>
+        <p style="color: var(--text-muted); margin-bottom: 24px;">Welcome to Stackly. Preparing your dashboard...</p>
+        <div style="width: 40px; height: 40px; border: 3px solid rgba(45, 212, 191, 0.3); border-top-color: var(--color-primary); border-radius: 50%; animation: spin 1s infinite linear;"></div>
+      </div>
+
     </div>
   </div>
 
+  <style>
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+  </style>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script>
+    // Initial Animation
     gsap.fromTo('.fade-up', {y: 30, opacity: 0}, {y: 0, opacity: 1, duration: 0.8, ease: 'power3.out'});
-    
+
+    // Multi-Step Logic
+    const steps = [
+      document.getElementById('step1'),
+      document.getElementById('step2'),
+      document.getElementById('step3')
+    ];
+    const progressBar = document.getElementById('progress-bar');
+    const stepText = document.getElementById('step-text');
+    const stepPct = document.getElementById('step-pct');
+    const titles = ["Personal Details", "Farm Information", "Security"];
+
+    function nextStep(currentStepIndex) {
+      // Basic HTML5 validation trigger
+      const currentStepEl = steps[currentStepIndex - 1];
+      const inputs = currentStepEl.querySelectorAll('input, select');
+      let valid = true;
+      inputs.forEach(inp => { if(!inp.checkValidity()) { inp.reportValidity(); valid = false; } });
+      if(!valid) return;
+
+      const currentStep = steps[currentStepIndex - 1];
+      const nextStep = steps[currentStepIndex];
+      
+      gsap.to(currentStep, {x: -50, opacity: 0, duration: 0.4, ease: "power2.in", onComplete: () => {
+        currentStep.classList.remove('active');
+        nextStep.classList.add('active');
+        gsap.fromTo(nextStep, {x: 50, opacity: 0}, {x: 0, opacity: 1, duration: 0.4, ease: "power2.out"});
+        updateProgress(currentStepIndex + 1);
+      }});
+    }
+
+    function prevStep(currentStepIndex) {
+      const currentStep = steps[currentStepIndex - 1];
+      const prevStep = steps[currentStepIndex - 2];
+      
+      gsap.to(currentStep, {x: 50, opacity: 0, duration: 0.4, ease: "power2.in", onComplete: () => {
+        currentStep.classList.remove('active');
+        prevStep.classList.add('active');
+        gsap.fromTo(prevStep, {x: -50, opacity: 0}, {x: 0, opacity: 1, duration: 0.4, ease: "power2.out"});
+        updateProgress(currentStepIndex - 1);
+      }});
+    }
+
+    function updateProgress(stepNumber) {
+      const pct = (stepNumber / 3) * 100;
+      progressBar.style.width = pct + '%';
+      stepText.innerText = `Step ${stepNumber} of 3: ${titles[stepNumber-1]}`;
+      stepPct.innerText = Math.round(pct) + '%';
+    }
+
+    // Password Strength Logic
+    function checkPasswordStrength() {
+      const val = document.getElementById('password').value;
+      const bar = document.getElementById('strength-bar');
+      const text = document.getElementById('strength-text');
+      
+      let strength = 0;
+      if(val.length > 5) strength += 1;
+      if(val.length > 8) strength += 1;
+      if(/[A-Z]/.test(val)) strength += 1;
+      if(/[0-9]/.test(val)) strength += 1;
+      if(/[^A-Za-z0-9]/.test(val)) strength += 1;
+
+      if(val.length === 0) {
+        bar.style.width = '0%';
+        text.innerText = '';
+      } else if(strength <= 2) {
+        bar.style.width = '33%';
+        bar.style.background = '#EF4444'; // Red
+        text.innerText = 'Weak';
+        text.style.color = '#EF4444';
+      } else if(strength === 3 || strength === 4) {
+        bar.style.width = '66%';
+        bar.style.background = '#F59E0B'; // Orange
+        text.innerText = 'Medium';
+        text.style.color = '#F59E0B';
+      } else {
+        bar.style.width = '100%';
+        bar.style.background = '#10B981'; // Green
+        text.innerText = 'Strong';
+        text.style.color = '#10B981';
+      }
+    }
+
+    // Toggle Password Visibility
+    const togglePwd = document.getElementById('toggle-pwd');
+    if(togglePwd) {
+      togglePwd.addEventListener('click', () => {
+        const input = document.getElementById('password');
+        if (input.type === 'password') {
+          input.type = 'text';
+          togglePwd.classList.replace('ph-eye', 'ph-eye-slash');
+        } else {
+          input.type = 'password';
+          togglePwd.classList.replace('ph-eye-slash', 'ph-eye');
+        }
+      });
+    }
+
+    // Form Submission & Success Animation
     document.getElementById('signup-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      // Redirect to login page upon success
-      alert('Account created successfully! Please log in.');
-      window.location.href = 'login.html';
+      
+      const pwd = document.getElementById('password').value;
+      const confirm = document.getElementById('confirm_password').value;
+      if(pwd !== confirm) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      // Trigger Success GSAP
+      const formContent = document.getElementById('form-content');
+      const successState = document.getElementById('success-state');
+      const circle = document.getElementById('success-circle');
+      
+      gsap.to(formContent, {opacity: 0, scale: 0.9, duration: 0.5, onComplete: () => {
+        formContent.style.display = 'none';
+        successState.style.display = 'flex';
+        
+        gsap.to(successState, {opacity: 1, duration: 0.3});
+        gsap.to(circle, {scale: 1, rotation: 360, duration: 0.8, ease: "elastic.out(1, 0.5)"});
+        
+        // Redirect after animation
+        setTimeout(() => {
+          // Based on role, redirect to appropriate dashboard
+          const role = document.getElementById('role').value;
+          if(role === 'admin') {
+            window.location.href = 'dashboard-admin.html';
+          } else {
+            window.location.href = 'dashboard-manager.html';
+          }
+        }, 2500);
+      }});
     });
   </script>
+  <!-- Global site scripts -->
+  <script src="js/main.js"></script>
 </body>
 </html>

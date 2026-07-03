@@ -9,101 +9,357 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Floating Labels */
+    .floating-group {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+    .floating-group input, .floating-group select {
+      width: 100%;
+      padding: 1.2rem 1rem 0.6rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--glass-border);
+      background: rgba(255,255,255,0.05);
+      color: var(--text-main);
+      outline: none;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    html.dark .floating-group input, html.dark .floating-group select {
+      background: rgba(10, 25, 47, 0.5);
+      color: white;
+    }
+    .floating-group input:focus, .floating-group select:focus {
+      border-color: var(--color-primary);
+    }
+    .floating-group label {
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      font-size: 1rem;
+      color: var(--text-muted);
+      pointer-events: none;
+      transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .floating-group input:focus ~ label, 
+    .floating-group input:not(:placeholder-shown) ~ label,
+    .floating-group select:focus ~ label,
+    .floating-group select:valid ~ label {
+      top: 12px;
+      font-size: 0.75rem;
+      color: var(--color-primary);
+    }
+
+    /* Password Strength (Requested for Login as well) */
+    .strength-meter {
+      height: 4px;
+      width: 100%;
+      background: var(--glass-border);
+      border-radius: 4px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+    .strength-bar {
+      height: 100%;
+      width: 0%;
+      transition: all 0.4s ease;
+    }
+    .strength-text {
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+      display: block;
+      text-align: right;
+      height: 15px;
+    }
+
+    /* Custom Checkbox */
+    .custom-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .custom-checkbox input { display: none; }
+    .checkmark-box {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--glass-border);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+      flex-shrink: 0;
+    }
+    .custom-checkbox input:checked ~ .checkmark-box {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+    .checkmark-box i {
+      color: white;
+      font-size: 12px;
+      opacity: 0;
+      transform: scale(0);
+      transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .custom-checkbox input:checked ~ .checkmark-box i {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Social Buttons Hover */
+    .social-btn {
+      flex: 1; padding: 0.8rem; background: rgba(255,255,255,0.05); 
+      border: 1px solid var(--glass-border); border-radius: var(--radius-md); 
+      color: var(--text-main); cursor: pointer; display: flex; 
+      align-items: center; justify-content: center; gap: 0.5rem; 
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .social-btn:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Loading Button State */
+    .btn-loading {
+      pointer-events: none;
+      opacity: 0.8;
+      position: relative;
+    }
+    .btn-loading span { opacity: 0; }
+    .btn-loading::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 1s infinite linear;
+      top: 50%;
+      left: 50%;
+      margin-top: -10px;
+      margin-left: -10px;
+    }
+
+    /* Success State */
+    .success-state {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px 0;
+    }
+    .success-circle {
+      width: 80px;
+      height: 80px;
+      background: #10B981;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+      transform: scale(0);
+    }
+
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+  </style>
 </head>
 <body class="auth-page">
 
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="logo">
-        <i class="ph-fill ph-waves"></i> Stackly
-      </a>
-      
+      <a href="index.html" class="logo"><img src="stackly-logo.webp" alt="Stackly Logo" style="height: 40px; width: auto; object-fit: contain;"></a>
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="species.html">Species</a></li>
-        <li><a href="technology.html">Technology</a></li>
-        <li><a href="sustainability.html">Sustainability</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="signup.html" class="btn btn-outline" style="padding: 0.5rem 1.5rem; margin-left:1rem;">Sign Up</a></li>
       </ul>
-
-      <div class="nav-actions">
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
-          <i class="ph ph-moon"></i>
-        </button>
-        <a href="login.html" class="btn btn-primary">Login</a>
-        <button id="mobile-menu-btn" class="mobile-menu-btn">
-          <i class="ph ph-list"></i>
-        </button>
-      </div>
+      <button id="mobile-menu-btn" class="mobile-menu-btn"><i class="ph ph-list"></i></button>
     </div>
   </nav>
 
   <div class="hero-bg" data-speed="0.5" style="background-image: url('assets/images/tech-hero.webp'); position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2;"></div>
-  <div class="hero-overlay" style="position: fixed; z-index:-1; background: rgba(15, 23, 42, 0.8);"></div>
+  <div class="hero-overlay" style="position: fixed; z-index:-1; background: linear-gradient(135deg, rgba(10, 66, 117, 0.8) 0%, rgba(0, 168, 150, 0.4) 100%);"></div>
 
-  <div class="auth-container fade-up" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem;">
-    <div class="glass-panel" style="width: 100%; max-width: 450px; padding: 3rem 2rem;">
-      <div style="text-align: center; margin-bottom: 2rem;">
-        <a href="index.html" class="logo" style="justify-content: center; margin-bottom: 1rem;">
-          <i class="ph-fill ph-waves"></i> Stackly
-        </a>
-        <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Welcome Back</h2>
-        <p style="color: var(--color-text-muted);">Sign in to access your dashboard</p>
+  <div class="auth-container fade-up" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; padding-top: 60px;">
+    
+    <div class="glass-panel" id="form-card" style="width: 100%; max-width: 450px; padding: 40px 24px;">
+      
+      <div id="form-content">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Welcome Back</h2>
+          <p style="color: var(--text-muted);">Sign in to access your dashboard</p>
+        </div>
+
+        <form id="login-form">
+          <div class="floating-group">
+            <input type="email" id="email" placeholder=" " required>
+            <label for="email">Email Address</label>
+          </div>
+
+          <div class="floating-group" style="margin-bottom: 0;">
+            <input type="password" id="password" placeholder=" " required oninput="checkPasswordStrength()">
+            <label for="password">Password</label>
+            <i class="ph ph-eye" id="toggle-pwd" style="position: absolute; right: 1rem; top: 18px; cursor: pointer; font-size: 1.2rem; color: var(--text-muted);"></i>
+          </div>
+          <div class="strength-meter"><div class="strength-bar" id="strength-bar"></div></div>
+          <span class="strength-text" id="strength-text" style="margin-bottom: 1.5rem;"></span>
+
+          <div class="floating-group">
+            <select id="role" required>
+              <option value="" disabled selected hidden></option>
+              <option value="manager">Farm Manager</option>
+              <option value="admin">Administrator</option>
+              <option value="technician">Aquaculture Technician</option>
+            </select>
+            <label for="role">Sign in as</label>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+            <label class="custom-checkbox">
+              <input type="checkbox" id="remember">
+              <div class="checkmark-box"><i class="ph ph-check"></i></div>
+              <span>Remember Me</span>
+            </label>
+            <a href="login.html" style="color: var(--color-primary); font-weight: 500; font-size: 0.9rem;">Forgot Password?</a>
+          </div>
+
+          <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; margin-bottom: 24px; justify-content: center;">
+            <span>Login <i class="ph ph-sign-in"></i></span>
+          </button>
+          
+          <div style="margin: 2rem 0; display: flex; align-items: center; text-align: center; color: var(--text-muted);">
+            <div style="flex: 1; height: 1px; background: var(--glass-border);"></div>
+            <span style="padding: 0 1rem; font-size: 0.9rem;">Or continue with</span>
+            <div style="flex: 1; height: 1px; background: var(--glass-border);"></div>
+          </div>
+          
+          <div class="social-login" style="display: flex; gap: 1rem;">
+            <button type="button" class="social-btn"><i class="ph ph-google-logo"></i> Google</button>
+            <button type="button" class="social-btn"><i class="ph ph-windows-logo"></i> Microsoft</button>
+          </div>
+        
+          <p style="text-align: center; font-size: 0.9rem; margin-top: 2rem;">
+            Don't have an account? <a href="signup.html" style="color: var(--color-primary); font-weight: 600;">Sign Up</a>
+          </p>
+        </form>
       </div>
 
-      <form id="login-form">
-        <div class="form-group" style="margin-bottom: 1.5rem;">
-          <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email Address</label>
-          <input type="email" id="email" style="width: 100%; padding: 0.8rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-glass-border); background: rgba(255,255,255,0.05); color: var(--color-text); outline: none;" placeholder="Enter your email" required>
+      <!-- Success State -->
+      <div id="success-state" class="success-state">
+        <div class="success-circle" id="success-circle">
+          <i class="ph ph-check"></i>
         </div>
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Welcome Back!</h2>
+        <p style="color: var(--text-muted); margin-bottom: 24px;">Authenticating your credentials...</p>
+        <div style="width: 40px; height: 40px; border: 3px solid rgba(45, 212, 191, 0.3); border-top-color: var(--color-primary); border-radius: 50%; animation: spin 1s infinite linear;"></div>
+      </div>
 
-        <div class="form-group" style="margin-bottom: 1.5rem;">
-          <label for="password" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Password</label>
-          <input type="password" id="password" style="width: 100%; padding: 0.8rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-glass-border); background: rgba(255,255,255,0.05); color: var(--color-text); outline: none;" placeholder="Enter your password" required>
-        </div>
-
-        <div class="form-group" style="margin-bottom: 1.5rem;">
-          <label for="role" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Role</label>
-          <select id="role" style="width: 100%; padding: 0.8rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-glass-border); background: rgba(15, 23, 42, 0.8); color: white; outline: none; appearance: none; cursor:pointer;" required>
-            <option value="manager">Farm Manager</option>
-            <option value="admin">Administrator</option>
-          </select>
-        </div>
-
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; font-size: 0.9rem;">
-          <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-            <input type="checkbox" id="remember" style="accent-color: var(--color-primary);"> Remember Me
-          </label>
-          <a href="#" style="color: var(--color-primary); font-weight: 500;">Forgot Password?</a>
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1.5rem; justify-content: center;">Login <i class="ph ph-sign-in"></i></button>
-
-        <p style="text-align: center; font-size: 0.9rem;">
-          Don't have an account? <a href="signup.html" style="color: var(--color-primary); font-weight: 600;">Sign Up</a>
-        </p>
-      </form>
     </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script>
+    // Initial Animation
     gsap.fromTo('.fade-up', {y: 30, opacity: 0}, {y: 0, opacity: 1, duration: 0.8, ease: 'power3.out'});
-    
+
+    // Password Strength Logic (Requested)
+    function checkPasswordStrength() {
+      const val = document.getElementById('password').value;
+      const bar = document.getElementById('strength-bar');
+      const text = document.getElementById('strength-text');
+      
+      let strength = 0;
+      if(val.length > 5) strength += 1;
+      if(val.length > 8) strength += 1;
+      if(/[A-Z]/.test(val)) strength += 1;
+      if(/[0-9]/.test(val)) strength += 1;
+      if(/[^A-Za-z0-9]/.test(val)) strength += 1;
+
+      if(val.length === 0) {
+        bar.style.width = '0%';
+        text.innerText = '';
+      } else if(strength <= 2) {
+        bar.style.width = '33%';
+        bar.style.background = '#EF4444'; // Red
+        text.innerText = 'Weak';
+        text.style.color = '#EF4444';
+      } else if(strength === 3 || strength === 4) {
+        bar.style.width = '66%';
+        bar.style.background = '#F59E0B'; // Orange
+        text.innerText = 'Medium';
+        text.style.color = '#F59E0B';
+      } else {
+        bar.style.width = '100%';
+        bar.style.background = '#10B981'; // Green
+        text.innerText = 'Strong';
+        text.style.color = '#10B981';
+      }
+    }
+
+    // Toggle Password Visibility
+    const togglePwd = document.getElementById('toggle-pwd');
+    if(togglePwd) {
+      togglePwd.addEventListener('click', () => {
+        const input = document.getElementById('password');
+        if (input.type === 'password') {
+          input.type = 'text';
+          togglePwd.classList.replace('ph-eye', 'ph-eye-slash');
+        } else {
+          input.type = 'password';
+          togglePwd.classList.replace('ph-eye-slash', 'ph-eye');
+        }
+      });
+    }
+
+    // Form Submission: Loading State -> Success State -> Redirect
     document.getElementById('login-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      const role = document.getElementById('role').value;
-      if (role === 'admin') {
-        window.location.href = 'dashboard-admin.html';
-      } else {
-        window.location.href = 'dashboard-manager.html';
-      }
+      
+      const submitBtn = document.getElementById('submit-btn');
+      const formContent = document.getElementById('form-content');
+      const successState = document.getElementById('success-state');
+      const circle = document.getElementById('success-circle');
+      
+      // 1. Loading State
+      submitBtn.classList.add('btn-loading');
+
+      // Fake API Delay
+      setTimeout(() => {
+        
+        // 2. Success Animation GSAP
+        gsap.to(formContent, {opacity: 0, scale: 0.9, duration: 0.5, onComplete: () => {
+          formContent.style.display = 'none';
+          successState.style.display = 'flex';
+          
+          gsap.to(successState, {opacity: 1, duration: 0.3});
+          gsap.to(circle, {scale: 1, rotation: 360, duration: 0.8, ease: "elastic.out(1, 0.5)"});
+          
+          // 3. Redirect
+          setTimeout(() => {
+            const role = document.getElementById('role').value;
+            if(role === 'admin') {
+              window.location.href = 'dashboard-admin.html';
+            } else {
+              window.location.href = 'dashboard-manager.html';
+            }
+          }, 2000);
+        }});
+        
+      }, 1000); // 1s fake authentication delay
     });
   </script>
+  <!-- Global site scripts -->
+  <script src="js/main.js"></script>
 </body>
 </html>

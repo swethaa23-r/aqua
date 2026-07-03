@@ -26,9 +26,7 @@
       <!-- Navigation -->
   <nav class="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="logo">
-        <i class="ph-fill ph-waves"></i> Stackly
-      </a>
+      <a href="index.html" class="logo"><img src="stackly-logo.webp" alt="Stackly Logo" style="height: 40px; width: auto; object-fit: contain;"></a>
       
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
@@ -43,9 +41,7 @@
       </ul>
 
       <div class="nav-actions">
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
-          <i class="ph ph-moon"></i>
-        </button>
+        
         <a href="login.html" class="btn btn-primary">Login</a>
         <button id="mobile-menu-btn" class="mobile-menu-btn">
           <i class="ph ph-list"></i>
@@ -55,22 +51,84 @@
   </nav>
 
   <!-- 1. Hero Section -->
-  <section class="hero">
-    <div class="hero-bg" data-speed="0.5"></div>
-    <div class="hero-overlay"></div>
+  <section class="hero hero-bright">
+    <div class="hero-bg" style="background-image: url('assets/images/hero-bright.webp');"></div>
     
-    <!-- Animated Fish -->
-    <div class="fish fish-1"><i class="ph-fill ph-fish-simple"></i></div>
-    <div class="fish fish-2"><i class="ph-fill ph-fish-simple"></i></div>
-    <div class="fish fish-3"><i class="ph-fill ph-fish-simple"></i></div>
+    <!-- Ambient Bubbles -->
+    <div class="floating-bubble" style="width: 20px; height: 20px; left: 15%; animation-duration: 12s; animation-delay: 0s;"></div>
+    <div class="floating-bubble" style="width: 35px; height: 35px; left: 45%; animation-duration: 18s; animation-delay: 4s;"></div>
+    <div class="floating-bubble" style="width: 15px; height: 15px; left: 85%; animation-duration: 14s; animation-delay: 2s;"></div>
+    <div class="floating-bubble" style="width: 45px; height: 45px; left: 75%; animation-duration: 22s; animation-delay: 7s;"></div>
 
-    <div class="container">
-      <div class="hero-content">
-        <h1 data-i18n="hero.title">Smart Aquaculture for a Sustainable Future</h1>
-        <p data-i18n="hero.subtitle">Stackly delivers cutting-edge technology, IoT monitoring, and AI-driven solutions to maximize farm efficiency, reduce waste, and ensure the health of aquatic ecosystems.</p>
-        <div class="hero-buttons">
-          <a href="services.html" class="btn btn-primary" data-i18n="hero.cta1">Explore Solutions</a>
-          <a href="#contact-preview" class="btn btn-outline interactive" data-i18n="hero.cta2">Contact Us</a>
+    <div class="container hero-container">
+      <div class="hero-top-grid">
+        <!-- Left: Text -->
+        <div class="hero-text-content">
+          <div class="pill-badge"><i class="ph ph-leaf" style="color: var(--color-primary)"></i> Smart Aquaculture for a Better Tomorrow</div>
+          <h1 data-i18n="hero.title">Smart Aquaculture<br>for a <span class="teal-gradient">Sustainable</span><br><span class="teal-gradient">Future</span></h1>
+          <p data-i18n="hero.subtitle">Stackly delivers cutting-edge technology, IoT monitoring, and AI-driven solutions to maximize farm efficiency, reduce waste, and ensure the health of aquatic ecosystems.</p>
+          <div class="hero-buttons">
+            <a href="services.html" class="btn btn-primary ripple-btn hero-btn magnetic-btn">Explore Solutions <i class="ph ph-arrow-right"></i></a>
+            <a href="#contact-preview" class="btn btn-outline interactive ripple-btn hero-btn magnetic-btn">Contact Us <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- Right: Dashboard Image -->
+        <div class="hero-illustration">
+          <img src="assets/images/dashboard-mockup.webp" alt="AI Dashboard Mockup" class="dashboard-3d">
+        </div>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="hero-stats-row">
+        <div class="hero-stat-card glass-panel">
+          <div class="stat-icon"><i class="ph ph-fish"></i></div>
+          <div class="stat-info">
+            <h4 class="stat-number" data-target="500" data-suffix="+">500</h4>
+            <p>Farms Managed<br><span>Across 12 Countries</span></p>
+          </div>
+        </div>
+        <div class="hero-stat-card glass-panel">
+          <div class="stat-icon"><i class="ph ph-drop"></i></div>
+          <div class="stat-info">
+            <h4 class="stat-number" data-target="98" data-suffix="%">98</h4>
+            <p>Water Savings<br><span>Through Smart Monitoring</span></p>
+          </div>
+        </div>
+        <div class="hero-stat-card glass-panel">
+          <div class="stat-icon"><i class="ph ph-cpu"></i></div>
+          <div class="stat-info">
+            <h4 class="stat-number" data-target="24" data-suffix="/7">24</h4>
+            <p>AI Monitoring<br><span>Always Watching</span></p>
+          </div>
+        </div>
+        <div class="hero-stat-card glass-panel">
+          <div class="stat-icon"><i class="ph ph-shield-check"></i></div>
+          <div class="stat-info">
+            <h4 class="stat-number" data-target="99" data-suffix="%">99</h4>
+            <p>Healthy Stock<br><span>Sustainable & Safe</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Partner Wave Divider -->
+    <div class="hero-wave-divider">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,60 C320,120 420,0 720,60 C1020,120 1120,0 1440,60 L1440,120 L0,120 Z" fill="#ffffff"></path>
+      </svg>
+      <div class="partner-bar">
+        <div class="container">
+          <div class="partner-flex">
+            <div class="partner-text">Trusted by leading<br>aquaculture farms worldwide</div>
+            <div class="partner-logos">
+              <div class="logo-item"><i class="ph-fill ph-waves"></i> BlueOcean <span>FARMS</span></div>
+              <div class="logo-item"><i class="ph-fill ph-drop"></i> AquaLife <span>SYSTEMS</span></div>
+              <div class="logo-item"><i class="ph-fill ph-anchor"></i> Oceanic <span>CULTURE</span></div>
+              <div class="logo-item"><i class="ph-fill ph-leaf"></i> GreenFish <span>FARMS</span></div>
+              <div class="logo-item"><i class="ph-fill ph-sun"></i> Coastal Rise <span>AQUACULTURE</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -95,8 +153,9 @@
           <div class="feature-icon"><i class="ph ph-robot"></i></div>
           <h3>Automated Feeding</h3>
           <p>Smart feeding systems that reduce waste and ensure precise nutritional delivery.</p>
+          <a href="services.html" class="feature-learn-more">Learn More <i class="ph ph-arrow-right"></i></a>
         </div>
-      </div>
+</div>
     </div>
   </section>
 
@@ -114,9 +173,9 @@
           </ul>
           <a href="sustainability.html" class="btn btn-secondary" style="margin-top: 2rem;">Read Our Impact Report</a>
         </div>
-        <div class="split-image fade-up">
-          <div class="glass-panel" style="padding: 10px; border-radius: var(--radius-lg);">
-            <img src="assets/images/idx-feat1.webp" alt="Sustainable Farming" style="border-radius: var(--radius-md);">
+        <div class="split-image fade-up" style="display: flex; justify-content: center; align-items: center;">
+          <div class="glass-panel" style="padding: 10px; border-radius: var(--radius-lg); max-width: 400px; width: 100%;">
+            <img loading="lazy" src="assets/images/idx-feat1.webp" alt="Sustainable Farming" style="border-radius: var(--radius-md); width: 100%; height: auto;">
           </div>
         </div>
       </div>
@@ -130,7 +189,7 @@
       <div class="grid-2">
         <div class="innovation-card glass-panel fade-up">
           <div class="inno-image">
-             <img src="assets/images/idx-feat2.webp" alt="Drone Monitoring">
+             <img loading="lazy" src="assets/images/idx-feat2.webp" alt="Drone Monitoring">
           </div>
           <div class="inno-content">
             <h3>Underwater Drone Monitoring</h3>
@@ -139,7 +198,7 @@
         </div>
         <div class="innovation-card glass-panel fade-up">
           <div class="inno-image">
-             <img src="assets/images/idx-feat3.webp" alt="Smart Sensors">
+             <img loading="lazy" src="assets/images/idx-feat3.webp" alt="Smart Sensors">
           </div>
           <div class="inno-content">
             <h3>Bio-Acoustic Sensors</h3>
@@ -155,20 +214,24 @@
     <div class="container">
       <div class="stats-grid">
         <div class="stat-item">
-          <h4 class="stat-number" data-target="150" data-suffix="+">0</h4>
-          <p>Farms Monitored</p>
+          <h4 class="stat-number" data-target="150" data-suffix="+">150</h4>
+          <p>Active Projects</p>
+          <a href="services.html" class="feature-learn-more">Learn More <i class="ph ph-arrow-right"></i></a>
         </div>
         <div class="stat-item">
-          <h4 class="stat-number" data-target="99" data-suffix="%">0</h4>
-          <p>Survival Rate</p>
+          <h4 class="stat-number" data-target="99" data-suffix="%">99</h4>
+          <p>Partner Farms</p>
+          <a href="services.html" class="feature-learn-more">Learn More <i class="ph ph-arrow-right"></i></a>
         </div>
         <div class="stat-item">
-          <h4 class="stat-number" data-target="24" data-suffix="/7">0</h4>
-          <p>Live Monitoring</p>
+          <h4 class="stat-number" data-target="24" data-suffix="/7">24</h4>
+          <p>Global Clients</p>
+          <a href="services.html" class="feature-learn-more">Learn More <i class="ph ph-arrow-right"></i></a>
         </div>
         <div class="stat-item">
-          <h4 class="stat-number" data-target="12" data-suffix="M+">0</h4>
-          <p>Data Points/Day</p>
+          <h4 class="stat-number" data-target="12" data-suffix="M+">12</h4>
+          <p>Fish Species Monitored</p>
+          <a href="services.html" class="feature-learn-more">Learn More <i class="ph ph-arrow-right"></i></a>
         </div>
       </div>
     </div>
@@ -178,34 +241,34 @@
   <section class="section" id="testimonials">
     <div class="container">
       <h2 class="section-title">What Our Partners Say</h2>
-      <div class="grid-3">
-        <div class="testimonial-card glass-panel fade-up">
-          <i class="ph-fill ph-quotes" style="font-size: 2rem; color: var(--color-secondary); margin-bottom: 1rem; display: block;"></i>
+      <div class="grid-3 testimonials-grid">
+        <div class="testimonial-card glass-panel tilt-card fade-up">
+          <i class="ph-fill ph-quotes" style="font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem; display: block;"></i>
           <p>"Stackly's IoT monitoring reduced our mortality rate by 15% in just three months. The predictive analytics are a game-changer."</p>
           <div class="client-info">
-            <img src="assets/images/team1.webp" alt="Sarah Jenkins">
+            <img loading="lazy" src="assets/images/team1.webp" alt="Sarah Jenkins">
             <div>
               <h4>Sarah Jenkins</h4>
               <span>Operations Director, OceanFarms Ltd.</span>
             </div>
           </div>
         </div>
-        <div class="testimonial-card glass-panel fade-up">
-          <i class="ph-fill ph-quotes" style="font-size: 2rem; color: var(--color-secondary); margin-bottom: 1rem; display: block;"></i>
+        <div class="testimonial-card glass-panel tilt-card fade-up">
+          <i class="ph-fill ph-quotes" style="font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem; display: block;"></i>
           <p>"The transition to their smart feeding system was seamless. We've optimized feed conversion ratios beyond our expectations."</p>
           <div class="client-info">
-            <img src="assets/images/team2.webp" alt="Michael Chen">
+            <img loading="lazy" src="assets/images/team2.webp" alt="Michael Chen">
             <div>
               <h4>Michael Chen</h4>
               <span>CEO, AquaYield Inc.</span>
             </div>
           </div>
         </div>
-        <div class="testimonial-card glass-panel fade-up">
-          <i class="ph-fill ph-quotes" style="font-size: 2rem; color: var(--color-secondary); margin-bottom: 1rem; display: block;"></i>
+        <div class="testimonial-card glass-panel tilt-card fade-up">
+          <i class="ph-fill ph-quotes" style="font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem; display: block;"></i>
           <p>"Their dashboard is incredibly intuitive. Knowing the real-time water quality from my phone gives me total peace of mind."</p>
           <div class="client-info">
-            <img src="assets/images/team3.webp" alt="Elena Rodriguez">
+            <img loading="lazy" src="assets/images/team3.webp" alt="Elena Rodriguez">
             <div>
               <h4>Elena Rodriguez</h4>
               <span>Hatchery Manager, BlueTide</span>
@@ -223,35 +286,35 @@
       <div class="grid-3">
         <div class="news-card glass-panel fade-up">
           <div class="news-img">
-            <img src="assets/images/idx-news1.webp" alt="News 1">
+            <img loading="lazy" src="assets/images/idx-news1.webp" alt="News 1">
             <span class="news-date">Oct 15, 2026</span>
           </div>
           <div class="news-content">
             <h3>Global Expansion into the Mediterranean</h3>
             <p>Stackly partners with leading European hatcheries to implement our next-gen RAS monitoring systems.</p>
-            <a href="#" class="read-more">Read Article <i class="ph ph-arrow-right"></i></a>
+            <a href="blog.html" class="read-more">Read Article <i class="ph ph-arrow-right"></i></a>
           </div>
         </div>
         <div class="news-card glass-panel fade-up">
           <div class="news-img">
-            <img src="assets/images/idx-news2.webp" alt="News 2">
+            <img loading="lazy" src="assets/images/idx-news2.webp" alt="News 2">
             <span class="news-date">Sep 28, 2026</span>
           </div>
           <div class="news-content">
             <h3>Stackly Wins Sustainable Tech Award</h3>
             <p>Recognized for outstanding contributions to ocean conservation and zero-waste farming initiatives.</p>
-            <a href="#" class="read-more">Read Article <i class="ph ph-arrow-right"></i></a>
+            <a href="blog.html" class="read-more">Read Article <i class="ph ph-arrow-right"></i></a>
           </div>
         </div>
         <div class="news-card glass-panel fade-up">
           <div class="news-img">
-            <img src="assets/images/idx-news3.webp" alt="News 3">
+            <img loading="lazy" src="assets/images/idx-news3.webp" alt="News 3">
             <span class="news-date">Sep 10, 2026</span>
           </div>
           <div class="news-content">
             <h3>New Feature: AI Yield Forecasting</h3>
             <p>Our dashboard now includes predictive models to help farmers anticipate harvest volumes up to 6 months in advance.</p>
-            <a href="#" class="read-more">Read Article <i class="ph ph-arrow-right"></i></a>
+            <a href="blog.html" class="read-more">Read Article <i class="ph ph-arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -264,15 +327,15 @@
       <div class="contact-card glass-panel fade-up">
         <div class="contact-info">
           <h2 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 1rem;">Ready to transform your farm?</h2>
-          <p style="margin-bottom: 2rem; opacity: 0.9;">Get in touch with our aquaculture specialists to design a custom monitoring solution for your facilities.</p>
+          <p style="margin-bottom: 24px; opacity: 0.9;">Get in touch with our aquaculture specialists to design a custom monitoring solution for your facilities.</p>
           <ul class="contact-list">
-            <li><i class="ph-fill ph-phone"></i> +1 (555) 123-4567</li>
+            <li><i class="ph-fill ph-phone"></i> +91 98765 43210</li>
             <li><i class="ph-fill ph-envelope"></i> hello@stackly.com</li>
-            <li><i class="ph-fill ph-map-pin"></i> 123 Ocean Way, Aqua City, Global</li>
+            <li><i class="ph-fill ph-map-pin"></i> MMR complex, chinna thirupathi, near chinna muniyapan kovil, salem</li>
           </ul>
         </div>
         <div class="contact-form">
-          <form onsubmit="event.preventDefault(); alert('Message sent!');">
+          <form >
             <div class="form-group">
               <input type="text" placeholder="Your Name" required>
             </div>
@@ -289,88 +352,123 @@
     </div>
   </section>
 
-    <!-- Footer -->
+  <!-- Partners -->
+  <section class="section" style="padding: 48px 0; border-top: 1px solid var(--color-border); background: var(--color-surface);">
+    <div class="container">
+      <h3 style="text-align: center; color: var(--color-text-muted); margin-bottom: 24px; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px;">Trusted by Industry Leaders</h3>
+      <div class="partner-logos" style="display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; opacity: 0.6;">
+        <i class="ph-fill ph-fish-simple" style="font-size: 3rem; color: var(--color-text-muted);"></i>
+        <i class="ph-fill ph-anchor-simple" style="font-size: 3rem; color: var(--color-text-muted);"></i>
+        <i class="ph-fill ph-waves" style="font-size: 3rem; color: var(--color-text-muted);"></i>
+        <i class="ph-fill ph-boat" style="font-size: 3rem; color: var(--color-text-muted);"></i>
+        <i class="ph-fill ph-drop" style="font-size: 3rem; color: var(--color-text-muted);"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   
   <!-- Premium Footer -->
   
   <!-- Premium Footer -->
-  <footer class="premium-footer">
+    <!-- Premium Luxury Footer -->
+  <footer class="luxury-footer" id="footer">
     <div class="footer-wave">
       <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
       </svg>
     </div>
-    <div class="container fade-up">
+    
+    <!-- Ambient Bubbles -->
+    <div class="footer-bubbles">
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+    </div>
+
+    <div class="container footer-content-wrap">
       <div class="footer-premium-grid">
-        <div class="footer-col">
-          <a href="index.html" class="logo" style="margin-bottom: 1rem; display: inline-flex;">
-            <i class="ph-fill ph-waves"></i> Stackly
-          </a>
-          <p>Pioneering the future of sustainable aquaculture with intelligent technology and data-driven insights. Designed for the farmers of tomorrow.</p>
-        </div>
+        <!-- Col 1: Brand -->
+        <div class="footer-col brand-col">
+            <a href="index.html" class="logo"><img src="stackly-logo.webp" alt="Stackly Logo" style="height: 40px; width: auto; object-fit: contain;"></a>
+            <p class="brand-desc">Pioneering the future of sustainable aquaculture with intelligent technology and data-driven insights. Designed for the farmers of tomorrow.</p>
+            <div class="luxury-socials" style="margin-top: 24px;">
+              <a href="404.html" class="social-btn fb"><i class="ph-fill ph-facebook-logo"></i></a>
+              <a href="404.html" class="social-btn tw"><i class="ph-fill ph-twitter-logo"></i></a>
+              <a href="404.html" class="social-btn in"><i class="ph-fill ph-linkedin-logo"></i></a>
+              <a href="404.html" class="social-btn ig"><i class="ph-fill ph-instagram-logo"></i></a>
+            </div>
+          </div>
+        
+        <!-- Col 2: Quick Links -->
         <div class="footer-col">
           <h3>Quick Links</h3>
-          <ul>
-            <li><a href="index.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Home</a></li>
-            <li><a href="about.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> About Us</a></li>
-            <li><a href="services.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Services</a></li>
-            <li><a href="species.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Species</a></li>
-            <li><a href="technology.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Technology</a></li>
-            <li><a href="sustainability.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Sustainability</a></li>
-            <li><a href="blog.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Blog</a></li>
-            <li><a href="contact.html"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Contact</a></li>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="blog.html">Blog</a></li>
           </ul>
         </div>
+        
+        <!-- Col 3: Services -->
         <div class="footer-col">
-          <h3>Aquaculture Services</h3>
-          <ul>
-            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Smart Hatchery Setup</a></li>
-            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Water Quality Monitoring</a></li>
-            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Fish Health Analytics</a></li>
-            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Automated Feeding Systems</a></li>
-            <li><a href="#"><i class="ph ph-caret-right" style="margin-right:8px;"></i> Sustainability Consultancy</a></li>
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="services.html">Smart Hatchery</a></li>
+            <li><a href="services.html">Water Quality</a></li>
+            <li><a href="services.html">Health Analytics</a></li>
+            <li><a href="services.html">Automated Feeding</a></li>
+            <li><a href="services.html">Consultancy</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h3>Contact & Hours</h3>
-          <ul>
-            <li style="display:flex; gap:10px;"><i class="ph ph-map-pin" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>123 Ocean Way, Aqua City</span></li>
-            <li style="display:flex; gap:10px;"><i class="ph ph-envelope" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>info@stackly.com</span></li>
-            <li style="display:flex; gap:10px;"><i class="ph ph-phone" style="color:var(--color-primary); font-size:1.2rem;"></i> <span>+1 (555) 123-4567</span></li>
+        
+        <!-- Col 4: Contact -->
+        <div class="footer-col contact-col">
+          <h3>Contact Us</h3>
+          <ul class="footer-contact">
+            <li><i class="ph ph-map-pin"></i> <span>MMR Complex, Chinna Thirupathi, Salem - 636 003, TN, India</span></li>
+            <li><i class="ph ph-envelope"></i> <span>info@stackly.com</span></li>
+            <li><i class="ph ph-phone"></i> <span>+91 (800) 123-4567</span></li>
           </ul>
-          <h3 style="margin-top: 1.5rem; font-size: 1rem;">Business Hours</h3>
-          <p style="color:var(--text-muted); font-size:0.9rem;">Mon - Fri: 8:00 AM - 6:00 PM<br>Sat - Sun: Emergency Support</p>
         </div>
-        <div class="footer-col">
-          <h3>Newsletter Subscription</h3>
-          <p style="font-size: 0.9rem; margin-bottom: 1rem;">Stay updated with our latest sustainability reports and tech releases.</p>
-          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
-            <input type="email" placeholder="Email Address" required>
-            <button type="submit"><i class="ph ph-paper-plane-right"></i></button>
-          </form>
-          <div class="glowing-socials">
-            <a href="404.html"><i class="ph-fill ph-facebook-logo"></i></a>
-            <a href="404.html"><i class="ph-fill ph-twitter-logo"></i></a>
-            <a href="404.html"><i class="ph-fill ph-linkedin-logo"></i></a>
-            <a href="404.html"><i class="ph-fill ph-instagram-logo"></i></a>
+        
+        <!-- Col 5: Hours, Newsletter, Socials -->
+        <div class="footer-col highlight-col">
+            <div class="glass-card hours-card">
+              <h3>Business Hours</h3>
+              <p>Mon - Fri: 8:00 AM - 6:00 PM<br>Sat - Sun: Emergency Support</p>
+            </div>
+            <h3 class="mt-4" style="margin-top: 24px;">Newsletter</h3>
+            <form class="luxury-newsletter" >
+              <input type="email" placeholder="Enter your email" required>
+              <button type="submit" class="ripple-btn"><i class="ph ph-arrow-right"></i></button>
+            </form>
           </div>
         </div>
       </div>
       
-      <div class="footer-legal">
-        <div>&copy; 2026 Stackly Aquaculture Management System. All rights reserved.</div>
-        <div class="footer-legal-links">
-          <a href="404.html">Privacy Policy</a>
-          <a href="404.html">Terms & Conditions</a>
-          <a href="404.html">Cookie Policy</a>
+      <hr class="footer-divider-premium">
+        <div class="footer-bottom">
+          <div class="copyright">&copy; 2026 Stackly Aquaculture Management System. All rights reserved.</div>
+          <div class="legal-links">
+            <a href="404.html">Privacy Policy</a>
+            <a href="404.html">Terms & Conditions</a>
+            <a href="404.html">Cookie Policy</a>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
+  
+  <!-- Back to Top -->
+  <button id="back-to-top" class="back-to-top-btn"><i class="ph ph-caret-up"></i></button>
 </body>
 </html>

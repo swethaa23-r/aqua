@@ -157,3 +157,137 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+
+  // --- SortableJS Integration ---
+  if (typeof Sortable !== 'undefined') {
+    const grid = document.querySelector('.widget-grid');
+    if (grid) {
+      new Sortable(grid, {
+        animation: 300,
+        ghostClass: 'sortable-ghost',
+        easing: "cubic-bezier(1, 0, 0, 1)"
+      });
+    }
+  }
+
+  // --- Advanced SPA Routing with Skeleton & GSAP ---
+  // Overriding previous SPA logic
+  sidebarLinks.forEach(link => {
+    // Clone and replace to strip old event listener
+    const newLink = link.cloneNode(true);
+    link.parentNode.replaceChild(newLink, link);
+    
+    newLink.addEventListener('click', (e) => {
+      const targetId = newLink.getAttribute('data-section');
+      if (!targetId) return;
+
+      e.preventDefault();
+
+      // Update active states
+      document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+      newLink.classList.add('active');
+
+      if (breadcrumbCurrent) {
+        breadcrumbCurrent.textContent = newLink.querySelector('span').textContent;
+      }
+
+      // Handle Section Switch
+      spaSections.forEach(sec => {
+        sec.classList.remove('active');
+        sec.style.opacity = 0;
+      });
+
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.classList.add('active');
+        
+        // Inject Skeleton
+        const skeleton = document.createElement('div');
+        skeleton.className = 'skeleton-loader';
+        skeleton.innerHTML = `
+          <div class="skeleton-grid">
+            <div class="skeleton-box"></div><div class="skeleton-box"></div>
+            <div class="skeleton-box"></div><div class="skeleton-box"></div>
+          </div>
+          <div class="skeleton-box" style="height: 300px; margin-top:1.5rem;"></div>
+        `;
+        targetSection.style.position = 'relative';
+        targetSection.appendChild(skeleton);
+
+        // Simulate Network Fetch
+        setTimeout(() => {
+          skeleton.style.opacity = 0;
+          setTimeout(() => skeleton.remove(), 400);
+          
+          if (typeof gsap !== 'undefined') {
+            gsap.fromTo(targetSection, {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 0.6, ease: 'power3.out'});
+          } else {
+            targetSection.style.opacity = 1;
+          }
+          
+          // Animate Counters
+          const counters = targetSection.querySelectorAll('.widget-value');
+          counters.forEach(counter => {
+            const text = counter.innerText;
+            const num = parseInt(text.replace(/[^0-9]/g, ''));
+            if (!isNaN(num) && num > 0) {
+              const suffix = text.replace(/[0-9,]/g, '');
+              let obj = { val: 0 };
+              gsap.to(obj, {
+                val: num,
+                duration: 1.5,
+                ease: 'expo.out',
+                onUpdate: () => {
+                  // Format with commas
+                  counter.innerText = Math.floor(obj.val).toLocaleString() + suffix;
+                }
+              });
+            }
+          });
+        }, 600); // 600ms fake load time
+      }
+    });
+  });
+
+  // --- Notification Dropdown Logic ---
+  const notifBtn = document.getElementById('notif-btn');
+  const notifContainer = document.getElementById('notif-container');
+  if (notifBtn && notifContainer) {
+    notifBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      notifContainer.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!notifContainer.contains(e.target)) {
+        notifContainer.classList.remove('open');
+      }
+    });
+  }
+
+  // --- Dashboard Dark/Light Theme Toggle ---
+  // Ensure the theme toggle only affects the dashboard HTML tag
+  if (themeBtn) {
+    // replace node to remove old listener
+    const newThemeBtn = themeBtn.cloneNode(true);
+    themeBtn.parentNode.replaceChild(newThemeBtn, themeBtn);
+    
+    newThemeBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      newThemeBtn.innerHTML = isDark ? '<i class="ph ph-sun"></i>' : '<i class="ph ph-moon"></i>';
+      
+      // Update Charts
+      setTimeout(() => {
+        if (typeof Chart !== 'undefined' && charts.length > 0) {
+          const colors = {
+            text: isDark ? '#E2E8F0' : '#475569',
+            grid: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'
+          };
+          Chart.defaults.color = colors.text;
+          Chart.defaults.scale.grid.color = colors.grid;
+          charts.forEach(c => c.update());
+        }
+      }, 50);
+    });
+  }

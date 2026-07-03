@@ -452,3 +452,111 @@ html.dark .dashboard-topbar { background: var(--color-white); }
   background: #ef4444;
   border-radius: 50%;
 }
+
+/* --- Advanced Dashboard Overrides --- */
+
+/* Glassmorphism Defaults */
+.dashboard-sidebar, .dashboard-topbar, .widget-card, .chart-card {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border-color: var(--glass-border) !important;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.03) !important;
+}
+
+/* Dark Mode Overrides for Dashboard */
+html.dark .dashboard-body {
+  background: #0F172A !important;
+  color: #E2E8F0 !important;
+}
+html.dark .dashboard-content-wrapper {
+  background: #0F172A !important;
+}
+html.dark .dashboard-sidebar, 
+html.dark .dashboard-topbar, 
+html.dark .widget-card, 
+html.dark .chart-card,
+html.dark .notification-dropdown {
+  background: rgba(30, 41, 59, 0.7) !important;
+  backdrop-filter: blur(20px) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #E2E8F0 !important;
+}
+html.dark .sidebar-link, html.dark .widget-header, html.dark .chart-header {
+  color: #E2E8F0 !important;
+}
+html.dark .dashboard-table th { color: #94A3B8 !important; border-bottom-color: rgba(255,255,255,0.1) !important; }
+html.dark .dashboard-table td { border-bottom-color: rgba(255,255,255,0.05) !important; }
+
+/* Notification Dropdown Widget */
+.notification-container {
+  position: relative;
+}
+.notification-dropdown {
+  position: absolute;
+  top: 150%;
+  right: 0;
+  width: 320px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1000;
+}
+.notification-container.open .notification-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.notification-item {
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--glass-border);
+  font-size: 0.9rem;
+}
+.notification-item:last-child { border-bottom: none; }
+.notification-item h4 { margin-bottom: 0.3rem; color: var(--color-primary); }
+html.dark .notification-item h4 { color: var(--color-primary-light); }
+
+/* Skeleton Loading State */
+.skeleton-loader {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: var(--color-light);
+  z-index: 50;
+  padding: 2rem;
+  transition: opacity 0.4s ease;
+}
+html.dark .skeleton-loader { background: #0F172A; }
+.skeleton-box {
+  height: 120px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(90deg, rgba(200,200,200,0.1) 25%, rgba(200,200,200,0.3) 50%, rgba(200,200,200,0.1) 75%);
+  background-size: 400% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* Sortable JS Drag states */
+.sortable-ghost {
+  opacity: 0.4;
+  background: rgba(45, 212, 191, 0.2) !important;
+}
+.widget-card { cursor: grab; }
+.widget-card:active { cursor: grabbing; }
