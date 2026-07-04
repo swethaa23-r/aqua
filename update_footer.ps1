@@ -23,7 +23,7 @@ foreach ($f in $files) {
               <p>Mon - Fri: 8:00 AM - 6:00 PM<br>Sat - Sun: Emergency Support</p>
             </div>
             <h3 class="mt-4" style="margin-top: 24px;">Newsletter</h3>
-            <form class="luxury-newsletter" onsubmit="event.preventDefault(); alert(''Subscribed!'');">
+            <form class="luxury-newsletter">
               <input type="email" placeholder="Enter your email" required>
               <button type="submit" class="ripple-btn"><i class="ph ph-arrow-right"></i></button>
             </form>
@@ -33,7 +33,7 @@ foreach ($f in $files) {
     $footerBottomSearch = '(?s)<hr class="footer-divider">\s*<div class="footer-bottom">.*?</div>\s*</div>\s*</footer>'
     $footerBottomReplace = '<hr class="footer-divider-premium">
         <div class="footer-bottom">
-          <div class="copyright">&copy; 2026 Stackly Aquaculture Management System. All rights reserved.</div>
+          <div class="copyright">&copy; <span id="current-year"></span> Stackly Aquaculture Management System. All rights reserved.</div>
           <div class="legal-links">
             <a href="404.html">Privacy Policy</a>
             <a href="404.html">Terms & Conditions</a>

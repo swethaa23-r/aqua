@@ -184,7 +184,9 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="signup.html" class="btn btn-outline" style="padding: 0.5rem 1.5rem; margin-left:1rem;">Sign Up</a></li>
       </ul>
-      <button id="mobile-menu-btn" class="mobile-menu-btn"><i class="ph ph-list"></i></button>
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+        <i class="ph ph-list menu-icon"></i><i class="ph ph-x close-icon"></i>
+      </button>
     </div>
   </nav>
 
@@ -245,8 +247,8 @@
           </div>
           
           <div class="social-login" style="display: flex; gap: 1rem;">
-            <button type="button" class="social-btn"><i class="ph ph-google-logo"></i> Google</button>
-            <button type="button" class="social-btn"><i class="ph ph-windows-logo"></i> Microsoft</button>
+            <button type="button" class="social-btn" onclick="window.location.href='404.html'"><i class="ph ph-google-logo"></i> Google</button>
+            <button type="button" class="social-btn" onclick="window.location.href='404.html'"><i class="ph ph-windows-logo"></i> Microsoft</button>
           </div>
         
           <p style="text-align: center; font-size: 0.9rem; margin-top: 2rem;">
@@ -363,3 +365,4 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+

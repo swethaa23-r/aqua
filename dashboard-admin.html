@@ -121,7 +121,7 @@
       <div class="dashboard-content-wrapper">
         
         <!-- SECTION: Overview -->
-        <div id="section-overview" class="spa-section active" style="opacity: 1;">
+        <div id="section-overview" class="spa-section active" style="display:block; opacity:1;">
           <div class="widget-grid">
             <div class="widget-card">
               <div class="widget-header">
@@ -214,6 +214,372 @@
 
         <!-- SECTION: Farm Managers -->
         <div id="section-managers" class="spa-section">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Farm Managers Directory</h2>
+              <p style="color:#64748b; margin:0.25rem 0 0;">Manage access and assignments for farm managers globally.</p>
+            </div>
+            <button class="btn btn-primary" style="gap:0.5rem;"><i class="ph ph-plus"></i> Add Manager</button>
+          </div>
+          <div class="widget-grid" style="margin-bottom:1.5rem;">
+            <div class="widget-card"><div class="widget-header"><span>Total Managers</span><div class="widget-icon"><i class="ph ph-users"></i></div></div><div class="widget-value">48</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> +4 this quarter</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Avg Performance</span><div class="widget-icon" style="color:#f59e0b;background:rgba(245,158,11,0.1)"><i class="ph ph-star"></i></div></div><div class="widget-value">91/100</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> +3 pts vs last month</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Active Farms</span><div class="widget-icon" style="color:#8b5cf6;background:rgba(139,92,246,0.1)"><i class="ph ph-buildings"></i></div></div><div class="widget-value">24</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> 2 new onboarded</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Pending Reviews</span><div class="widget-icon" style="color:#ef4444;background:rgba(239,68,68,0.1)"><i class="ph ph-clock"></i></div></div><div class="widget-value">5</div><div class="widget-trend trend-down"><i class="ph ph-trend-down"></i> Action required</div></div>
+          </div>
+          <div class="chart-card table-container">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+              <div class="chart-header" style="margin:0;">All Farm Managers</div>
+              <input type="text" placeholder="🔍 Search managers..." style="padding:0.4rem 0.8rem; border:1px solid rgba(20,184,166,0.3); border-radius:8px; outline:none; font-size:0.85rem;">
+            </div>
+            <table class="dashboard-table">
+              <thead><tr><th>Manager</th><th>Email</th><th>Assigned Farm</th><th>Region</th><th>Performance</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td><div style="display:flex;align-items:center;gap:0.6rem;"><div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#14B8A6,#0a4275);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.8rem;">JD</div>John Doe</div></td><td>john.d@stackly.com</td><td>OceanBlue Norway</td><td>Europe</td><td><span style="color:#10b981;font-weight:700;">94/100</span></td><td><span class="status-badge status-optimal">Active</span></td><td><button class="btn btn-primary" style="padding:0.25rem 0.75rem;font-size:0.8rem;">Edit</button></td></tr>
+                <tr><td><div style="display:flex;align-items:center;gap:0.6rem;"><div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#8b5cf6,#6d28d9);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.8rem;">JS</div>Jane Smith</div></td><td>jane.s@stackly.com</td><td>Salem Hatchery</td><td>Asia</td><td><span style="color:#10b981;font-weight:700;">88/100</span></td><td><span class="status-badge status-optimal">Active</span></td><td><button class="btn btn-primary" style="padding:0.25rem 0.75rem;font-size:0.8rem;">Edit</button></td></tr>
+                <tr><td><div style="display:flex;align-items:center;gap:0.6rem;"><div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.8rem;">RK</div>Ravi Kumar</div></td><td>ravi.k@stackly.com</td><td>Pacific Shrimp Co.</td><td>Asia-Pacific</td><td><span style="color:#f59e0b;font-weight:700;">76/100</span></td><td><span class="status-badge status-warning">Review</span></td><td><button class="btn btn-primary" style="padding:0.25rem 0.75rem;font-size:0.8rem;">Edit</button></td></tr>
+                <tr><td><div style="display:flex;align-items:center;gap:0.6rem;"><div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.8rem;">MC</div>Maria Chen</div></td><td>maria.c@stackly.com</td><td>BlueFin Mediterranean</td><td>Europe</td><td><span style="color:#10b981;font-weight:700;">97/100</span></td><td><span class="status-badge status-optimal">Active</span></td><td><button class="btn btn-primary" style="padding:0.25rem 0.75rem;font-size:0.8rem;">Edit</button></td></tr>
+                <tr><td><div style="display:flex;align-items:center;gap:0.6rem;"><div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#14B8A6,#0891b2);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.8rem;">AO</div>Ahmed Omar</div></td><td>ahmed.o@stackly.com</td><td>GulfAqua Facility</td><td>Middle East</td><td><span style="color:#ef4444;font-weight:700;">62/100</span></td><td><span class="status-badge status-critical">Inactive</span></td><td><button class="btn btn-primary" style="padding:0.25rem 0.75rem;font-size:0.8rem;">Edit</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SECTION: Users -->
+        <div id="section-users" class="spa-section">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">User Management</h2>
+              <p style="color:#64748b; margin:0.25rem 0 0;">Manage platform access, roles, and permissions for all users.</p>
+            </div>
+            <button class="btn btn-primary"><i class="ph ph-plus"></i> Add User</button>
+          </div>
+          <div class="widget-grid" style="margin-bottom:1.5rem;">
+            <div class="widget-card"><div class="widget-header"><span>Total Users</span><div class="widget-icon"><i class="ph ph-identification-card"></i></div></div><div class="widget-value">312</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> +18 this month</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Admins</span><div class="widget-icon" style="color:#ef4444;background:rgba(239,68,68,0.1)"><i class="ph ph-shield-check"></i></div></div><div class="widget-value">3</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> Full access</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Managers</span><div class="widget-icon" style="color:#8b5cf6;background:rgba(139,92,246,0.1)"><i class="ph ph-users"></i></div></div><div class="widget-value">48</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> Farm-level access</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Viewers</span><div class="widget-icon" style="color:#f59e0b;background:rgba(245,158,11,0.1)"><i class="ph ph-eye"></i></div></div><div class="widget-value">261</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> Read-only access</div></div>
+          </div>
+          <div class="chart-card table-container">
+            <div class="chart-header">All Users</div>
+            <table class="dashboard-table">
+              <thead><tr><th>User</th><th>Email</th><th>Role</th><th>Last Login</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody>
+                <tr><td>Admin User</td><td>admin@stackly.com</td><td><span style="background:rgba(239,68,68,0.1);color:#ef4444;padding:0.2rem 0.6rem;border-radius:20px;font-size:0.8rem;font-weight:600;">Super Admin</span></td><td>Today, 9:00 AM</td><td><span class="status-badge status-optimal">Active</span></td><td><button class="btn btn-primary" style="padding:0.25rem 0.75rem;font-size:0.8rem;">Edit</button></td></tr>
+                <tr><td>John Doe</td><td>john.d@stackly.com</td><td><span style="background:rgba(139,92,246,0.1);color:#8b5cf6;padding:0.2rem 0.6rem;border-radius:20px;font-size:0.8rem;font-weight:600;">Manager</span></td><td>Today, 8:45 AM</td><td><span class="status-badge status-optimal">Active</span></td><td><button class="btn btn-primary" style="padding:0.25rem 0.75rem;font-size:0.8rem;">Edit</button></td></tr>
+                <tr><td>Sarah Jenkins</td><td>sarah.j@stackly.com</td><td><span style="background:rgba(245,158,11,0.1);color:#f59e0b;padding:0.2rem 0.6rem;border-radius:20px;font-size:0.8rem;font-weight:600;">Viewer</span></td><td>Yesterday</td><td><span class="status-badge status-optimal">Active</span></td><td><button class="btn btn-primary" style="padding:0.25rem 0.75rem;font-size:0.8rem;">Edit</button></td></tr>
+                <tr><td>Michael Raj</td><td>m.raj@stackly.com</td><td><span style="background:rgba(139,92,246,0.1);color:#8b5cf6;padding:0.2rem 0.6rem;border-radius:20px;font-size:0.8rem;font-weight:600;">Manager</span></td><td>3 days ago</td><td><span class="status-badge status-warning">Inactive</span></td><td><button class="btn btn-primary" style="padding:0.25rem 0.75rem;font-size:0.8rem;">Edit</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SECTION: Inventory -->
+        <div id="section-inventory" class="spa-section">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Fish &amp; Shrimp Inventory</h2>
+              <p style="color:#64748b; margin:0.25rem 0 0;">Live stock count across all global facilities.</p>
+            </div>
+            <button class="btn btn-primary"><i class="ph ph-export"></i> Export Report</button>
+          </div>
+          <div class="widget-grid" style="margin-bottom:1.5rem;">
+            <div class="widget-card"><div class="widget-header"><span>Atlantic Salmon</span><div class="widget-icon"><i class="ph ph-fish"></i></div></div><div class="widget-value">850,000</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> Avg weight: 4.2 kg</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Pacific White Shrimp</span><div class="widget-icon" style="color:#f59e0b;background:rgba(245,158,11,0.1)"><i class="ph ph-shrimp"></i></div></div><div class="widget-value">2.4M</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> Harvest in 18 days</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Tilapia</span><div class="widget-icon" style="color:#8b5cf6;background:rgba(139,92,246,0.1)"><i class="ph ph-fish"></i></div></div><div class="widget-value">410,000</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> FCR optimal at 1.08</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Barramundi</span><div class="widget-icon" style="color:#10b981;background:rgba(16,185,129,0.1)"><i class="ph ph-fish"></i></div></div><div class="widget-value">128,000</div><div class="widget-trend trend-down"><i class="ph ph-trend-down"></i> -5% mortality alert</div></div>
+          </div>
+          <div style="display:grid; grid-template-columns:2fr 1fr; gap:1.5rem;">
+            <div class="chart-card">
+              <div class="chart-header">Stock Distribution by Species</div>
+              <div style="height:280px;"><canvas id="inventoryChart"></canvas></div>
+            </div>
+            <div class="chart-card">
+              <div class="chart-header">Health Status Summary</div>
+              <div style="margin-top:0.5rem; display:flex; flex-direction:column; gap:1rem;">
+                <div><div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;"><span style="font-size:0.85rem;">Optimal</span><span style="font-weight:700;color:#10b981;">78%</span></div><div style="height:8px;background:#e2e8f0;border-radius:4px;"><div style="width:78%;height:100%;background:#10b981;border-radius:4px;"></div></div></div>
+                <div><div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;"><span style="font-size:0.85rem;">Monitor</span><span style="font-weight:700;color:#f59e0b;">15%</span></div><div style="height:8px;background:#e2e8f0;border-radius:4px;"><div style="width:15%;height:100%;background:#f59e0b;border-radius:4px;"></div></div></div>
+                <div><div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;"><span style="font-size:0.85rem;">Critical</span><span style="font-weight:700;color:#ef4444;">7%</span></div><div style="height:8px;background:#e2e8f0;border-radius:4px;"><div style="width:7%;height:100%;background:#ef4444;border-radius:4px;"></div></div></div>
+                <hr style="border-color:rgba(20,184,166,0.15);">
+                <div style="font-size:0.85rem;color:#64748b;"><i class="ph ph-info" style="color:#14B8A6;"></i> Next scheduled health check: <strong>Tomorrow 6:00 AM</strong></div>
+                <div style="font-size:0.85rem;color:#64748b;"><i class="ph ph-calendar" style="color:#14B8A6;"></i> Next harvest estimate: <strong>Jul 22, 2026</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION: Water Quality -->
+        <div id="section-water" class="spa-section">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Water Quality Monitoring</h2>
+              <p style="color:#64748b; margin:0.25rem 0 0;">Live sensor data from all farm facilities.</p>
+            </div>
+            <button class="btn btn-primary"><i class="ph ph-download"></i> Download Report</button>
+          </div>
+          <div class="widget-grid" style="margin-bottom:1.5rem;">
+            <div class="widget-card"><div class="widget-header"><span>Avg pH Level</span><div class="widget-icon"><i class="ph ph-flask"></i></div></div><div class="widget-value">7.4</div><div class="widget-trend trend-up"><i class="ph ph-check-circle"></i> Optimal range</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Dissolved O₂</span><div class="widget-icon" style="color:#38bdf8;background:rgba(56,189,248,0.1)"><i class="ph ph-drop"></i></div></div><div class="widget-value">8.2 mg/L</div><div class="widget-trend trend-up"><i class="ph ph-check-circle"></i> Healthy</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Ammonia (NH₃)</span><div class="widget-icon" style="color:#ef4444;background:rgba(239,68,68,0.1)"><i class="ph ph-warning"></i></div></div><div class="widget-value">1.2 mg/L</div><div class="widget-trend trend-down"><i class="ph ph-warning"></i> Salem — Alert!</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Avg Temp</span><div class="widget-icon" style="color:#f59e0b;background:rgba(245,158,11,0.1)"><i class="ph ph-thermometer"></i></div></div><div class="widget-value">18.5°C</div><div class="widget-trend trend-up"><i class="ph ph-check-circle"></i> Optimal</div></div>
+          </div>
+          <div style="display:grid; grid-template-columns:2fr 1fr; gap:1.5rem;">
+            <div class="chart-card">
+              <div class="chart-header">Aggregate Sensor Radar — All Farms</div>
+              <div style="height:300px;"><canvas id="wqChart"></canvas></div>
+            </div>
+            <div class="chart-card">
+              <div class="chart-header"><i class="ph ph-warning-circle" style="color:#ef4444;"></i> Active Alerts</div>
+              <div style="display:flex;flex-direction:column;gap:0.8rem;margin-top:0.5rem;">
+                <div style="background:rgba(239,68,68,0.06);border-left:3px solid #ef4444;padding:0.75rem;border-radius:8px;"><strong style="color:#ef4444;">Critical</strong><p style="margin:0.2rem 0 0;font-size:0.85rem;">Farm C (Salem): Ammonia spike 1.2mg/L — Auto-flush initiated</p></div>
+                <div style="background:rgba(245,158,11,0.06);border-left:3px solid #f59e0b;padding:0.75rem;border-radius:8px;"><strong style="color:#f59e0b;">Warning</strong><p style="margin:0.2rem 0 0;font-size:0.85rem;">OceanBlue Norway: Temp rising — 19.8°C (target &lt;19°C)</p></div>
+                <div style="background:rgba(16,185,129,0.06);border-left:3px solid #10b981;padding:0.75rem;border-radius:8px;"><strong style="color:#10b981;">Resolved</strong><p style="margin:0.2rem 0 0;font-size:0.85rem;">Pacific Shrimp: O₂ low alert resolved at 10:12 AM</p></div>
+                <div style="background:rgba(56,189,248,0.06);border-left:3px solid #38bdf8;padding:0.75rem;border-radius:8px;"><strong style="color:#38bdf8;">Info</strong><p style="margin:0.2rem 0 0;font-size:0.85rem;">BlueFin Med: Routine salinity calibration scheduled 2PM</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION: Feed Management -->
+        <div id="section-feed" class="spa-section">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Feed Management</h2>
+              <p style="color:#64748b; margin:0.25rem 0 0;">Automated feeding operations across all facilities.</p>
+            </div>
+            <button class="btn btn-primary"><i class="ph ph-gear"></i> Configure Schedule</button>
+          </div>
+          <div class="widget-grid" style="margin-bottom:1.5rem;">
+            <div class="widget-card"><div class="widget-header"><span>Global FCR</span><div class="widget-icon"><i class="ph ph-bowl-food"></i></div></div><div class="widget-value">1.12</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> Best this quarter</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Feed Consumed (Today)</span><div class="widget-icon" style="color:#f59e0b;background:rgba(245,158,11,0.1)"><i class="ph ph-scales"></i></div></div><div class="widget-value">42.8 T</div><div class="widget-trend trend-up"><i class="ph ph-check-circle"></i> Within budget</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Automated Dispensers</span><div class="widget-icon" style="color:#8b5cf6;background:rgba(139,92,246,0.1)"><i class="ph ph-robot"></i></div></div><div class="widget-value">186</div><div class="widget-trend trend-up"><i class="ph ph-check-circle"></i> All operational</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Feed Waste Rate</span><div class="widget-icon" style="color:#10b981;background:rgba(16,185,129,0.1)"><i class="ph ph-recycle"></i></div></div><div class="widget-value">3.2%</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> Down from 5.1%</div></div>
+          </div>
+          <div style="display:grid; grid-template-columns:3fr 2fr; gap:1.5rem;">
+            <div class="chart-card table-container">
+              <div class="chart-header">Today's Feeding Schedule</div>
+              <table class="dashboard-table">
+                <thead><tr><th>Time</th><th>Farm</th><th>Species</th><th>Qty (kg)</th><th>Method</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td>06:00 AM</td><td>OceanBlue Norway</td><td>Atlantic Salmon</td><td>1,200</td><td>Auto-dispenser</td><td><span class="status-badge status-optimal">Done</span></td></tr>
+                  <tr><td>09:00 AM</td><td>Salem Hatchery</td><td>Tilapia Fry</td><td>320</td><td>Auto-dispenser</td><td><span class="status-badge status-optimal">Done</span></td></tr>
+                  <tr><td>12:00 PM</td><td>Pacific Shrimp Co.</td><td>White Shrimp</td><td>850</td><td>Aerial Drone</td><td><span class="status-badge status-warning">In Progress</span></td></tr>
+                  <tr><td>03:00 PM</td><td>BlueFin Mediterranean</td><td>Bluefin Tuna</td><td>2,100</td><td>Underwater Robot</td><td><span class="status-badge" style="background:rgba(148,163,184,0.1);color:#94a3b8;">Scheduled</span></td></tr>
+                  <tr><td>06:00 PM</td><td>GulfAqua Facility</td><td>Barramundi</td><td>540</td><td>Auto-dispenser</td><td><span class="status-badge" style="background:rgba(148,163,184,0.1);color:#94a3b8;">Scheduled</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="chart-card">
+              <div class="chart-header">Feed Consumption Trend</div>
+              <div style="height:240px;"><canvas id="feedChart"></canvas></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION: Orders & Sales -->
+        <div id="section-orders" class="spa-section">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Orders &amp; Sales Pipeline</h2>
+              <p style="color:#64748b; margin:0.25rem 0 0;">Track dispatches, deliveries, and client orders in real-time.</p>
+            </div>
+            <button class="btn btn-primary"><i class="ph ph-plus"></i> New Order</button>
+          </div>
+          <div class="widget-grid" style="margin-bottom:1.5rem;">
+            <div class="widget-card"><div class="widget-header"><span>Revenue (MTD)</span><div class="widget-icon"><i class="ph ph-currency-dollar"></i></div></div><div class="widget-value">$1.2M</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> +8.4% vs last month</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Orders This Month</span><div class="widget-icon" style="color:#8b5cf6;background:rgba(139,92,246,0.1)"><i class="ph ph-shopping-cart"></i></div></div><div class="widget-value">67</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> +12 new orders</div></div>
+            <div class="widget-card"><div class="widget-header"><span>In Transit</span><div class="widget-icon" style="color:#f59e0b;background:rgba(245,158,11,0.1)"><i class="ph ph-truck"></i></div></div><div class="widget-value">14</div><div class="widget-trend trend-up"><i class="ph ph-check-circle"></i> On schedule</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Pending Invoices</span><div class="widget-icon" style="color:#ef4444;background:rgba(239,68,68,0.1)"><i class="ph ph-invoice"></i></div></div><div class="widget-value">$340K</div><div class="widget-trend trend-down"><i class="ph ph-warning"></i> 8 overdue</div></div>
+          </div>
+          <div class="chart-card table-container">
+            <div class="chart-header">All Orders</div>
+            <table class="dashboard-table">
+              <thead><tr><th>Order ID</th><th>Date</th><th>Client</th><th>Product</th><th>Qty</th><th>Value</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td><strong>#ORD-994</strong></td><td>Jul 04, 2026</td><td>Fresh Catch Co.</td><td>Tilapia</td><td>30T</td><td>$86,000</td><td><span class="status-badge" style="background:rgba(59,130,246,0.1);color:#3b82f6;">Processing</span></td><td><button class="btn btn-primary" style="padding:0.25rem 0.75rem;font-size:0.8rem;">View</button></td></tr>
+                <tr><td><strong>#ORD-993</strong></td><td>Jul 03, 2026</td><td>AquaCorp</td><td>Pacific Shrimp</td><td>20T</td><td>$124,000</td><td><span class="status-badge status-warning">In Transit</span></td><td><button class="btn btn-primary" style="padding:0.25rem 0.75rem;font-size:0.8rem;">Track</button></td></tr>
+                <tr><td><strong>#ORD-992</strong></td><td>Jul 02, 2026</td><td>Oceanic Foods Ltd.</td><td>Atlantic Salmon</td><td>50T</td><td>$312,000</td><td><span class="status-badge status-optimal">Delivered</span></td><td><button class="btn btn-primary" style="padding:0.25rem 0.75rem;font-size:0.8rem;">Invoice</button></td></tr>
+                <tr><td><strong>#ORD-991</strong></td><td>Jul 01, 2026</td><td>BlueSea Markets</td><td>Barramundi</td><td>15T</td><td>$97,500</td><td><span class="status-badge status-optimal">Delivered</span></td><td><button class="btn btn-primary" style="padding:0.25rem 0.75rem;font-size:0.8rem;">Invoice</button></td></tr>
+                <tr><td><strong>#ORD-990</strong></td><td>Jun 28, 2026</td><td>NordicFish AS</td><td>Atlantic Salmon</td><td>80T</td><td>$496,000</td><td><span class="status-badge status-critical">Overdue</span></td><td><button class="btn btn-primary" style="padding:0.25rem 0.75rem;font-size:0.8rem;">Follow Up</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SECTION: Analytics -->
+        <div id="section-analytics" class="spa-section">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Analytics &amp; Reports</h2>
+              <p style="color:#64748b; margin:0.25rem 0 0;">Deep insights and exportable reports for stakeholders.</p>
+            </div>
+            <div style="display:flex;gap:0.75rem;">
+              <button class="btn btn-primary" style="background:transparent;color:#14B8A6;border-color:#14B8A6;"><i class="ph ph-file-pdf"></i> Export PDF</button>
+              <button class="btn btn-primary"><i class="ph ph-file-xls"></i> Export Excel</button>
+            </div>
+          </div>
+          <div class="widget-grid" style="margin-bottom:1.5rem;">
+            <div class="widget-card"><div class="widget-header"><span>YTD Revenue</span><div class="widget-icon"><i class="ph ph-chart-line-up"></i></div></div><div class="widget-value">$9.8M</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> +22% vs last year</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Total Production</span><div class="widget-icon" style="color:#f59e0b;background:rgba(245,158,11,0.1)"><i class="ph ph-scales"></i></div></div><div class="widget-value">8,420 T</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> +18% YoY</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Avg Yield/Farm</span><div class="widget-icon" style="color:#8b5cf6;background:rgba(139,92,246,0.1)"><i class="ph ph-buildings"></i></div></div><div class="widget-value">350 T</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> Up from 298T</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Client Retention</span><div class="widget-icon" style="color:#10b981;background:rgba(16,185,129,0.1)"><i class="ph ph-handshake"></i></div></div><div class="widget-value">94.2%</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> Industry leading</div></div>
+          </div>
+          <div style="display:grid; grid-template-columns:2fr 1fr; gap:1.5rem;">
+            <div class="chart-card">
+              <div class="chart-header">Revenue &amp; Production — 12 Month Trend</div>
+              <div style="height:300px;"><canvas id="analyticsChart"></canvas></div>
+            </div>
+            <div class="chart-card">
+              <div class="chart-header">Top Performing Farms</div>
+              <div style="display:flex;flex-direction:column;gap:0.75rem;margin-top:0.5rem;">
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:0.6rem;background:rgba(20,184,166,0.05);border-radius:8px;"><span style="font-weight:600;">🇳🇴 OceanBlue Norway</span><span style="color:#10b981;font-weight:700;">$3.1M</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:0.6rem;background:rgba(20,184,166,0.05);border-radius:8px;"><span style="font-weight:600;">🌊 BlueFin Med</span><span style="color:#10b981;font-weight:700;">$2.4M</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:0.6rem;background:rgba(20,184,166,0.05);border-radius:8px;"><span style="font-weight:600;">🦐 Pacific Shrimp Co.</span><span style="color:#10b981;font-weight:700;">$1.9M</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:0.6rem;background:rgba(20,184,166,0.05);border-radius:8px;"><span style="font-weight:600;">🇮🇳 Salem Hatchery</span><span style="color:#f59e0b;font-weight:700;">$1.4M</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:0.6rem;background:rgba(239,68,68,0.04);border-radius:8px;"><span style="font-weight:600;">🌍 GulfAqua</span><span style="color:#ef4444;font-weight:700;">$0.9M</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION: Sustainability -->
+        <div id="section-sustainability" class="spa-section">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Sustainability Compliance</h2>
+              <p style="color:#64748b; margin:0.25rem 0 0;">Environmental certifications, carbon footprint and waste reporting.</p>
+            </div>
+            <button class="btn btn-primary"><i class="ph ph-leaf"></i> Generate ESG Report</button>
+          </div>
+          <div class="widget-grid" style="margin-bottom:1.5rem;">
+            <div class="widget-card"><div class="widget-header"><span>ASC Certified Farms</span><div class="widget-icon" style="color:#10b981;background:rgba(16,185,129,0.1)"><i class="ph ph-seal-check"></i></div></div><div class="widget-value">24/24</div><div class="widget-trend trend-up"><i class="ph ph-check-circle"></i> 100% compliant</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Water Recycled (MTD)</span><div class="widget-icon" style="color:#38bdf8;background:rgba(56,189,248,0.1)"><i class="ph ph-drop-half"></i></div></div><div class="widget-value">14.2M L</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> +9% vs last month</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Carbon Offset (YTD)</span><div class="widget-icon" style="color:#10b981;background:rgba(16,185,129,0.1)"><i class="ph ph-leaf"></i></div></div><div class="widget-value">1,240 T</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> CO₂ equivalent</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Renewable Energy</span><div class="widget-icon" style="color:#f59e0b;background:rgba(245,158,11,0.1)"><i class="ph ph-sun"></i></div></div><div class="widget-value">100%</div><div class="widget-trend trend-up"><i class="ph ph-check-circle"></i> Solar-powered</div></div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+            <div class="chart-card">
+              <div class="chart-header">Certification Status by Farm</div>
+              <div style="display:flex;flex-direction:column;gap:0.6rem;margin-top:0.5rem;">
+                <div style="display:flex;justify-content:space-between;align-items:center;"><span>OceanBlue Norway</span><div style="display:flex;gap:0.4rem;"><span style="background:rgba(16,185,129,0.1);color:#10b981;padding:0.15rem 0.5rem;border-radius:20px;font-size:0.75rem;">ASC</span><span style="background:rgba(56,189,248,0.1);color:#38bdf8;padding:0.15rem 0.5rem;border-radius:20px;font-size:0.75rem;">ISO 14001</span></div></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;"><span>Salem Hatchery</span><div style="display:flex;gap:0.4rem;"><span style="background:rgba(16,185,129,0.1);color:#10b981;padding:0.15rem 0.5rem;border-radius:20px;font-size:0.75rem;">ASC</span><span style="background:rgba(245,158,11,0.1);color:#f59e0b;padding:0.15rem 0.5rem;border-radius:20px;font-size:0.75rem;">BAP ⚠</span></div></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;"><span>Pacific Shrimp Co.</span><div style="display:flex;gap:0.4rem;"><span style="background:rgba(16,185,129,0.1);color:#10b981;padding:0.15rem 0.5rem;border-radius:20px;font-size:0.75rem;">ASC</span><span style="background:rgba(56,189,248,0.1);color:#38bdf8;padding:0.15rem 0.5rem;border-radius:20px;font-size:0.75rem;">ISO 14001</span></div></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;"><span>BlueFin Mediterranean</span><div style="display:flex;gap:0.4rem;"><span style="background:rgba(16,185,129,0.1);color:#10b981;padding:0.15rem 0.5rem;border-radius:20px;font-size:0.75rem;">ASC</span><span style="background:rgba(16,185,129,0.1);color:#10b981;padding:0.15rem 0.5rem;border-radius:20px;font-size:0.75rem;">EU Organic</span></div></div>
+              </div>
+              <div class="chart-header" style="margin-top:1.5rem;">Waste Reduction Progress</div>
+              <div style="margin-top:0.5rem;display:flex;flex-direction:column;gap:0.8rem;">
+                <div><div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;"><span style="font-size:0.85rem;">Solid Waste Recycled</span><span style="font-weight:700;color:#10b981;">88%</span></div><div style="height:8px;background:#e2e8f0;border-radius:4px;"><div style="width:88%;height:100%;background:linear-gradient(90deg,#14B8A6,#10b981);border-radius:4px;"></div></div></div>
+                <div><div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;"><span style="font-size:0.85rem;">Water Reuse Rate</span><span style="font-weight:700;color:#38bdf8;">92%</span></div><div style="height:8px;background:#e2e8f0;border-radius:4px;"><div style="width:92%;height:100%;background:linear-gradient(90deg,#38bdf8,#0891b2);border-radius:4px;"></div></div></div>
+                <div><div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;"><span style="font-size:0.85rem;">Feed Waste Reduced</span><span style="font-weight:700;color:#8b5cf6;">74%</span></div><div style="height:8px;background:#e2e8f0;border-radius:4px;"><div style="width:74%;height:100%;background:linear-gradient(90deg,#8b5cf6,#6d28d9);border-radius:4px;"></div></div></div>
+              </div>
+            </div>
+            <div class="chart-card">
+              <div class="chart-header">Carbon Footprint Trend</div>
+              <div style="height:280px;"><canvas id="sustainChart"></canvas></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION: Notifications -->
+        <div id="section-notifications" class="spa-section">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Notifications</h2>
+              <p style="color:#64748b; margin:0.25rem 0 0;">System alerts, farm events, and important updates.</p>
+            </div>
+            <button class="btn btn-primary" style="background:transparent;color:#64748b;border-color:#e2e8f0;font-size:0.85rem;"><i class="ph ph-check-circle"></i> Mark all read</button>
+          </div>
+          <div class="chart-card" style="padding:0; overflow:hidden;">
+            <div style="padding:1rem 1.5rem; border-bottom:1px solid rgba(20,184,166,0.12); display:flex; gap:0.5rem;">
+              <span style="padding:0.3rem 0.8rem;background:#14B8A6;color:#fff;border-radius:20px;font-size:0.8rem;cursor:pointer;">All (12)</span>
+              <span style="padding:0.3rem 0.8rem;background:rgba(239,68,68,0.1);color:#ef4444;border-radius:20px;font-size:0.8rem;cursor:pointer;">Critical (2)</span>
+              <span style="padding:0.3rem 0.8rem;background:rgba(245,158,11,0.1);color:#f59e0b;border-radius:20px;font-size:0.8rem;cursor:pointer;">Warnings (4)</span>
+              <span style="padding:0.3rem 0.8rem;background:rgba(16,185,129,0.1);color:#10b981;border-radius:20px;font-size:0.8rem;cursor:pointer;">System (6)</span>
+            </div>
+            <div style="display:flex;flex-direction:column;">
+              <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(20,184,166,0.08);display:flex;gap:1rem;align-items:flex-start;background:rgba(239,68,68,0.03);"><div style="width:10px;height:10px;background:#ef4444;border-radius:50%;margin-top:5px;flex-shrink:0;"></div><div><strong style="color:#ef4444;">Critical — Salem Hatchery: Ammonia Spike</strong><p style="margin:0.2rem 0 0;font-size:0.85rem;color:#64748b;">NH₃ levels at 1.2mg/L (threshold: 0.8). Auto-flush protocol initiated. Estimated resolution: 25 min.</p><span style="font-size:0.75rem;color:#94a3b8;">Today, 09:30 AM</span></div></div>
+              <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(20,184,166,0.08);display:flex;gap:1rem;align-items:flex-start;background:rgba(239,68,68,0.03);"><div style="width:10px;height:10px;background:#ef4444;border-radius:50%;margin-top:5px;flex-shrink:0;"></div><div><strong style="color:#ef4444;">Critical — GulfAqua: Manager Offline</strong><p style="margin:0.2rem 0 0;font-size:0.85rem;color:#64748b;">Farm manager Ahmed Omar has not logged in for 72 hours. Automated monitoring active.</p><span style="font-size:0.75rem;color:#94a3b8;">Today, 07:00 AM</span></div></div>
+              <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(20,184,166,0.08);display:flex;gap:1rem;align-items:flex-start;"><div style="width:10px;height:10px;background:#f59e0b;border-radius:50%;margin-top:5px;flex-shrink:0;"></div><div><strong style="color:#f59e0b;">Warning — OceanBlue Norway: Temperature Rising</strong><p style="margin:0.2rem 0 0;font-size:0.85rem;color:#64748b;">Tank 4B temperature reached 19.8°C. Target is below 19°C. Cooling system engaged.</p><span style="font-size:0.75rem;color:#94a3b8;">Today, 10:12 AM</span></div></div>
+              <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(20,184,166,0.08);display:flex;gap:1rem;align-items:flex-start;"><div style="width:10px;height:10px;background:#f59e0b;border-radius:50%;margin-top:5px;flex-shrink:0;"></div><div><strong style="color:#f59e0b;">Warning — Inventory: Barramundi Mortality Alert</strong><p style="margin:0.2rem 0 0;font-size:0.85rem;color:#64748b;">5% mortality rate detected in GulfAqua Barramundi tanks. Veterinary review recommended.</p><span style="font-size:0.75rem;color:#94a3b8;">Yesterday, 11:00 PM</span></div></div>
+              <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(20,184,166,0.08);display:flex;gap:1rem;align-items:flex-start;"><div style="width:10px;height:10px;background:#10b981;border-radius:50%;margin-top:5px;flex-shrink:0;"></div><div><strong>Harvest Complete — Pacific Shrimp Co.</strong><p style="margin:0.2rem 0 0;font-size:0.85rem;color:#64748b;">Batch #SH-2026-07 successfully harvested. Total yield: 40 Tons. Dispatched to AquaCorp.</p><span style="font-size:0.75rem;color:#94a3b8;">Today, 08:15 AM</span></div></div>
+              <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(20,184,166,0.08);display:flex;gap:1rem;align-items:flex-start;"><div style="width:10px;height:10px;background:#38bdf8;border-radius:50%;margin-top:5px;flex-shrink:0;"></div><div><strong>System — Firmware Update Available</strong><p style="margin:0.2rem 0 0;font-size:0.85rem;color:#64748b;">New firmware v3.2.1 available for Aqua-Eye underwater optical sensors. Schedule maintenance window to apply.</p><span style="font-size:0.75rem;color:#94a3b8;">Yesterday, 06:00 PM</span></div></div>
+              <div style="padding:1rem 1.5rem;display:flex;gap:1rem;align-items:flex-start;"><div style="width:10px;height:10px;background:#38bdf8;border-radius:50%;margin-top:5px;flex-shrink:0;"></div><div><strong>System — Automated Backup Completed</strong><p style="margin:0.2rem 0 0;font-size:0.85rem;color:#64748b;">All farm sensor data backed up to secure cloud storage. Next backup: Tomorrow 2:00 AM.</p><span style="font-size:0.75rem;color:#94a3b8;">Today, 02:00 AM</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION: Profile -->
+        <div id="section-profile" class="spa-section">
+          <h2 style="font-family:'Outfit',sans-serif; color:#0a4275; margin-bottom:1.5rem;">Administrator Profile</h2>
+          <div style="display:grid; grid-template-columns:1fr 2fr; gap:1.5rem; align-items:start;">
+            <div class="chart-card" style="text-align:center;">
+              <div style="width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,#0a4275,#14B8A6);color:#fff;display:flex;align-items:center;justify-content:center;font-size:2.2rem;font-weight:800;margin:0 auto 1rem; font-family:'Outfit',sans-serif;">AD</div>
+              <h3 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Admin User</h3>
+              <p style="margin:0.25rem 0; color:#14B8A6; font-weight:600;">Super Administrator</p>
+              <p style="font-size:0.85rem;color:#64748b;">admin@stackly.com</p>
+              <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(20,184,166,0.15);">
+                <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.5rem;"><span style="color:#64748b;">Farms Managed</span><strong>24</strong></div>
+                <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.5rem;"><span style="color:#64748b;">Users Under</span><strong>312</strong></div>
+                <div style="display:flex;justify-content:space-between;font-size:0.85rem;"><span style="color:#64748b;">Last Login</span><strong>Today</strong></div>
+              </div>
+              <button class="btn btn-primary" style="width:100%;margin-top:1rem;">Change Avatar</button>
+            </div>
+            <div class="chart-card">
+              <div class="chart-header">Edit Profile</div>
+              <form style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:0.5rem;">
+                <div><label style="display:block;margin-bottom:0.4rem;font-weight:500;font-size:0.85rem;color:#64748b;">First Name</label><input type="text" value="Admin" style="width:100%;padding:0.6rem 0.8rem;border:1px solid rgba(20,184,166,0.3);border-radius:8px;outline:none;font-size:0.9rem;box-sizing:border-box;"></div>
+                <div><label style="display:block;margin-bottom:0.4rem;font-weight:500;font-size:0.85rem;color:#64748b;">Last Name</label><input type="text" value="User" style="width:100%;padding:0.6rem 0.8rem;border:1px solid rgba(20,184,166,0.3);border-radius:8px;outline:none;font-size:0.9rem;box-sizing:border-box;"></div>
+                <div><label style="display:block;margin-bottom:0.4rem;font-weight:500;font-size:0.85rem;color:#64748b;">Email</label><input type="email" value="admin@stackly.com" style="width:100%;padding:0.6rem 0.8rem;border:1px solid rgba(20,184,166,0.3);border-radius:8px;outline:none;font-size:0.9rem;box-sizing:border-box;"></div>
+                <div><label style="display:block;margin-bottom:0.4rem;font-weight:500;font-size:0.85rem;color:#64748b;">Phone</label><input type="text" value="+1 (555) 000-0000" style="width:100%;padding:0.6rem 0.8rem;border:1px solid rgba(20,184,166,0.3);border-radius:8px;outline:none;font-size:0.9rem;box-sizing:border-box;"></div>
+                <div style="grid-column:1/-1;"><label style="display:block;margin-bottom:0.4rem;font-weight:500;font-size:0.85rem;color:#64748b;">Role</label><input type="text" value="Super Administrator" readonly style="width:100%;padding:0.6rem 0.8rem;border:1px solid rgba(20,184,166,0.15);border-radius:8px;background:#f8fafc;font-size:0.9rem;box-sizing:border-box;"></div>
+                <div style="grid-column:1/-1;"><label style="display:block;margin-bottom:0.4rem;font-weight:500;font-size:0.85rem;color:#64748b;">Change Password</label><input type="password" placeholder="New password..." style="width:100%;padding:0.6rem 0.8rem;border:1px solid rgba(20,184,166,0.3);border-radius:8px;outline:none;font-size:0.9rem;box-sizing:border-box;"></div>
+                <div style="grid-column:1/-1; display:flex; gap:0.75rem; margin-top:0.5rem;">
+                  <button type="button" class="btn btn-primary">Save Changes</button>
+                  <button type="button" class="btn btn-primary" style="background:transparent;color:#64748b;border-color:#e2e8f0;">Cancel</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION: Settings -->
+        <div id="section-settings" class="spa-section">
+          <h2 style="font-family:'Outfit',sans-serif; color:#0a4275; margin-bottom:1.5rem;">Global System Settings</h2>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+            <div class="chart-card">
+              <div class="chart-header">API &amp; Integrations</div>
+              <div style="display:flex;flex-direction:column;gap:1rem;">
+                <div><label style="display:block;margin-bottom:0.4rem;font-weight:500;font-size:0.85rem;color:#64748b;">API Key (Third Party)</label><div style="display:flex;gap:0.5rem;"><input type="password" value="sk_test_123456789" style="flex:1;padding:0.6rem 0.8rem;border:1px solid rgba(20,184,166,0.3);border-radius:8px;outline:none;font-size:0.9rem;" readonly><button style="padding:0.6rem 1rem;background:#14B8A6;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:0.8rem;">Copy</button></div></div>
+                <div><label style="display:block;margin-bottom:0.4rem;font-weight:500;font-size:0.85rem;color:#64748b;">Webhook URL</label><input type="text" value="https://api.stackly.com/webhook/v2" style="width:100%;padding:0.6rem 0.8rem;border:1px solid rgba(20,184,166,0.3);border-radius:8px;outline:none;font-size:0.9rem;box-sizing:border-box;"></div>
+                <div><label style="display:block;margin-bottom:0.4rem;font-weight:500;font-size:0.85rem;color:#64748b;">Data Retention Policy</label><select style="width:100%;padding:0.6rem 0.8rem;border:1px solid rgba(20,184,166,0.3);border-radius:8px;outline:none;font-size:0.9rem;"><option>30 Days</option><option>90 Days</option><option selected>1 Year</option><option>Indefinitely</option></select></div>
+              </div>
+            </div>
+            <div class="chart-card">
+              <div class="chart-header">Alerts &amp; Notifications</div>
+              <div style="display:flex;flex-direction:column;gap:0.9rem;">
+                <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:0.9rem;">Email Alerts</span><input type="checkbox" checked style="width:20px;height:20px;accent-color:#14B8A6;cursor:pointer;"></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:0.9rem;">SMS Alerts (Critical Only)</span><input type="checkbox" checked style="width:20px;height:20px;accent-color:#14B8A6;cursor:pointer;"></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:0.9rem;">Push Notifications</span><input type="checkbox" style="width:20px;height:20px;accent-color:#14B8A6;cursor:pointer;"></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:0.9rem;">Weekly Digest Email</span><input type="checkbox" checked style="width:20px;height:20px;accent-color:#14B8A6;cursor:pointer;"></div>
+                <hr style="border-color:rgba(20,184,166,0.15);">
+                <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:0.9rem;">Auto-Updates (Edge Sensors)</span><input type="checkbox" checked style="width:20px;height:20px;accent-color:#14B8A6;cursor:pointer;"></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:0.9rem;">AI Anomaly Detection</span><input type="checkbox" checked style="width:20px;height:20px;accent-color:#14B8A6;cursor:pointer;"></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:0.9rem;">Predictive Feed Alerts</span><input type="checkbox" checked style="width:20px;height:20px;accent-color:#14B8A6;cursor:pointer;"></div>
+              </div>
+            </div>
+            <div class="chart-card" style="grid-column:1/-1;">
+              <div class="chart-header">Danger Zone</div>
+              <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                <button type="button" style="padding:0.6rem 1.2rem;background:rgba(245,158,11,0.1);color:#f59e0b;border:1px solid rgba(245,158,11,0.3);border-radius:8px;cursor:pointer;font-weight:600;">Clear All Cached Data</button>
+                <button type="button" style="padding:0.6rem 1.2rem;background:rgba(239,68,68,0.1);color:#ef4444;border:1px solid rgba(239,68,68,0.3);border-radius:8px;cursor:pointer;font-weight:600;">Reset All Sensor Calibrations</button>
+                <button type="button" style="padding:0.6rem 1.2rem;background:rgba(239,68,68,0.1);color:#ef4444;border:1px solid rgba(239,68,68,0.3);border-radius:8px;cursor:pointer;font-weight:600;">Revoke All API Keys</button>
+                <button type="button" class="btn btn-primary" style="margin-left:auto;">Save All Settings</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
           <h2>Farm Managers Directory</h2>
           <p style="color: var(--text-muted); margin-bottom: 24px;">Manage access and assignments for farm managers globally.</p>
           <div class="chart-card table-container">
@@ -424,3 +790,4 @@
   <div id="back-to-top"><i class="ph ph-caret-up"></i></div>
 </body>
 </html>
+

@@ -38,21 +38,30 @@ document.addEventListener('DOMContentLoaded', () => {
       // Hide all sections
       spaSections.forEach(sec => {
         sec.classList.remove('active');
-        sec.style.opacity = 0;
+        sec.style.opacity = '0';
+        sec.style.display = 'none';
       });
 
       // Show target section with GSAP
       const targetSection = document.getElementById(targetId);
       if (targetSection) {
+        targetSection.style.display = 'block';
         targetSection.classList.add('active');
         if (typeof gsap !== 'undefined') {
           gsap.fromTo(targetSection, {opacity: 0, y: 10}, {opacity: 1, y: 0, duration: 0.4, ease: 'power2.out'});
         } else {
-          targetSection.style.opacity = 1;
+          targetSection.style.opacity = '1';
         }
       }
     });
   });
+
+  // Ensure initial active section is visible on load
+  const initialSection = document.querySelector('.spa-section.active');
+  if (initialSection) {
+    initialSection.style.opacity = '1';
+    initialSection.style.display = 'block';
+  }
 
   // --- Chart.js Initialization ---
   // Theme configuration for charts
@@ -130,6 +139,60 @@ document.addEventListener('DOMContentLoaded', () => {
             backgroundColor: ['#7C3AED', '#34D399', '#f59e0b', '#8b5cf6'],
             borderRadius: 6
           }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      }));
+    }
+    // 4. Inventory Doughnut Chart
+    const invCtx = document.getElementById('inventoryChart');
+    if (invCtx) {
+      charts.push(new Chart(invCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Atlantic Salmon', 'Pacific White Shrimp', 'Tilapia', 'Barramundi'],
+          datasets: [{ data: [850, 2400, 410, 128], backgroundColor: ['#14B8A6', '#f59e0b', '#8b5cf6', '#10b981'], borderWidth: 0, hoverOffset: 8 }]
+        },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
+      }));
+    }
+
+    // 5. Feed Consumption Line Chart
+    const feedCtx = document.getElementById('feedChart');
+    if (feedCtx) {
+      charts.push(new Chart(feedCtx, {
+        type: 'line',
+        data: {
+          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          datasets: [{ label: 'Feed (Tons)', data: [38, 41, 39, 45, 42, 36, 43], borderColor: '#14B8A6', backgroundColor: 'rgba(20,184,166,0.15)', tension: 0.4, fill: true, pointBackgroundColor: '#14B8A6' }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      }));
+    }
+
+    // 6. Analytics 12-Month Revenue Chart
+    const analyticsCtx = document.getElementById('analyticsChart');
+    if (analyticsCtx) {
+      charts.push(new Chart(analyticsCtx, {
+        type: 'bar',
+        data: {
+          labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+          datasets: [
+            { label: 'Revenue ($K)', data: [680, 720, 810, 890, 950, 1020, 780, 820, 970, 1100, 1150, 1200], backgroundColor: 'rgba(20,184,166,0.7)', borderRadius: 6 },
+            { label: 'Production (T)', data: [580, 620, 710, 760, 800, 850, 680, 710, 820, 930, 980, 1010], backgroundColor: 'rgba(10,66,117,0.5)', borderRadius: 6 }
+          ]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      }));
+    }
+
+    // 7. Sustainability Carbon Footprint Chart
+    const sustainCtx = document.getElementById('sustainChart');
+    if (sustainCtx) {
+      charts.push(new Chart(sustainCtx, {
+        type: 'line',
+        data: {
+          labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2026'],
+          datasets: [{ label: 'CO₂ Emissions (Tons)', data: [2800, 2500, 2100, 1700, 1400, 1200, 1050], borderColor: '#10b981', backgroundColor: 'rgba(16,185,129,0.15)', tension: 0.4, fill: true, pointBackgroundColor: '#10b981' }]
         },
         options: { responsive: true, maintainAspectRatio: false }
       }));
