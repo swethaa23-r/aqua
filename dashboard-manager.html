@@ -20,9 +20,6 @@
     
     <!-- Sidebar -->
     <aside class="dashboard-sidebar" id="sidebar">
-      <div class="logo-area">
-        <i class="ph-fill ph-waves"></i> <span>Stackly</span>
-      </div>
       
       <nav class="sidebar-nav">
         <!-- My Farm -->
@@ -86,7 +83,7 @@
     <main class="dashboard-main">
       
       <!-- Topbar -->
-      <header class="dashboard-topbar">
+      <header class="dashboard-topbar" style="position: sticky; top: 0; z-index: 100;">
         <div class="topbar-left">
           <button class="sidebar-toggle" id="sidebar-toggle">
             <i class="ph ph-list"></i>
@@ -94,6 +91,10 @@
           <div class="breadcrumb">Farm Manager / <span id="breadcrumb-current">My Farm Overview</span></div>
         </div>
         
+        <div class="topbar-center" style="position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center;">
+          <a href="index.html" class="logo"><img src="stackly-logo.webp" alt="Stackly Logo" style="height: 35px; width: auto; object-fit: contain;"></a>
+        </div>
+
         <div class="topbar-right">
           <div class="search-bar">
             <i class="ph ph-magnifying-glass"></i>
@@ -114,6 +115,9 @@
             <span style="display:none;" class="mobile-hide">John Doe</span>
             <i class="ph ph-caret-down faq-icon"></i>
           </div>
+          <a href="login.html" class="topbar-icon mobile-logout-btn" aria-label="Logout" title="Logout" style="color: #ef4444;">
+            <i class="ph ph-sign-out"></i>
+          </a>
         </div>
       </header>
 
@@ -185,8 +189,19 @@
 
         <!-- SECTION: Inventory -->
         <div id="section-inventory" class="spa-section">
-          <h2>Local Inventory</h2>
-          <div class="chart-card table-container" style="margin-top: 2rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Local Inventory</h2>
+              <p style="color:#64748b; margin:0.25rem 0 0;">Live stock count for OceanBlue Norway.</p>
+            </div>
+            <button class="btn btn-primary"><i class="ph ph-plus"></i> Add Batch</button>
+          </div>
+          <div class="widget-grid" style="margin-bottom:1.5rem;">
+            <div class="widget-card"><div class="widget-header"><span>Total Fish</span><div class="widget-icon"><i class="ph ph-fish"></i></div></div><div class="widget-value">120,500</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> +1,200 this month</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Est. Biomass</span><div class="widget-icon" style="color:#f59e0b;background:rgba(245,158,11,0.1)"><i class="ph ph-scales"></i></div></div><div class="widget-value">253 T</div><div class="widget-trend trend-up"><i class="ph ph-trend-up"></i> +4.2% Growth</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Mortality Rate</span><div class="widget-icon" style="color:#10b981;background:rgba(16,185,129,0.1)"><i class="ph ph-heartbeat"></i></div></div><div class="widget-value">1.2%</div><div class="widget-trend trend-up"><i class="ph ph-trend-down"></i> Below threshold</div></div>
+          </div>
+          <div class="chart-card table-container">
             <table class="dashboard-table">
               <thead>
                 <tr>
@@ -195,29 +210,33 @@
                   <th>Est. Count</th>
                   <th>Avg Weight</th>
                   <th>Health Status</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>PEN-01</td>
+                  <td><strong>PEN-01</strong></td>
                   <td>Atlantic Salmon</td>
                   <td>40,000</td>
                   <td>2.1 kg</td>
                   <td><span class="status-badge status-optimal">Excellent</span></td>
+                  <td><button class="btn btn-primary" style="padding:0.25rem 0.75rem;font-size:0.8rem;">Details</button></td>
                 </tr>
                 <tr>
-                  <td>PEN-02</td>
+                  <td><strong>PEN-02</strong></td>
                   <td>Atlantic Salmon</td>
                   <td>38,500</td>
                   <td>1.8 kg</td>
                   <td><span class="status-badge status-optimal">Good</span></td>
+                  <td><button class="btn btn-primary" style="padding:0.25rem 0.75rem;font-size:0.8rem;">Details</button></td>
                 </tr>
                 <tr>
-                  <td>PEN-03</td>
+                  <td><strong>PEN-03</strong></td>
                   <td>Atlantic Salmon</td>
                   <td>42,000</td>
                   <td>2.4 kg</td>
                   <td><span class="status-badge status-warning">Monitor (Algae)</span></td>
+                  <td><button class="btn btn-primary" style="padding:0.25rem 0.75rem;font-size:0.8rem;">Details</button></td>
                 </tr>
               </tbody>
             </table>
@@ -226,52 +245,142 @@
 
         <!-- SECTION: Feeding -->
         <div id="section-feeding" class="spa-section">
-          <h2>Feeding Schedule</h2>
-          <div class="chart-card" style="margin-top: 2rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Feeding Schedule</h2>
+              <p style="color:#64748b; margin:0.25rem 0 0;">Manage drone and automated feeder schedules.</p>
+            </div>
+            <button class="btn btn-primary"><i class="ph ph-plus"></i> New Schedule</button>
+          </div>
+          <div class="widget-grid" style="margin-bottom:1.5rem;">
+            <div class="widget-card"><div class="widget-header"><span>Silo Level</span><div class="widget-icon"><i class="ph ph-database"></i></div></div><div class="widget-value">72%</div><div class="widget-trend trend-up"><i class="ph ph-check-circle"></i> Sufficient</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Today's Target</span><div class="widget-icon" style="color:#f59e0b;background:rgba(245,158,11,0.1)"><i class="ph ph-target"></i></div></div><div class="widget-value">1,450 kg</div><div class="widget-trend trend-up">On Track</div></div>
+          </div>
+          <div class="chart-card">
+            <h3 style="margin-bottom: 1rem;">Daily Progress</h3>
             <p>Automated drone feed deployment is scheduled for 18:00 Local Time.</p>
             <div style="margin-top: 1rem; width: 100%; background: var(--glass-border); height: 8px; border-radius: 4px;">
-              <div style="width: 85%; background: var(--primary-color); height: 100%; border-radius: 4px;"></div>
+              <div style="width: 85%; background: var(--color-primary); height: 100%; border-radius: 4px;"></div>
             </div>
             <p style="margin-top: 0.5rem; text-align: right; font-size: 0.8rem; color: var(--text-muted);">85% Complete for the day</p>
+          </div>
+          <div class="chart-card table-container">
+            <table class="dashboard-table">
+              <thead><tr><th>Time</th><th>Pen</th><th>Qty (kg)</th><th>Method</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>06:00 AM</td><td>PEN-01</td><td>400</td><td>Auto-dispenser</td><td><span class="status-badge status-optimal">Completed</span></td></tr>
+                <tr><td>12:00 PM</td><td>PEN-02</td><td>350</td><td>Aerial Drone</td><td><span class="status-badge status-optimal">Completed</span></td></tr>
+                <tr><td>06:00 PM</td><td>PEN-03</td><td>420</td><td>Auto-dispenser</td><td><span class="status-badge status-warning">In Progress</span></td></tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
         <!-- SECTION: Water Quality -->
         <div id="section-water" class="spa-section">
-          <h2>Detailed Water Analytics</h2>
-          <p style="color: var(--text-muted);">Real-time metrics from IoT Buoys #1, #2, and #3.</p>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Detailed Water Analytics</h2>
+              <p style="color:#64748b; margin:0.25rem 0 0;">Real-time metrics from IoT Buoys #1, #2, and #3.</p>
+            </div>
+            <button class="btn btn-outline"><i class="ph ph-arrows-clockwise"></i> Refresh Data</button>
+          </div>
+          <div class="widget-grid" style="margin-bottom:1.5rem;">
+            <div class="widget-card"><div class="widget-header"><span>pH Level</span><div class="widget-icon"><i class="ph ph-flask"></i></div></div><div class="widget-value">7.8</div><div class="widget-trend trend-up">Optimal</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Salinity</span><div class="widget-icon" style="color:#38bdf8;background:rgba(56,189,248,0.1)"><i class="ph ph-drop"></i></div></div><div class="widget-value">32 ppt</div><div class="widget-trend trend-up">Optimal</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Turbidity</span><div class="widget-icon" style="color:#f59e0b;background:rgba(245,158,11,0.1)"><i class="ph ph-waves"></i></div></div><div class="widget-value">4.2 NTU</div><div class="widget-trend trend-up">Clear</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Ammonia</span><div class="widget-icon" style="color:#ef4444;background:rgba(239,68,68,0.1)"><i class="ph ph-warning"></i></div></div><div class="widget-value">0.1 mg/L</div><div class="widget-trend trend-up">Safe</div></div>
+          </div>
+          <div class="chart-card">
+             <div class="chart-header">Sensor Buoy Status</div>
+             <table class="dashboard-table">
+              <thead><tr><th>Buoy ID</th><th>Location</th><th>Battery</th><th>Signal</th><th>Last Ping</th></tr></thead>
+              <tbody>
+                <tr><td>#BY-01</td><td>North Pen Cluster</td><td>98%</td><td>Strong</td><td>2 mins ago</td></tr>
+                <tr><td>#BY-02</td><td>South Pen Cluster</td><td>84%</td><td>Strong</td><td>1 min ago</td></tr>
+                <tr><td>#BY-03</td><td>Estuary Inlet</td><td>42%</td><td>Weak</td><td>15 mins ago</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <!-- SECTION: Disease -->
         <div id="section-disease" class="spa-section">
-          <h2>AI Disease Monitoring</h2>
-          <div class="widget-card" style="margin-top: 2rem; border-left: 4px solid #10b981;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">AI Disease Monitoring</h2>
+              <p style="color:#64748b; margin:0.25rem 0 0;">Machine vision analysis for early pathogen detection.</p>
+            </div>
+          </div>
+          <div class="widget-card" style="margin-bottom: 2rem; border-left: 4px solid #10b981;">
             <h3><i class="ph ph-shield-check" style="color: #10b981;"></i> No Pathogens Detected</h3>
             <p style="color: var(--text-muted); margin-top: 0.5rem;">Underwater cameras analyzed 1,400 fish in the past hour. Zero sea lice anomalies found.</p>
+          </div>
+          <div class="chart-card">
+            <h3 style="margin-bottom: 1rem;">Recent Camera Captures</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+              <div style="height: 150px; background: url('assets/images/idx-feat2.webp') center/cover; border-radius: 8px; border: 2px solid #10b981;"></div>
+              <div style="height: 150px; background: url('assets/images/idx-feat3.webp') center/cover; border-radius: 8px; border: 2px solid #10b981;"></div>
+              <div style="height: 150px; background: url('assets/images/idx-news1.webp') center/cover; border-radius: 8px; border: 2px solid #10b981;"></div>
+            </div>
+            <p style="text-align: center; margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">Live feed from Sub-Drone Alpha</p>
           </div>
         </div>
 
         <!-- SECTION: Harvest -->
         <div id="section-harvest" class="spa-section">
-          <h2>Harvest Schedule</h2>
-          <div class="chart-card text-center" style="margin-top: 2rem; padding: 4rem;">
-            <i class="ph ph-calendar-check" style="font-size: 4rem; color: var(--text-muted); margin-bottom: 1rem;"></i>
-            <h3>Next Harvest: Nov 15th</h3>
-            <p style="color: var(--text-muted);">Estimated yield: 45 Tons from PEN-01</p>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Harvest Schedule</h2>
+              <p style="color:#64748b; margin:0.25rem 0 0;">Plan and track upcoming biomass harvests.</p>
+            </div>
+          </div>
+          <div class="chart-card text-center" style="margin-bottom: 2rem; padding: 3rem; background: linear-gradient(to right, rgba(20,184,166,0.1), rgba(10,66,117,0.1)); border: none;">
+            <i class="ph ph-calendar-check" style="font-size: 4rem; color: var(--color-primary); margin-bottom: 1rem;"></i>
+            <h3 style="font-size: 1.8rem; color: #0a4275;">Next Harvest: Nov 15th</h3>
+            <p style="font-size: 1.1rem; color: #64748b; margin-top: 0.5rem;">Estimated yield: <strong>45 Tons</strong> from PEN-01</p>
+            <button class="btn btn-primary" style="margin-top: 1.5rem;">Prepare Manifest</button>
+          </div>
+          <div class="chart-card table-container">
+            <h3 style="margin-bottom: 1rem;">Past Harvests (YTD)</h3>
+            <table class="dashboard-table">
+              <thead><tr><th>Date</th><th>Pen ID</th><th>Yield (Tons)</th><th>Quality Score</th><th>Logistics</th></tr></thead>
+              <tbody>
+                <tr><td>Sep 12, 2026</td><td>PEN-03</td><td>42.5</td><td>98/100</td><td><span class="status-badge status-optimal">Delivered</span></td></tr>
+                <tr><td>Jun 05, 2026</td><td>PEN-02</td><td>39.0</td><td>95/100</td><td><span class="status-badge status-optimal">Delivered</span></td></tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
         <!-- SECTION: Orders -->
         <div id="section-orders" class="spa-section">
-          <h2>Local Dispatch Records</h2>
-          <div class="chart-card" style="margin-top: 2rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Local Dispatch Records</h2>
+              <p style="color:#64748b; margin:0.25rem 0 0;">Manage outbound logistics from this facility.</p>
+            </div>
+            <button class="btn btn-outline"><i class="ph ph-truck"></i> Track Shipments</button>
+          </div>
+          <div class="widget-grid" style="margin-bottom:1.5rem;">
+            <div class="widget-card"><div class="widget-header"><span>Dispatched (MTD)</span><div class="widget-icon"><i class="ph ph-package"></i></div></div><div class="widget-value">12</div><div class="widget-trend trend-up">100% on time</div></div>
+            <div class="widget-card"><div class="widget-header"><span>Pending QC</span><div class="widget-icon" style="color:#f59e0b;background:rgba(245,158,11,0.1)"><i class="ph ph-magnifying-glass"></i></div></div><div class="widget-value">2</div><div class="widget-trend trend-down">Needs attention</div></div>
+          </div>
+          <div class="chart-card">
+            <h3 style="margin-bottom: 1rem;">Active Shipments</h3>
             <ul style="list-style: none; padding: 0;">
-              <li style="padding: 15px; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between;">
-                <span><strong>Batch A-12:</strong> 5 Tons Atlantic Salmon</span>
+              <li style="padding: 15px; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-size: 1.1rem;"><strong>Batch A-12:</strong> 5 Tons Atlantic Salmon</div>
+                  <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Destination: Oslo Fish Market | ETA: 14:00</div>
+                </div>
                 <span class="status-badge status-optimal">Dispatched</span>
               </li>
-              <li style="padding: 15px; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between;">
-                <span><strong>Batch A-13:</strong> 2 Tons Atlantic Salmon</span>
+              <li style="padding: 15px; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-size: 1.1rem;"><strong>Batch A-13:</strong> 2 Tons Atlantic Salmon</div>
+                  <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Destination: Local Cannery | ETA: 16:30</div>
+                </div>
                 <span class="status-badge status-warning">Pending QC</span>
               </li>
             </ul>
@@ -280,50 +389,179 @@
 
         <!-- SECTION: Reports -->
         <div id="section-reports" class="spa-section">
-          <h2>Daily Shift Reports</h2>
-          <div class="chart-card" style="margin-top: 2rem;">
-            <button class="btn btn-primary" style="margin-bottom: 1.5rem;"><i class="ph ph-file-pdf"></i> Generate End of Day Report</button>
-            <p style="color: var(--text-muted);">Last report generated: Yesterday at 18:05</p>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Daily Shift Reports</h2>
+              <p style="color:#64748b; margin:0.25rem 0 0;">Download and review farm performance reports.</p>
+            </div>
+            <button class="btn btn-primary"><i class="ph ph-plus"></i> Generate Report</button>
+          </div>
+          <div class="chart-card">
+            <h3 style="margin-bottom: 1rem;">Recent Reports</h3>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid var(--glass-border); border-radius: 8px;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <i class="ph-fill ph-file-pdf" style="font-size: 2rem; color: #ef4444;"></i>
+                  <div>
+                    <strong>End of Day Summary - Nov 12</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-muted);">Generated by Auto-Sys at 18:05</div>
+                  </div>
+                </div>
+                <button class="btn btn-outline" style="padding: 0.4rem 1rem;"><i class="ph ph-download-simple"></i> Download</button>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid var(--glass-border); border-radius: 8px;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <i class="ph-fill ph-file-xls" style="font-size: 2rem; color: #10b981;"></i>
+                  <div>
+                    <strong>Weekly Inventory Export - Week 45</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-muted);">Generated by Sarah Jenkins</div>
+                  </div>
+                </div>
+                <button class="btn btn-outline" style="padding: 0.4rem 1rem;"><i class="ph ph-download-simple"></i> Download</button>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- SECTION: Notifications -->
         <div id="section-notifications" class="spa-section">
-          <h2>Alerts & Notifications</h2>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <div>
+              <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Alerts & Notifications</h2>
+              <p style="color:#64748b; margin:0.25rem 0 0;">System alerts and messages from HQ.</p>
+            </div>
+            <button class="btn btn-outline">Mark all as read</button>
+          </div>
           <div class="chart-card">
-            <p style="color: #ef4444;"><i class="ph ph-warning"></i> Temperature drop detected in Pen #3 (11°C)</p>
-            <p style="margin-top: 1rem;"><i class="ph ph-info"></i> HQ Message: Please review the latest sustainability guidelines.</p>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: 1rem; border-bottom: 1px solid var(--glass-border); display: flex; gap: 1rem; align-items: flex-start;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(239,68,68,0.1); color: #ef4444; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i class="ph-bold ph-thermometer"></i>
+                </div>
+                <div>
+                  <div style="font-weight: 600; color: #0a4275;">Temperature drop detected in Pen #3</div>
+                  <div style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.25rem;">Water temperature has dropped to 11°C, which is below the optimal threshold for Atlantic Salmon.</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.5rem;">2 hours ago</div>
+                </div>
+              </li>
+              <li style="padding: 1rem; display: flex; gap: 1rem; align-items: flex-start;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(56,189,248,0.1); color: #38bdf8; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i class="ph-bold ph-envelope"></i>
+                </div>
+                <div>
+                  <div style="font-weight: 600; color: #0a4275;">New Guidelines from HQ</div>
+                  <div style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.25rem;">Please review the updated Q4 sustainability and environmental impact reporting guidelines.</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.5rem;">1 day ago</div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
 
         <!-- SECTION: Profile -->
         <div id="section-profile" class="spa-section">
-          <h2>Manager Profile</h2>
-          <div class="chart-card" style="margin-top: 2rem; display: flex; gap: 2rem; align-items: center;">
-            <img loading="lazy" src="assets/images/team2.webp" alt="Profile" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
-            <div>
-              <h3>Sarah Jenkins</h3>
-              <p style="color: var(--color-primary); font-weight: 500;">Lead Farm Manager - Sector 7G</p>
-              <p style="color: var(--text-muted); margin-top: 0.5rem;">sarah.j@stackly.com</p>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Manager Profile</h2>
+            <button class="btn btn-outline"><i class="ph ph-pencil-simple"></i> Edit Profile</button>
+          </div>
+          <div class="widget-grid">
+            <div class="chart-card" style="grid-column: span 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
+              <img loading="lazy" src="assets/images/team2.webp" alt="Profile" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+              <h3 style="margin-bottom: 0.25rem;">Sarah Jenkins</h3>
+              <span class="status-badge status-optimal" style="margin-bottom: 1rem;">Lead Farm Manager</span>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Overseeing Sector 7G operations, ensuring optimal fish health and maximizing feed conversion efficiency.</p>
+              <div style="width: 100%; display: flex; justify-content: center; gap: 1rem;">
+                <a href="#" style="color: var(--color-primary); font-size: 1.5rem;"><i class="ph-fill ph-linkedin-logo"></i></a>
+                <a href="#" style="color: var(--text-muted); font-size: 1.5rem;"><i class="ph-fill ph-envelope"></i></a>
+              </div>
+            </div>
+            
+            <div class="chart-card" style="grid-column: span 2;">
+              <h3 style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 0.5rem;">Personal Details</h3>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div>
+                  <label style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem;">Email Address</label>
+                  <div style="font-weight: 500;">sarah.j@stackly.com</div>
+                </div>
+                <div>
+                  <label style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem;">Phone Number</label>
+                  <div style="font-weight: 500;">+47 482 91 034</div>
+                </div>
+                <div>
+                  <label style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem;">Location</label>
+                  <div style="font-weight: 500;">Bergen, Norway</div>
+                </div>
+                <div>
+                  <label style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem;">Join Date</label>
+                  <div style="font-weight: 500;">March 2022</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- SECTION: Settings -->
         <div id="section-settings" class="spa-section">
-          <h2>Local Settings</h2>
-          <div class="chart-card" style="margin-top: 2rem;">
-            <form style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
-              <div style="display: flex; align-items: center; justify-content: space-between;">
-                <label>SMS Alerts for Critical Events</label>
-                <input type="checkbox" checked style="width: 20px; height: 20px; accent-color: var(--color-primary);">
-              </div>
-              <div style="display: flex; align-items: center; justify-content: space-between;">
-                <label>Daily Email Digest</label>
-                <input type="checkbox" checked style="width: 20px; height: 20px; accent-color: var(--color-primary);">
-              </div>
-              <button type="button" class="btn btn-outline" style="margin-top: 1rem;">Update Preferences</button>
-            </form>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+            <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Local Settings</h2>
+          </div>
+          
+          <div class="widget-grid">
+            <div class="chart-card" style="grid-column: span 1;">
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem;">
+                <li><a href="#" style="display: block; padding: 0.75rem 1rem; border-radius: 6px; background: rgba(45,212,191,0.1); color: var(--color-primary); font-weight: 500;"><i class="ph ph-bell" style="margin-right: 0.5rem;"></i> Notifications</a></li>
+                <li><a href="#" style="display: block; padding: 0.75rem 1rem; border-radius: 6px; color: var(--text-main);"><i class="ph ph-lock" style="margin-right: 0.5rem;"></i> Security</a></li>
+                <li><a href="#" style="display: block; padding: 0.75rem 1rem; border-radius: 6px; color: var(--text-main);"><i class="ph ph-globe" style="margin-right: 0.5rem;"></i> Language & Region</a></li>
+              </ul>
+            </div>
+            
+            <div class="chart-card" style="grid-column: span 2;">
+              <h3 style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 0.5rem;">Notification Preferences</h3>
+              <form style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                  <div>
+                    <strong style="display: block; margin-bottom: 0.25rem;">SMS Alerts for Critical Events</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Receive text messages when water quality drops below critical thresholds.</span>
+                  </div>
+                  <label class="toggle-switch" style="position: relative; display: inline-block; width: 44px; height: 24px;">
+                    <input type="checkbox" checked style="opacity: 0; width: 0; height: 0;">
+                    <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--color-primary); border-radius: 34px; transition: .4s;">
+                       <span style="position: absolute; content: ''; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; border-radius: 50%; transition: .4s; transform: translateX(20px);"></span>
+                    </span>
+                  </label>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                  <div>
+                    <strong style="display: block; margin-bottom: 0.25rem;">Daily Email Digest</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Receive a summary of inventory changes, feeding schedules, and alerts.</span>
+                  </div>
+                  <label class="toggle-switch" style="position: relative; display: inline-block; width: 44px; height: 24px;">
+                    <input type="checkbox" checked style="opacity: 0; width: 0; height: 0;">
+                    <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--color-primary); border-radius: 34px; transition: .4s;">
+                       <span style="position: absolute; content: ''; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; border-radius: 50%; transition: .4s; transform: translateX(20px);"></span>
+                    </span>
+                  </label>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                  <div>
+                    <strong style="display: block; margin-bottom: 0.25rem;">Weekly HQ Newsletter</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Company-wide updates and sustainability reports.</span>
+                  </div>
+                  <label class="toggle-switch" style="position: relative; display: inline-block; width: 44px; height: 24px;">
+                    <input type="checkbox" style="opacity: 0; width: 0; height: 0;">
+                    <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; border-radius: 34px; transition: .4s;">
+                       <span style="position: absolute; content: ''; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; border-radius: 50%; transition: .4s;"></span>
+                    </span>
+                  </label>
+                </div>
+                
+                <div style="margin-top: 1rem;">
+                  <button type="button" class="btn btn-primary">Save Preferences</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
 

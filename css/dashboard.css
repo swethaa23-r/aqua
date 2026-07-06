@@ -762,3 +762,26 @@ html.dark .skeleton-loader { background: #0F172A; }
     font-size: 0.6rem;
   }
 }
+
+/* ===== Mobile Logout Button in Topbar ===== */
+/* Hidden on desktop — sidebar footer shows the logout there */
+.mobile-logout-btn {
+  display: none;
+}
+
+/* Show in topbar on mobile where sidebar-footer is hidden */
+@media (max-width: 768px) {
+  .mobile-logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  .mobile-logout-btn:hover {
+    background: rgba(239, 68, 68, 0.1);
+  }
+}
