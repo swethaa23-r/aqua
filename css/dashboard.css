@@ -618,6 +618,11 @@ html.dark .skeleton-loader { background: #0F172A; }
 
 /* ─── 768px ─── */
 @media (max-width: 768px) {
+  /* Mobile Logo Overrides */
+  .dashboard-topbar .logo img, .dashboard-sidebar .logo img, .logo img {
+    height: 28px !important;
+  }
+
   .dashboard-layout {
     flex-direction: column;
     height: auto;

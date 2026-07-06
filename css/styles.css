@@ -761,6 +761,14 @@ html.dark .feature-icon {
 }
 
 @media (max-width: 767px) {
+  /* Mobile Logo Overrides */
+  .header .logo img, .logo img {
+    height: 28px !important;
+  }
+  .sf-logo img {
+    max-width: 100px !important;
+  }
+
   .testimonials-slider .testimonial-card {
     width: 85%;
   }
