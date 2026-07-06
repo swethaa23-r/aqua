@@ -76,14 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (heroGsapItems.length > 0) {
         heroTl.fromTo(heroGsapItems, 
           { y: 50, opacity: 0 }, 
-          { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: 'power3.out' }
+          { y: 0, opacity: 1, duration: 0.4, stagger: 0.15, ease: 'power3.out' }
         );
       }
       
       if (heroGsapImage) {
         heroTl.fromTo(heroGsapImage,
           { x: 60, opacity: 0 },
-          { x: 0, opacity: 1, duration: 1.5, ease: 'power4.out' },
+          { x: 0, opacity: 1, duration: 0.4, ease: 'power4.out' },
           "-=0.8"
         );
       }
@@ -97,6 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
           start: 'top top',
           end: 'bottom top',
           scrub: true
+        ,
+          once: true
         },
         yPercent: 30,
         ease: 'none'
@@ -112,12 +114,13 @@ document.addEventListener('DOMContentLoaded', () => {
           scrollTrigger: {
             trigger: featuresGrid,
             start: 'top 85%',
-          },
+          once: true
+        },
           y: 0,
           opacity: 1,
           rotationY: 0,
           scale: 1,
-          duration: 1.2,
+          duration: 0.4,
           stagger: 0.2,
           ease: 'expo.out'
         }
@@ -132,11 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
           scrollTrigger: {
             trigger: el,
             start: 'top 90%',
-          },
+          once: true
+        },
           y: 0,
           opacity: 1,
           scale: 1,
-          duration: 1,
+          duration: 0.4,
           ease: 'power3.out'
         }
       );
@@ -156,12 +160,12 @@ document.addEventListener('DOMContentLoaded', () => {
       // Animate logo first
       footerTl.fromTo('.sf-logo', 
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }
+        { y: 0, opacity: 1, duration: 0.4, ease: 'power3.out' }
       )
       // Description
       .fromTo('.sf-col.sf-brand .sf-desc',
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' },
+        { y: 0, opacity: 1, duration: 0.4, ease: 'power3.out' },
         '-=0.4'
       )
       // Social icons one by one
@@ -173,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Headings
       .fromTo('.sf-heading',
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: 'power3.out' },
+        { y: 0, opacity: 1, duration: 0.4, stagger: 0.1, ease: 'power3.out' },
         '-=0.2'
       )
       // Links sequentially
@@ -185,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Newsletter last
       .fromTo('.sf-newsletter',
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' },
+        { y: 0, opacity: 1, duration: 0.4, ease: 'power3.out' },
         '-=0.2'
       );
     }
@@ -870,9 +874,11 @@ document.addEventListener('DOMContentLoaded', () => {
         trigger: '.growing-trees',
         start: 'top 80%',
         toggleActions: 'play none none none'
-      },
+      ,
+          once: true
+        },
       scale: 1,
-      duration: 1.2,
+      duration: 0.4,
       stagger: 0.2,
       ease: 'elastic.out(1, 0.5)'
     });
@@ -895,7 +901,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (typeof gsap !== 'undefined' && progress) {
         gsap.to(progress, {
           width: '100%',
-          duration: 2,
+          duration: 0.4,
           ease: 'power2.inOut',
           onComplete: () => {
             this.classList.remove('downloading');
@@ -982,10 +988,12 @@ document.addEventListener('DOMContentLoaded', () => {
           scrollTrigger: {
             trigger: node,
             start: 'top 85%'
-          },
+          ,
+          once: true
+        },
           x: 0,
           opacity: 1,
-          duration: 1,
+          duration: 0.4,
           ease: 'power3.out',
           onComplete: () => node.classList.add('active')
         }
@@ -1001,6 +1009,8 @@ document.addEventListener('DOMContentLoaded', () => {
           start: 'top 50%',
           end: 'bottom 80%',
           scrub: 1
+        ,
+          once: true
         },
         strokeDashoffset: 0,
         ease: 'none'
@@ -1014,10 +1024,11 @@ document.addEventListener('DOMContentLoaded', () => {
       scrollTrigger: {
         trigger: el,
         start: 'top 85%',
-      },
+          once: true
+        },
       y: 0,
       opacity: 1,
-      duration: 1,
+      duration: 0.4,
       ease: 'power3.out'
     });
   });

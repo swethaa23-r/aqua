@@ -54,11 +54,7 @@
   <section class="hero hero-bright">
     <div class="hero-bg" style="background-image: url('assets/images/hero-bright.webp');"></div>
     
-    <!-- Ambient Bubbles -->
-    <div class="floating-bubble" style="width: 20px; height: 20px; left: 15%; animation-duration: 12s; animation-delay: 0s;"></div>
-    <div class="floating-bubble" style="width: 35px; height: 35px; left: 45%; animation-duration: 18s; animation-delay: 4s;"></div>
-    <div class="floating-bubble" style="width: 15px; height: 15px; left: 85%; animation-duration: 14s; animation-delay: 2s;"></div>
-    <div class="floating-bubble" style="width: 45px; height: 45px; left: 75%; animation-duration: 22s; animation-delay: 7s;"></div>
+    <!-- Ambient Bubbles Removed for Performance -->
 
     <div class="container hero-container">
       <div class="hero-top-grid">
@@ -75,7 +71,7 @@
         
         <!-- Right: Dashboard Image -->
         <div class="hero-illustration gsap-hero-image">
-          <img src="assets/images/dashboard-mockup.webp" alt="AI Dashboard Mockup" class="dashboard-3d">
+          <img loading="lazy" src="assets/images/dashboard-mockup.webp" alt="AI Dashboard Mockup" class="dashboard-3d">
         </div>
       </div>
 
@@ -368,17 +364,8 @@
 
       <!-- Premium Stackly Footer -->
   <footer class="sf-footer" id="footer">
-    <!-- Animated Water Wave Background -->
-    <div class="footer-animated-wave">
-      <div class="wave-track">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-          <path d="M0,60 C320,120 420,0 720,60 C1020,120 1120,0 1440,60 L1440,120 L0,120 Z" fill="rgba(20, 184, 166, 0.08)"></path>
-        </svg>
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-          <path d="M0,60 C320,120 420,0 720,60 C1020,120 1120,0 1440,60 L1440,120 L0,120 Z" fill="rgba(20, 184, 166, 0.08)"></path>
-        </svg>
-      </div>
-    </div>
+    <!-- Animated Water Wave Background Removed for Performance -->
+
     <div class="sf-container">
       <div class="sf-grid">
 
@@ -437,21 +424,7 @@
           </ul>
         </div>
 
-        <!-- Col 4: Newsletter -->
-        <div class="sf-col">
-          <h4 class="sf-heading">Newsletter</h4>
-          <p class="sf-desc">Get the latest insights on aquaculture technology and innovations.</p>
-          <form class="sf-newsletter luxury-newsletter" aria-label="Newsletter">
-            <div class="newsletter-success">
-              <i class="ph-fill ph-check-circle" style="font-size: 1.2rem; margin-right: 8px;"></i> Subscribed successfully!
-            </div>
-            <div class="sf-newsletter-row">
-              <input type="email" placeholder="Enter your email" required aria-label="Email address">
-              <button type="submit" aria-label="Subscribe"><i class="ph ph-paper-plane-right"></i></button>
-            </div>
-            <p class="sf-spam-note"><i class="ph-fill ph-check-circle"></i> No spam. Only valuable updates.</p>
-          </form>
-        </div>
+        
 
       </div><!-- /.sf-grid -->
 

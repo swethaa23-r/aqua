@@ -22,12 +22,9 @@
     <aside class="dashboard-sidebar" id="sidebar">
       
       <nav class="sidebar-nav">
-        <!-- Dashboard Overview -->
-        <a href="javascript:void(0)" class="sidebar-link active" data-section="section-overview">
-          <i class="ph ph-squares-four"></i> <span>Dashboard Overview</span>
-        </a>
+        
         <!-- Farm Managers -->
-        <a href="javascript:void(0)" class="sidebar-link" data-section="section-managers">
+        <a href="javascript:void(0)" class="sidebar-link active" data-section="section-managers">
           <i class="ph ph-users"></i> <span>Farm Management</span>
         </a>
         <!-- User Management -->
@@ -88,18 +85,12 @@
           <button class="sidebar-toggle" id="sidebar-toggle">
             <i class="ph ph-list"></i>
           </button>
-          <div class="breadcrumb">Admin / <span id="breadcrumb-current">Dashboard Overview</span></div>
+          <a href="index.html" class="logo"><img src="stackly-logo.webp" alt="Stackly Logo" style="height: 50px; width: auto; object-fit: contain;"></a>
+          <div class="breadcrumb" style="margin-left: 1rem; border-left: 1px solid var(--glass-border); padding-left: 1rem;">Admin / <span id="breadcrumb-current">Farm Managers</span></div>
         </div>
         
-        <div class="topbar-center" style="position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center;">
-          <a href="index.html" class="logo"><img src="stackly-logo.webp" alt="Stackly Logo" style="height: 35px; width: auto; object-fit: contain;"></a>
-        </div>
-
         <div class="topbar-right">
-          <div class="search-bar">
-            <i class="ph ph-magnifying-glass"></i>
-            <input type="text" placeholder="Search across farms...">
-          </div>
+          
           
           <button class="topbar-icon" id="theme-toggle" aria-label="Toggle Theme">
             <i class="ph ph-moon"></i>
@@ -125,7 +116,7 @@
       <div class="dashboard-content-wrapper">
         
         <!-- SECTION: Overview -->
-        <div id="section-overview" class="spa-section active" style="display:block; opacity:1;">
+        <div id="section-overview" class="spa-section">
           <div class="widget-grid">
             <div class="widget-card">
               <div class="widget-header">
@@ -217,7 +208,7 @@
         </div>
 
         <!-- SECTION: Farm Managers -->
-        <div id="section-managers" class="spa-section">
+        <div id="section-managers" class="spa-section active" style="display:block; opacity:1;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
             <div>
               <h2 style="margin:0; font-family:'Outfit',sans-serif; color:#0a4275;">Farm Managers Directory</h2>

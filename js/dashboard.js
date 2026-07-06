@@ -53,6 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
           targetSection.style.opacity = '1';
         }
       }
+      
+      // Auto-close sidebar on mobile after clicking a link
+      if (window.innerWidth <= 768 && sidebar && sidebar.classList.contains('collapsed')) {
+        sidebar.classList.remove('collapsed');
+      }
     });
   });
 

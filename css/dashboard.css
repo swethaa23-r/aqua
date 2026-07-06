@@ -542,7 +542,7 @@ html.dark .dashboard-topbar { background: var(--color-white); }
   visibility: hidden;
   transform: translateY(10px);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  z-index: 1000;
+  z-index: 99; padding-top: 65px;
 }
 .notification-container.open .notification-dropdown {
   opacity: 1;
@@ -626,68 +626,26 @@ html.dark .skeleton-loader { background: #0F172A; }
 
   /* Sidebar becomes a horizontal topbar-style nav on mobile */
   .dashboard-sidebar {
-    width: 100% !important;
-    height: auto;
-    flex-direction: row;
-    align-items: center;
-    border-right: none;
-    border-bottom: 1px solid var(--glass-border);
-    padding: 0.5rem 1rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    flex-shrink: 0;
-  }
-
-  .dashboard-sidebar .logo-area {
-    border-bottom: none;
-    padding: 0.5rem;
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
-
-  .sidebar-nav {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    padding: 0 0.5rem;
-    gap: 0;
-    flex: 1;
-  }
-
-  .sidebar-nav::-webkit-scrollbar {
-    height: 0;
-  }
-
-  .sidebar-link {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 260px !important;
+    height: 100vh;
     flex-direction: column;
-    align-items: center;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.7rem;
-    gap: 0.25rem;
-    border-left: none;
-    border-bottom: 3px solid transparent;
-    white-space: nowrap;
-    min-width: max-content;
+    z-index: 99; padding-top: 65px;
+    transition: left 0.3s ease;
+    
+  }
+  .dashboard-sidebar.collapsed {
+    left: 0;
+    width: 260px !important;
+  }
+  .dashboard-sidebar.collapsed .sidebar-link span,
+  .dashboard-sidebar.collapsed .logo-area span {
+    display: inline;
   }
 
-  .sidebar-link span {
-    display: block !important;
-    font-size: 0.65rem;
-  }
-
-  .sidebar-link i {
-    font-size: 1.1rem;
-  }
-
-  .sidebar-link:hover, .sidebar-link.active {
-    background: rgba(20, 184, 166, 0.08);
-    border-left-color: transparent;
-    border-bottom-color: var(--color-primary);
-  }
-
-  .sidebar-footer {
-    display: none;
-  }
+  
 
   .dashboard-main {
     height: auto;
@@ -754,13 +712,7 @@ html.dark .skeleton-loader { background: #0F172A; }
     padding: 1rem;
   }
 
-  .sidebar-link {
-    padding: 0.4rem 0.5rem;
-  }
-
-  .sidebar-link span {
-    font-size: 0.6rem;
-  }
+  
 }
 
 /* ===== Mobile Logout Button in Topbar ===== */

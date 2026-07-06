@@ -27,7 +27,7 @@
           <i class="ph ph-squares-four"></i> <span>Dashboard Overview</span>
         </a>
         <!-- My Farm -->
-        <a href="javascript:void(0)" class="sidebar-link" data-section="section-myfarm">
+        <a href="javascript:void(0)" class="sidebar-link active" data-section="section-myfarm">
           <i class="ph ph-farm"></i> <span>My Farm</span>
         </a>
         <!-- Inventory -->
@@ -88,18 +88,12 @@
           <button class="sidebar-toggle" id="sidebar-toggle">
             <i class="ph ph-list"></i>
           </button>
-          <div class="breadcrumb">Farm Manager / <span id="breadcrumb-current">My Farm Overview</span></div>
+          <a href="index.html" class="logo"><img src="stackly-logo.webp" alt="Stackly Logo" style="height: 50px; width: auto; object-fit: contain;"></a>
+          <div class="breadcrumb" style="margin-left: 1rem; border-left: 1px solid var(--glass-border); padding-left: 1rem;">Farm Manager / <span id="breadcrumb-current">My Farm</span></div>
         </div>
         
-        <div class="topbar-center" style="position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center;">
-          <a href="index.html" class="logo"><img src="stackly-logo.webp" alt="Stackly Logo" style="height: 35px; width: auto; object-fit: contain;"></a>
-        </div>
-
         <div class="topbar-right">
-          <div class="search-bar">
-            <i class="ph ph-magnifying-glass"></i>
-            <input type="text" placeholder="Search local inventory...">
-          </div>
+          
           
           <button class="topbar-icon" id="theme-toggle" aria-label="Toggle Theme">
             <i class="ph ph-moon"></i>
